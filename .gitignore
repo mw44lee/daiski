@@ -1,0 +1,7 @@
+# 원본 교재 자료(PDF·원본 음성)와 예전 단일 HTML은 저장소에 올리지 않음
+materials/
+legacy/
+.claude/
+__pycache__/
+*.pyc
+NVIDIA Corporation/

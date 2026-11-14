@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>다이스키 일본어 (상·하) 통합 마스터 포털</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans JP', 'system-ui', 'sans-serif'],
+            jp: ['Noto Sans JP', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Fixed native ruby styling - prevents vertical stacking of characters */
+    ruby {
+      display: inline-ruby;
+      font-family: inherit;
+    }
+    ruby rt {
+      font-size: 0.58em;
+      color: #6366f1;
+      font-weight: 600;
+      line-height: 1;
+      user-select: none;
+    }
+    .hide-furigana ruby rt {
+      display: none !important;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #printableWorksheetArea, #printableWorksheetArea * {
+        visibility: visible;
+      }
+      #printableWorksheetArea {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+        background: white !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-800">
+
+  <!-- Audio element for Native Audio -->
+  <audio id="nativeAudio" preload="auto"></audio>
+
+  <!-- ======================================================== -->
+  <!-- VIEW 1: INITIAL SCREEN - LESSON SELECTION PORTAL (대문 화면) -->
+  <!-- ======================================================== -->
+  <div id="lessonPortal" class="flex-1 max-w-5xl w-full mx-auto p-4 md:py-10 flex flex-col justify-center space-y-8">
+    
+    <!-- Top Utility Bar: User Login & Offline Download -->
+    <div class="flex items-center justify-between flex-wrap gap-2 pt-2 border-b border-slate-200 pb-3">
+      <div class="flex items-center space-x-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-xs font-bold text-slate-700">다이스키 일본어 (상·하) 종합 학습 허브</span>
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <!-- User Login Button -->
+        <button id="portalUserBtn" class="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 hover:border-indigo-400 text-slate-700 hover:text-indigo-600 text-xs font-bold shadow-xs transition active:scale-95">
+          <span>👤</span>
+          <span id="portalUserNameText">사용자 로그인 / 이름·비번 설정</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Portal Hero Header -->
+    <div class="text-center space-y-3 pt-2">
+      <div class="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-50 to-emerald-50 border border-indigo-200/80 px-4 py-1.5 rounded-full shadow-xs">
+        <span class="text-xs font-bold text-indigo-950">12(상) • 13(상) • 14(상) • 15(상) • 1(하) 통합 마스터 시스템</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        학습하실 <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-600">일본어 단원</span>을 선택하세요
+      </h1>
+      <p class="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        다이스키 (상) 12~15과와 (하) 1과의 단문, 단어, 문법 해설 및 카나우 공식 원어민 음성을 하나로 통합했습니다. 원하시는 단원을 클릭하면 즉시 모든 맞춤 기능이 로드됩니다.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-2 pt-2 text-xs font-semibold text-slate-600">
+        <span class="bg-white px-3 py-1.5 rounded-xl border border-slate-200 shadow-xs flex items-center space-x-1.5">
+          <span>📖</span><span>단문 4단계 완전 마스터</span>
+        </span>
+        <span class="bg-white px-3 py-1.5 rounded-xl border border-slate-200 shadow-xs flex items-center space-x-1.5">
+          <span>📝</span><span>핵심 단어 & 퀴즈</span>
+        </span>
+        <span class="bg-white px-3 py-1.5 rounded-xl border border-slate-200 shadow-xs flex items-center space-x-1.5">
+          <span>🎙️</span><span>10문장 음성 녹음 & 병합 다운로드</span>
+        </span>
+        <span class="bg-white px-3 py-1.5 rounded-xl border border-slate-200 shadow-xs flex items-center space-x-1.5">
+          <span>🔊</span><span>카나우 원어민 음성 100% 탑재</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- 다이스키 (상) -->
+    <h2 class="text-lg md:text-xl font-extrabold text-slate-900 flex items-center gap-2"><span class="px-2.5 py-0.5 rounded-lg bg-sky-100 text-sky-800 text-sm">📗 (상)</span> 다이스키 일본어 상권</h2>
+    <!-- 4 Lesson Selection Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <!-- CARD 12 -->
+      <div class="bg-white rounded-3xl p-6 border-2 border-slate-200 hover:border-sky-500 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-500 to-indigo-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md shadow-sky-200 group-hover:scale-105 transition">
+              12
+            </span>
+            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-sky-50 text-sky-700 border border-sky-200">
+              동사의 ます형 마스터
+            </span>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 group-hover:text-sky-600 transition">제 12 과 <span class="text-sm font-bold text-slate-400">(상)</span></h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">
+              오늘은 여동생의 생일이기 때문에 가족과 파티를 합니다...
+            </p>
+          </div>
+
+          <div class="p-3 bg-sky-50/50 rounded-2xl border border-sky-100 text-xs text-slate-700 space-y-1.5">
+            <div class="font-bold text-sky-900 flex items-center space-x-1">
+              <span>💡 핵심 문법 족집게:</span>
+            </div>
+            <ul class="space-y-1 text-slate-600">
+              <li>• 동사 1·2·3그룹 ます형 변환 공식</li>
+              <li>• ます형 4대 시제 & 긍정/부정 표현</li>
+              <li>• 단골 함정 조사 (へ, で, を, に, と)</li>
+            </ul>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 text-xs text-slate-500 font-medium">
+            <span class="bg-slate-100 px-2.5 py-1 rounded-lg">📖 단문 36문장</span>
+            <span class="bg-slate-100 px-2.5 py-1 rounded-lg">📝 단어 48개</span>
+            <span class="bg-slate-100 px-2.5 py-1 rounded-lg">🔊 Track 68 음성</span>
+          </div>
+        </div>
+
+        <button onclick="openLesson(12)" class="w-full mt-6 py-3 px-4 rounded-2xl bg-slate-900 hover:bg-sky-600 text-white font-bold text-sm shadow-md transition-all active:scale-95 flex items-center justify-center space-x-1.5">
+          <span>12(상) 마스터하기 입장</span>
+          <span>→</span>
+        </button>
+      </div>
+
+      <!-- CARD 13 -->
+      <div class="bg-white rounded-3xl p-6 border-2 border-slate-200 hover:border-indigo-600 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-600 to-purple-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md shadow-indigo-200 group-hover:scale-105 transition">
+              13
+            </span>
+            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
+              상태 변화 & 목적 표현
+            </span>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition">제 13 과 <span class="text-sm font-bold text-slate-400">(상)</span></h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">
+              이 가게는 지난달에 잡지에 실렸습니다. 그래서 전보다 유명해졌습니다...
+            </p>
+          </div>
+
+          <div class="p-3 bg-indigo-50/50 rounded-2xl border border-indigo-100 text-xs text-slate-700 space-y-1.5">
+            <div class="font-bold text-indigo-900 flex items-center space-x-1">
+              <span>💡 핵심 문법 족집게:</span>
+            </div>
+            <ul class="space-y-1 text-slate-600">
+              <li>• 〜くなる(い형용사) / 〜になる(명사·な형용사)</li>
+              <li>• 동작성 명사 + に 行く/来る (~하러 가다/오다)</li>
+              <li>• 의문사 함정 (何か/誰か vs 何が/誰が)</li>
+            </ul>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 text-xs text-slate-500 font-medium">
+            <span class="bg-slate-100 px-2.5 py-1 rounded-lg">📖 단문 32문장</span>
+            <span class="bg-slate-100 px-2.5 py-1 rounded-lg">📝 단어 51개</span>
+            <span class="bg-slate-100 px-2.5 py-1 rounded-lg">🎒 읽어봅시다 쓰기/녹음</span>
+          </div>
+        </div>
+
+        <button onclick="openLesson(13)" class="w-full mt-6 py-3 px-4 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md shadow-indigo-200 transition-all active:scale-95 flex items-center justify-center space-x-1.5">
+          <span>13(상) 마스터하기 입장</span>
+          <span>→</span>
+        </button>
+      </div>
+
+      <!-- CARD 14 -->
+      <div class="bg-white rounded-3xl p-6 border-2 border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md shadow-emerald-200 group-hover:scale-105 transition">
+              14
+            </span>
+            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+              ます형 4문형 & 선택·결정
+            </span>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 group-hover:text-emerald-600 transition">제 14 과 <span class="text-sm font-bold text-slate-400">(상)</span></h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">
+              주말에 나는 야마다 씨와 바다에 놀러 갈 생각입니다. 온천에도 가고 싶습니다...
+            </p>
+          </div>
+
+          <div class="p-3 bg-emerald-50/50 rounded-2xl border border-emerald-100 text-xs text-slate-700 space-y-1.5">
+            <div class="font-bold text-emerald-900 flex items-center space-x-1">
+              <span>💡 핵심 문법 족집게:</span>
+            </div>
+            <ul class="space-y-1 text-slate-600">
+              <li>• 〜たい(희망), 〜ませんか(권유), 〜ましょう(제안)</li>
+              <li>• 〜ながら(동시동작 두 가지 행동)</li>
+              <li>• 선택 및 결정: 명사 + に する (~로 하다)</li>
+            </ul>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 text-xs text-slate-500 font-medium">
+            <span class="bg-slate-100 px-2.5 py-1 rounded-lg">📖 단문 36문장</span>
+            <span class="bg-slate-100 px-2.5 py-1 rounded-lg">📝 단어 51개</span>
+            <span class="bg-slate-100 px-2.5 py-1 rounded-lg">🎒 읽어봅시다 쓰기/녹음</span>
+          </div>
+        </div>
+
+        <button onclick="openLesson(14)" class="w-full mt-6 py-3 px-4 rounded-2xl bg-slate-900 hover:bg-emerald-600 text-white font-bold text-sm shadow-md transition-all active:scale-95 flex items-center justify-center space-x-1.5">
+          <span>14(상) 마스터하기 입장</span>
+          <span>→</span>
+        </button>
+      </div>
+
+      <!-- CARD 15 -->
+      <div class="bg-white rounded-3xl p-6 border-2 border-slate-200 hover:border-violet-600 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-violet-600 to-fuchsia-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md shadow-violet-200 group-hover:scale-105 transition">
+              15
+            </span>
+            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-violet-50 text-violet-700 border border-violet-200">
+              ます형 활용Ⅱ &amp; 이유·나열
+            </span>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 group-hover:text-violet-600 transition">제 15 과 <span class="text-sm font-bold text-slate-400">(상)</span></h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">
+              형과 저는 건물 안을 걸으면서 디지털 카메라를 찾아보았습니다...
+            </p>
+          </div>
+
+          <div class="p-3 bg-violet-50/50 rounded-2xl border border-violet-100 text-xs text-slate-700 space-y-1.5">
+            <div class="font-bold text-violet-900 flex items-center space-x-1">
+              <span>💡 핵심 문법 족집게:</span>
+            </div>
+            <ul class="space-y-1 text-slate-600">
+              <li>• ます형 6문형 (~方/ながら/すぎる/やすい/にくい/なさい)</li>
+              <li>• 방법·도구·수단 조사 〜で &amp; 이유 연결 〜くて</li>
+              <li>• 이유·나열 〜も 〜し &amp; 원인의 〜から/だから</li>
+            </ul>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 text-xs text-slate-500 font-medium">
+            <span class="bg-slate-100 px-2.5 py-1 rounded-lg">📖 단문 36문장</span>
+            <span class="bg-slate-100 px-2.5 py-1 rounded-lg">📝 단어 52개</span>
+            <span class="bg-slate-100 px-2.5 py-1 rounded-lg">🔊 카나우 원어민 음성</span>
+            <span class="bg-slate-100 px-2.5 py-1 rounded-lg">🎒 읽어봅시다 쓰기/녹음</span>
+          </div>
+        </div>
+
+        <button onclick="openLesson(15)" class="w-full mt-6 py-3 px-4 rounded-2xl bg-violet-600 hover:bg-violet-700 text-white font-bold text-sm shadow-md shadow-violet-200 transition-all active:scale-95 flex items-center justify-center space-x-1.5">
+          <span>15(상) 마스터하기 입장</span>
+          <span>→</span>
+        </button>
+      </div>
+
+
+    </div>
+
+    <!-- 다이스키 (하): cards rendered from data (book === "하") by renderBookCards() in js/app.js -->
+    <h2 class="text-lg md:text-xl font-extrabold text-slate-900 flex items-center gap-2"><span class="px-2.5 py-0.5 rounded-lg bg-orange-100 text-orange-800 text-sm">📙 (하)</span> 다이스키 일본어 하권</h2>
+    <div id="bookHaCards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+
+    <!-- ======================================================== -->
+    <!-- NEW: 9 SPECIAL TOPIC & CONJUGATION MODULES (주제별 집중 마스터) -->
+    <!-- ======================================================== -->
+    <div class="pt-6 border-t-2 border-slate-200/80 space-y-5">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <span class="inline-flex items-center space-x-1.5 bg-amber-50 text-amber-800 border border-amber-200 px-3 py-1 rounded-full text-xs font-extrabold">
+            <span>🌟 단원 별도 특강</span>
+            <span>•</span>
+            <span>어휘 암기 + 문형 활용 변환 완벽 훈련</span>
+          </span>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-2 tracking-tight">
+            일본어 <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-indigo-600 to-emerald-600">동사 활용 • 형용사 • 기초 어휘</span> 집중 마스터
+          </h2>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            각 단원과 별개로 동사 활용, 형용사(い형용사·な형용사 분리), 조수사, 숫자·시간, 가족 호칭, 위치 명사의 <b>어휘 암기부터 실시간 활용 변환·문장 적용</b>까지 체계적으로 학습할 수 있습니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- 7 Special Module Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!-- SPECIAL 1: 동사 활용 -->
+        <div class="bg-white rounded-3xl p-5 border-2 border-amber-200 hover:border-amber-500 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md">⚡</span>
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200">ます형 8대 + て형 4대 응용</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-extrabold text-slate-900 group-hover:text-amber-600 transition">일본어 동사 활용 익히기</h3>
+              <p class="text-xs text-slate-500 mt-0.5">3그룹(불규칙) • 2그룹(1단) • 1그룹(5단/예외1그룹) 구분 및 시제·희망·목적·청유·권유 변환</p>
+            </div>
+            <div class="p-3 bg-amber-50/60 rounded-2xl border border-amber-100 text-xs text-slate-700 space-y-1 font-jp">
+              <div>• <b>3그룹:</b> する➔します / 来(く)る➔来(き)ます</div>
+              <div>• <b>2그룹:</b> 食べる➔食べます / 見る➔見ます</div>
+              <div>• <b>1그룹:</b> 買う➔買います / ⚠️帰る➔帰ります</div>
+              <div>• <b>응용:</b> ~ます/ません/ました/たい/に行く/ましょう</div>
+              <div>• <b>て형:</b> 待って・飲んで・書いて・泳いで・⚠️行って / ~ています・~てください・~てから</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2 mt-4">
+            <button onclick="openLesson('verb', 'tab-conjugation')" class="py-2.5 px-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              🔄 활용 집중 연습
+            </button>
+            <button onclick="openLesson('verb', 'tab-sentences')" class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              📖 문장·단어 학습
+            </button>
+          </div>
+        </div>
+
+        <!-- SPECIAL 2: い형용사 -->
+        <div class="bg-white rounded-3xl p-5 border-2 border-sky-200 hover:border-sky-500 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-sky-500 to-blue-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md">✨</span>
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-sky-50 text-sky-800 border border-sky-200">이형용사 43선 & 6대 활용</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-extrabold text-slate-900 group-hover:text-sky-600 transition">い형용사 (이형용사) 익히기</h3>
+              <p class="text-xs text-slate-500 mt-0.5">반의어 14쌍 • 계절·날씨 • 감정 어휘 및 명사수식·부정·과거·상태변화 완벽 훈련</p>
+            </div>
+            <div class="p-3 bg-sky-50/60 rounded-2xl border border-sky-100 text-xs text-slate-700 space-y-1 font-jp">
+              <div>• <b>반의어:</b> 高い↔安い/低い, 大きい↔小さい, 広い↔狭い</div>
+              <div>• <b>활용:</b> ~いです / ~くないです / ~かったです</div>
+              <div>• <b>변화:</b> ~くなります (⚠️ いい ➔ よくない・よかった)</div>
+              <div>• <b>て형:</b> おいしい ➔ おいし<b>くて</b> (⚠️ いい ➔ よくて)</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2 mt-4">
+            <button onclick="openLesson('iadj', 'tab-conjugation')" class="py-2.5 px-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              🔄 활용 집중 연습
+            </button>
+            <button onclick="openLesson('iadj', 'tab-sentences')" class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              📖 문장·단어 학습
+            </button>
+          </div>
+        </div>
+
+        <!-- SPECIAL 3: な형용사 -->
+        <div class="bg-white rounded-3xl p-5 border-2 border-pink-200 hover:border-pink-500 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-pink-500 to-rose-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md">🌸</span>
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-pink-50 text-pink-800 border border-pink-200">나형용사 24선 & 명사수식</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-extrabold text-slate-900 group-hover:text-pink-600 transition">な형용사 (나형용사) 익히기</h3>
+              <p class="text-xs text-slate-500 mt-0.5">상태·성품 • 취향·능력(好き/上手/得意) 어휘 및 ~な 명사수식·부정·과거·변화 훈련</p>
+            </div>
+            <div class="p-3 bg-pink-50/60 rounded-2xl border border-pink-100 text-xs text-slate-700 space-y-1 font-jp">
+              <div>• <b>명사수식:</b> 静かだ ➔ <b>静かな</b> 町 / ⚠️<b>綺麗な</b> 花</div>
+              <div>• <b>시제·부정:</b> ~です / ~ではありません / ~でした</div>
+              <div>• <b>취향·능력:</b> 日本語<b>が</b> 好きです・上手です・得意です</div>
+              <div>• <b>て형:</b> 便利だ ➔ 便利<b>で</b> / まじめで 親切です</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2 mt-4">
+            <button onclick="openLesson('naadj', 'tab-conjugation')" class="py-2.5 px-3 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              🔄 활용 집중 연습
+            </button>
+            <button onclick="openLesson('naadj', 'tab-sentences')" class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              📖 문장·단어 학습
+            </button>
+          </div>
+        </div>
+
+        <!-- SPECIAL: 명사 활용 익히기 -->
+        <div class="bg-white rounded-3xl p-5 border-2 border-lime-200 hover:border-lime-500 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-lime-500 to-green-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md">🏷️</span>
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-lime-50 text-lime-800 border border-lime-200">명사 です형 & て형(で)</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-extrabold text-slate-900 group-hover:text-lime-600 transition">명사 활용 익히기</h3>
+              <p class="text-xs text-slate-500 mt-0.5">명사 + です / ではありません / でした / ではありませんでした / で(연결·나열)</p>
+            </div>
+            <div class="p-3 bg-lime-50/60 rounded-2xl border border-lime-100 text-xs text-slate-700 space-y-1 font-jp">
+              <div>• <b>정중:</b> 学生です / 学生ではありません</div>
+              <div>• <b>과거:</b> 学生でした / 学生ではありませんでした</div>
+              <div>• <b>て형:</b> 私は 会社員<b>で</b>、木村さんは 医者です</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2 mt-4">
+            <button onclick="openLesson('noun', 'tab-conjugation')" class="py-2.5 px-3 rounded-xl bg-lime-600 hover:bg-lime-700 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              🔄 활용 집중 연습
+            </button>
+            <button onclick="openLesson('noun', 'tab-sentences')" class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              📖 문장·단어 학습
+            </button>
+          </div>
+        </div>
+
+        <!-- SPECIAL 4: 조수사 -->
+        <div class="bg-white rounded-3xl p-5 border-2 border-emerald-200 hover:border-emerald-500 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md">🔢</span>
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">7대 조수사 1~10 완벽 정리</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-extrabold text-slate-900 group-hover:text-emerald-600 transition">조수사 (수량·개수) 익히기</h3>
+              <p class="text-xs text-slate-500 mt-0.5">사람(人) • 물건(つ) • 동물(匹) • 잔(杯) • 긴물건(本) • 층(階) • 차/기계(台) 발음 및 활용</p>
+            </div>
+            <div class="p-3 bg-emerald-50/60 rounded-2xl border border-emerald-100 text-xs text-slate-700 space-y-1 font-jp">
+              <div>• <b>사람·개수:</b> ひとり・ふたり・よにん / ひとつ～とお</div>
+              <div>• <b>음운변화:</b> 1·6·8·10 반탁음(っぴ/っぱ/っぽ) & 3 탁음</div>
+              <div>• <b>문장활용:</b> りんごを 三つ 買います / ペンを 三本</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2 mt-4">
+            <button onclick="openLesson('counter', 'tab-conjugation')" class="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              🔄 활용 집중 연습
+            </button>
+            <button onclick="openLesson('counter', 'tab-sentences')" class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              📖 문장·단어 학습
+            </button>
+          </div>
+        </div>
+
+        <!-- SPECIAL 5: 숫자 및 시간 -->
+        <div class="bg-white rounded-3xl p-5 border-2 border-violet-200 hover:border-violet-500 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-violet-500 to-purple-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md">⏰</span>
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-violet-50 text-violet-800 border border-violet-200">큰 숫자 예외 & 시·분 읽기</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-extrabold text-slate-900 group-hover:text-violet-600 transition">숫자 및 시간 읽기 익히기</h3>
+              <p class="text-xs text-slate-500 mt-0.5">1~10,000 주의할 발음(300·600·800·3000·8000) 및 시간(時·分) 예외 발음 완벽 훈련</p>
+            </div>
+            <div class="p-3 bg-violet-50/60 rounded-2xl border border-violet-100 text-xs text-slate-700 space-y-1 font-jp">
+              <div>• <b>큰 숫자:</b> 300(さんびゃく)・600(ろっぴゃく)・800(はっぴゃく)</div>
+              <div>• <b>천·만:</b> 3000(さんぜん)・8000(はっせん)・10000(いちまん)</div>
+              <div>• <b>시·분:</b> 4時(よじ)・7時(しちじ)・9時(くじ) / ふん・ぷん</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2 mt-4">
+            <button onclick="openLesson('number', 'tab-conjugation')" class="py-2.5 px-3 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              🔄 활용 집중 연습
+            </button>
+            <button onclick="openLesson('number', 'tab-sentences')" class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              📖 문장·단어 학습
+            </button>
+          </div>
+        </div>
+
+        <!-- SPECIAL: 날짜 읽기 익히기 -->
+        <div class="bg-white rounded-3xl p-5 border-2 border-orange-200 hover:border-orange-500 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-orange-500 to-red-500 text-white font-extrabold text-xl flex items-center justify-center shadow-md">📅</span>
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-orange-50 text-orange-800 border border-orange-200">월 • 일 • 요일 특수 독음</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-extrabold text-slate-900 group-hover:text-orange-600 transition">날짜 읽기 익히기</h3>
+              <p class="text-xs text-slate-500 mt-0.5">4월(しがつ)·7월(しちがつ)·9월(くがつ) • 1~10일·14·20·24일 특수 독음 • 요일</p>
+            </div>
+            <div class="p-3 bg-orange-50/60 rounded-2xl border border-orange-100 text-xs text-slate-700 space-y-1 font-jp">
+              <div>• <b>월:</b> 4月(しがつ)・7月(しちがつ)・9月(くがつ)</div>
+              <div>• <b>일:</b> ついたち・ふつか・みっか … とおか</div>
+              <div>• <b>예외:</b> 14日(じゅうよっか)・20日(はつか)・24日</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2 mt-4">
+            <button onclick="openLesson('date', 'tab-conjugation')" class="py-2.5 px-3 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              🔄 날짜 읽기 연습
+            </button>
+            <button onclick="openLesson('date', 'tab-sentences')" class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              📖 문장·단어 학습
+            </button>
+          </div>
+        </div>
+
+        <!-- SPECIAL 6: 가족 호칭 -->
+        <div class="bg-white rounded-3xl p-5 border-2 border-rose-200 hover:border-rose-500 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-rose-500 to-orange-500 text-white font-extrabold text-xl flex items-center justify-center shadow-md">👨‍👩‍👧‍👦</span>
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-rose-50 text-rose-800 border border-rose-200">내 가족 vs 남의 가족 비교</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-extrabold text-slate-900 group-hover:text-rose-600 transition">가족 호칭 익히기</h3>
+              <p class="text-xs text-slate-500 mt-0.5">내 가족을 남에게 말할 때(겸양) vs 남의 가족·직접 호칭(존경) 및 가족 어휘 활용</p>
+            </div>
+            <div class="p-3 bg-rose-50/60 rounded-2xl border border-rose-100 text-xs text-slate-700 space-y-1 font-jp">
+              <div>• <b>부모·조부모:</b> 父/母 ↔ お父さん/お母さん, 祖父/祖母</div>
+              <div>• <b>형제·자매:</b> 兄/姉/弟/妹 ↔ お兄さん/お姉さん/弟さん</div>
+              <div>• <b>자녀·기타:</b> 息子/娘, 両親, 兄弟, 姉妹, 一人っ子</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2 mt-4">
+            <button onclick="openLesson('family', 'tab-conjugation')" class="py-2.5 px-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              🔄 활용 집중 연습
+            </button>
+            <button onclick="openLesson('family', 'tab-sentences')" class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition active:scale-95">
+              📖 문장·단어 학습
+            </button>
+          </div>
+        </div>
+
+        <!-- SPECIAL 7: 위치 명사 -->
+        <div class="bg-white rounded-3xl p-5 border-2 border-teal-200 hover:border-teal-500 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group sm:col-span-2 lg:col-span-1">
+          <div class="flex flex-col md:flex-row lg:flex-col md:items-center lg:items-stretch justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2.5">
+                <span class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-teal-500 to-cyan-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md">🧭</span>
+                <div>
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-50 text-teal-800 border border-teal-200">위치 명사 13선 & 존재 구문(あります/います)</span>
+                  <h3 class="text-lg font-extrabold text-slate-900 group-hover:text-teal-600 transition mt-0.5">위치 명사 익히기 & 존재문 실전 활용</h3>
+                </div>
+              </div>
+              <p class="text-xs text-slate-600">
+                <b>上(うえ)・下(した)・前(まえ)・後ろ(うしろ)・中(なか)・外(そと)・左(ひだり)・右(みぎ)・間(あいだ)・横(よこ: 나란한 옆) vs 隣(となり: 이웃한 옆)・そば・近く(ちかく)</b> 완벽 구분 및 사물(あります)·생물(います) 위치 표현 연습
+              </p>
+            </div>
+            <div class="flex sm:flex-row gap-2 shrink-0">
+              <button onclick="openLesson('location', 'tab-conjugation')" class="py-3 px-5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow-sm transition active:scale-95">
+                🔄 위치·존재문 활용 연습
+              </button>
+              <button onclick="openLesson('location', 'tab-sentences')" class="py-3 px-5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition active:scale-95">
+                📖 문장·단어 학습 입장
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Notice -->
+    <div class="text-center text-xs text-slate-400">
+      카나우 일본어 학원 • 다이스키 (상) 12~15과 · (하) 1과 + 동사·형용사·명사·기초어휘 9대 특강 통합 마스터 시스템
+    </div>
+
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- VIEW 2: LESSON WORKSPACE VIEW (과별 5개 탭 학습 화면) -->
+  <!-- ======================================================== -->
+  <div id="lessonWorkspace" class="hidden flex-1 flex flex-col">
+    
+    <!-- Sticky Top Navigation Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm no-print">
+      <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+        
+        <div class="flex items-center space-x-3">
+          <!-- Return Home Portal Button -->
+          <button id="returnHomeBtn" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-700 font-bold text-xs transition border border-slate-200 shadow-xs" title="과 선택 첫 화면으로 돌아가기">
+            <span>🏠</span>
+            <span>과 선택 (홈)</span>
+          </button>
+
+          <span id="activeLessonBadge" class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-emerald-500 text-white flex items-center justify-center font-extrabold text-base shadow-sm">
+            13
+          </span>
+          <div>
+            <h1 id="activeLessonHeaderTitle" class="text-base md:text-lg font-bold text-slate-900 leading-tight">다이스키 (상) 13과 단문 • 단어 • 숙제 마스터</h1>
+            <p id="activeLessonHeaderSubtitle" class="text-xs text-slate-500 font-medium line-clamp-1">카나우 공식 원어민 음성 연동 • 읽어봅시다 쓰기 & 10문장 음성 녹음·병합 탑재</p>
+          </div>
+        </div>
+
+        <!-- Quick Lesson Switcher Pills + User Status + Speed + Test -->
+        <div class="flex items-center space-x-2">
+          
+          <!-- Workspace User Status Button -->
+          <button id="workspaceUserBtn" class="px-2.5 py-1 rounded-xl bg-slate-50 hover:bg-indigo-50 border border-slate-200 text-xs font-bold text-slate-700 hover:text-indigo-600 transition" title="사용자 계정 관리">
+            <span id="workspaceUserNameText">👤 사용자 로그인</span>
+          </button>
+
+          <!-- Fast Lesson Switcher -->
+          <div class="inline-flex bg-slate-100 p-1 rounded-xl text-xs font-bold text-slate-600">
+            <button onclick="openLesson(12)" class="lesson-switch-btn px-2.5 py-1 rounded-lg transition" data-lesson="12">12(상)</button>
+            <button onclick="openLesson(13)" class="lesson-switch-btn px-2.5 py-1 rounded-lg transition" data-lesson="13">13(상)</button>
+            <button onclick="openLesson(14)" class="lesson-switch-btn px-2.5 py-1 rounded-lg transition" data-lesson="14">14(상)</button>
+            <button onclick="openLesson(15)" class="lesson-switch-btn px-2.5 py-1 rounded-lg transition" data-lesson="15">15(상)</button>
+            <button onclick="openLesson('h1')" class="lesson-switch-btn px-2.5 py-1 rounded-lg transition" data-lesson="h1">1(하)</button>
+          </div>
+
+          <!-- Speed Controls -->
+          <div class="flex items-center bg-slate-100 rounded-xl p-1 text-xs text-slate-600 font-medium">
+            <button id="speed08" class="px-2 py-0.5 rounded hover:bg-white transition text-slate-600">0.8x</button>
+            <button id="speed10" class="px-2 py-0.5 rounded bg-white shadow-xs font-bold text-indigo-600">1.0x</button>
+            <button id="speed12" class="px-2 py-0.5 rounded hover:bg-white transition text-slate-600">1.2x</button>
+          </div>
+
+          <button id="audioTestBtn" class="flex items-center space-x-1 px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-xl text-xs font-semibold transition border border-indigo-200">
+            <span>🔊</span>
+            <span id="audioTestText">음성 테스트</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Topic Switcher Bar (단원 + 9대 특강 바로가기) -->
+      <div class="max-w-5xl mx-auto px-4 py-1.5 flex items-center gap-1.5 overflow-x-auto border-t border-slate-100 bg-slate-50/70 text-xs no-scrollbar">
+        <span class="text-slate-400 font-bold shrink-0 pr-1">특강 바로가기:</span>
+        <button onclick="openLesson('verb', 'tab-conjugation')" class="lesson-switch-btn px-2.5 py-1 rounded-lg transition whitespace-nowrap text-slate-600 hover:text-amber-700" data-lesson="verb">⚡동사활용</button>
+        <button onclick="openLesson('iadj', 'tab-conjugation')" class="lesson-switch-btn px-2.5 py-1 rounded-lg transition whitespace-nowrap text-slate-600 hover:text-sky-700" data-lesson="iadj">✨い형용사</button>
+        <button onclick="openLesson('naadj', 'tab-conjugation')" class="lesson-switch-btn px-2.5 py-1 rounded-lg transition whitespace-nowrap text-slate-600 hover:text-pink-700" data-lesson="naadj">🌸な형용사</button>
+        <button onclick="openLesson('noun', 'tab-conjugation')" class="lesson-switch-btn px-2.5 py-1 rounded-lg transition whitespace-nowrap text-slate-600 hover:text-lime-700" data-lesson="noun">🏷️명사활용</button>
+        <button onclick="openLesson('counter', 'tab-conjugation')" class="lesson-switch-btn px-2.5 py-1 rounded-lg transition whitespace-nowrap text-slate-600 hover:text-emerald-700" data-lesson="counter">🔢조수사</button>
+        <button onclick="openLesson('number', 'tab-conjugation')" class="lesson-switch-btn px-2.5 py-1 rounded-lg transition whitespace-nowrap text-slate-600 hover:text-violet-700" data-lesson="number">⏰숫자·시간</button>
+        <button onclick="openLesson('date', 'tab-conjugation')" class="lesson-switch-btn px-2.5 py-1 rounded-lg transition whitespace-nowrap text-slate-600 hover:text-orange-700" data-lesson="date">📅날짜</button>
+        <button onclick="openLesson('family', 'tab-conjugation')" class="lesson-switch-btn px-2.5 py-1 rounded-lg transition whitespace-nowrap text-slate-600 hover:text-rose-700" data-lesson="family">👨‍👩‍👧‍👦가족호칭</button>
+        <button onclick="openLesson('location', 'tab-conjugation')" class="lesson-switch-btn px-2.5 py-1 rounded-lg transition whitespace-nowrap text-slate-600 hover:text-teal-700" data-lesson="location">🧭위치명사</button>
+      </div>
+
+      <!-- Main Navigation Tabs -->
+      <div class="max-w-5xl mx-auto px-4 flex overflow-x-auto border-t border-slate-100 no-scrollbar">
+        <button class="nav-tab px-4 py-2.5 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-800 whitespace-nowrap" data-tab="tab-conjugation">
+          🔄 어휘·문형 활용 연습실 (<span id="navConjCount">21</span>개 핵심)
+        </button>
+        <button class="nav-tab active px-4 py-2.5 text-sm font-semibold border-b-2 border-indigo-600 text-indigo-600 whitespace-nowrap" data-tab="tab-sentences">
+          📖 단문 표현 마스터 (<span id="navSentenceCount">32</span>문장)
+        </button>
+        <button class="nav-tab px-4 py-2.5 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-800 whitespace-nowrap" data-tab="tab-words">
+          📝 단어 암기장 & 퀴즈 (<span id="navWordCount">51</span>단어)
+        </button>
+        <button class="nav-tab px-4 py-2.5 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-800 whitespace-nowrap" data-tab="tab-grammar">
+          💡 <span id="navGrammarLessonText">13과</span> 핵심 문법 & 조사 족집게
+        </button>
+        <button class="nav-tab px-4 py-2.5 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-800 whitespace-nowrap" data-tab="tab-homework">
+          🎒 숙제 마스터 (쓰기·프린트 & 녹음)
+        </button>
+        <button class="nav-tab px-4 py-2.5 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-800 whitespace-nowrap" data-tab="tab-mocktest">
+          🎯 <span id="navMockLessonText">13과</span> 실전 모의고사
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Workspace Container -->
+    <main class="flex-1 max-w-5xl w-full mx-auto p-4 md:py-6">
+
+      <!-- NEW TAB 0: 어휘·문형 활용 연습실 (인터랙티브 활용 변환표 + 4지선다 퀴즈 + 직접 타이핑 변환 훈련) -->
+      <section id="tab-conjugation" class="tab-pane hidden space-y-6">
+
+        <!-- Header & 3 Sub-Modes Switcher -->
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-md">
+              실전 어휘·문형 활용 트레이너
+            </span>
+            <h2 id="conjSectionHeading" class="text-lg font-extrabold text-slate-900 mt-1">어휘 및 문형 활용 집중 연습실</h2>
+            <p class="text-xs text-slate-500">기본형에서 정중형·부정형·과거형·명사수식·문형 응용까지 한눈에 익히고 직접 변환해 보세요.</p>
+          </div>
+
+          <div class="inline-flex bg-slate-100 p-1 rounded-xl text-xs font-semibold text-slate-600 flex-wrap gap-1">
+            <button id="conjModeTableBtn" class="px-3.5 py-2 rounded-lg bg-white shadow-xs text-indigo-600 font-bold transition">1) 📊 활용 변환표 & 발음</button>
+            <button id="conjModeQuizBtn" class="px-3.5 py-2 rounded-lg hover:text-slate-900 transition">2) ⚡ 4지선다 활용 퀴즈</button>
+            <button id="conjModeWriteBtn" class="px-3.5 py-2 rounded-lg hover:text-slate-900 transition">3) ✍️ 직접 변환 타이핑</button>
+          </div>
+        </div>
+
+        <!-- SUB-MODE 1: 실시간 활용 변환표 & 발음 탐색기 -->
+        <div id="conjTableSection" class="space-y-4">
+          <div class="flex flex-wrap gap-1.5 text-xs" id="conjCatFilters">
+            <!-- Populated by JS -->
+          </div>
+
+          <div id="conjItemsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Populated by JS: each item shows base word, rule, and all conjugated forms with TTS buttons -->
+          </div>
+        </div>
+
+        <!-- SUB-MODE 2: 4지선다 활용 변환 스피드 퀴즈 -->
+        <div id="conjQuizSection" class="hidden space-y-4">
+          <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200 max-w-2xl mx-auto">
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-3">
+              <span id="cquizBadge" class="bg-amber-50 text-amber-800 border border-amber-200 font-bold px-3 py-1 rounded-full">활용 변환 퀴즈 #1</span>
+              <div class="flex items-center space-x-3">
+                <span id="cquizScoreBadge" class="text-xs font-extrabold text-indigo-600">연속 정답: 0회 (총 0점)</span>
+                <button id="cquizSpeakBtn" class="px-2.5 py-1 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-lg font-bold text-xs">🔊 기본형 발음</button>
+              </div>
+            </div>
+
+            <div class="text-center py-4 space-y-2">
+              <span id="cquizCatTag" class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-md inline-block">카테고리</span>
+              <div class="text-xs font-bold text-slate-400 uppercase tracking-wider block">다음 어휘를 지정된 형태로 바르게 활용한 것은?</div>
+              <h3 id="cquizBaseWord" class="text-2xl md:text-3xl font-extrabold text-slate-900 font-jp">
+                食べる (먹다)
+              </h3>
+              <div id="cquizTargetLabel" class="inline-block px-4 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 font-extrabold text-sm">
+                목표 활용: 과거 부정 (~지 않았습니다)
+              </div>
+            </div>
+
+            <div id="cquizOptions" class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
+              <!-- 4 options populated by JS -->
+            </div>
+
+            <div id="cquizFeedback" class="hidden p-4 rounded-2xl border text-sm space-y-2 mt-4">
+              <div id="cquizFeedbackTitle" class="font-bold flex items-center space-x-1.5"></div>
+              <div id="cquizFeedbackDetail" class="text-slate-700 text-xs font-jp"></div>
+              <div id="cquizFeedbackRule" class="text-slate-500 text-xs"></div>
+              <div class="pt-2 flex justify-end">
+                <button id="cquizNextBtn" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow transition">
+                  다음 활용 문제 →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUB-MODE 3: 직접 타이핑 활용 변환 훈련 -->
+        <div id="conjWriteSection" class="hidden space-y-4">
+          <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200 max-w-2xl mx-auto">
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-3">
+              <span id="cwriteBadge" class="bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold px-3 py-1 rounded-full">직접 활용 변환 #1</span>
+              <button id="cwriteSpeakBtn" class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-lg hover:bg-indigo-100 font-semibold transition text-xs">
+                🔊 정답 발음 미리 듣기
+              </button>
+            </div>
+
+            <div class="text-center py-3 space-y-2">
+              <span id="cwriteCatTag" class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md inline-block">카테고리</span>
+              <div id="cwriteBaseWord" class="text-2xl md:text-3xl font-extrabold text-slate-900 font-jp">
+                買う (사다)
+              </div>
+              <div id="cwriteTargetPrompt" class="p-3.5 bg-indigo-50/50 rounded-2xl border border-indigo-100 text-base font-extrabold text-indigo-950">
+                변환 조건: 희망 (~하고 싶습니다) ➔ "사고 싶습니다"
+              </div>
+            </div>
+
+            <div class="max-w-md mx-auto my-5 space-y-3">
+              <div class="flex gap-2">
+                <input type="text" id="cwriteInput" placeholder="변환된 일본어(한자 또는 히라가나) 입력" class="flex-1 px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 font-jp font-semibold text-lg outline-none">
+                <button id="cwriteCheckBtn" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow transition">
+                  확인
+                </button>
+              </div>
+              <div class="flex items-center justify-between text-xs">
+                <button id="cwriteHintBtn" class="text-indigo-600 hover:text-indigo-800 font-bold">💡 힌트 및 활용 공식 보기</button>
+                <button id="cwriteGiveUpBtn" class="text-slate-400 hover:text-slate-600 font-medium">정답 바로 채우기</button>
+              </div>
+              <div id="cwriteHintBox" class="hidden p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900 font-jp"></div>
+            </div>
+
+            <div id="cwriteFeedback" class="hidden p-4 rounded-2xl border text-sm space-y-2 mt-4">
+              <div id="cwriteFeedbackTitle" class="font-bold"></div>
+              <div id="cwriteFeedbackCorrect" class="text-indigo-950 font-jp font-bold text-base"></div>
+              <div id="cwriteFeedbackRule" class="text-slate-600 text-xs"></div>
+              <div class="pt-2 flex justify-end">
+                <button id="cwriteNextBtn" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow transition">
+                  다음 변환 도전 →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TAB 1: 단문 표현 4단계 마스터 -->
+      <section id="tab-sentences" class="tab-pane active space-y-6">
+        
+        <!-- Flow Step Selector -->
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-md">
+              단계별 학습 로드맵
+            </span>
+            <div class="text-xs text-slate-500 font-medium">
+              암기 완료: <span id="learnedCount" class="font-bold text-indigo-600">0</span> / <span id="totalSentenceCount">32</span>문장
+            </div>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+            <button class="flow-step-btn active p-3 rounded-xl border-2 text-left transition relative" data-step="1">
+              <div class="text-xs font-semibold text-slate-400 mb-0.5">1단계 (기초)</div>
+              <div class="text-sm font-bold text-slate-900">소리 내어 훑어보기</div>
+              <p class="text-xs text-slate-500 mt-1 line-clamp-1">원어민 음성 + 한자·독음 암기</p>
+            </button>
+            <button class="flow-step-btn p-3 rounded-xl border-2 text-left transition relative" data-step="2">
+              <div class="text-xs font-semibold text-slate-400 mb-0.5">2단계 (순발력)</div>
+              <div class="text-sm font-bold text-slate-900">4지선다 반사 훈련</div>
+              <p class="text-xs text-slate-500 mt-1 line-clamp-1">음성 즉시 재생 + 함정 피하기</p>
+            </button>
+            <button class="flow-step-btn p-3 rounded-xl border-2 text-left transition relative" data-step="3">
+              <div class="text-xs font-semibold text-slate-400 mb-0.5">3단계 (적응)</div>
+              <div class="text-sm font-bold text-slate-900">조사·문형 빈칸 쓰기</div>
+              <p class="text-xs text-slate-500 mt-1 line-clamp-1">핵심 조사·문형 채우기</p>
+            </button>
+            <button class="flow-step-btn p-3 rounded-xl border-2 text-left transition relative" data-step="4">
+              <div class="text-xs font-semibold text-slate-400 mb-0.5">4단계 (최종)</div>
+              <div class="text-sm font-bold text-slate-900">한글 보고 문장 쓰기</div>
+              <p class="text-xs text-slate-500 mt-1 line-clamp-1">한자 포함 전체 문장 마스터</p>
+            </button>
+          </div>
+        </div>
+
+        <!-- Scope Filter -->
+        <div class="flex items-center justify-between flex-wrap gap-2 text-sm">
+          <div class="flex items-center space-x-1.5 bg-slate-200/70 p-1 rounded-xl">
+            <button class="filter-part-btn active px-3 py-1 rounded-lg text-xs font-semibold text-slate-800 bg-white shadow-xs" data-part="all">전체 문장</button>
+            <button class="filter-part-btn px-3 py-1 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900" data-part="1">단문표현-1</button>
+            <button class="filter-part-btn px-3 py-1 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900" data-part="2">단문표현-2</button>
+            <button class="filter-part-btn px-3 py-1 rounded-lg text-xs font-medium text-amber-700 hover:text-amber-900" data-part="unlearned">미암기 복습</button>
+          </div>
+          <div class="flex items-center space-x-2">
+            <label class="flex items-center space-x-1.5 text-xs text-slate-600 cursor-pointer select-none">
+              <input type="checkbox" id="toggleFurigana" checked class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
+              <span>후리가나 표시</span>
+            </label>
+            <label class="flex items-center space-x-1.5 text-xs text-slate-600 cursor-pointer select-none">
+              <input type="checkbox" id="toggleAutoPlay" checked class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
+              <span>문제 변경 시 음성 자동재생</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- STEP 1 CONTAINER: Go-Through Flashcards -->
+        <div id="step1-container" class="space-y-4">
+          <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200 text-center relative overflow-hidden">
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-4">
+              <span id="cardIndexBadge" class="bg-slate-100 text-slate-600 font-bold px-3 py-1 rounded-full">문장 1 / 32</span>
+              <div class="flex items-center space-x-2">
+                <span id="step1PartBadge" class="bg-indigo-50 text-indigo-700 font-semibold px-2.5 py-1 rounded-md">단문표현-1</span>
+                <button id="toggleLearnBtn" class="flex items-center space-x-1 px-3 py-1 rounded-full border border-slate-200 hover:border-emerald-300 text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 transition text-xs font-medium">
+                  <span id="learnCheckIcon">⚪</span>
+                  <span id="learnCheckText">암기 체크</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Korean Meaning -->
+            <div class="mb-4">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">한국어 뜻</span>
+              <h2 id="cardKorean" class="text-xl md:text-2xl font-bold text-slate-900 leading-snug">
+                한국어 문장 내용
+              </h2>
+            </div>
+
+            <!-- Japanese Sentence with Fixed Furigana -->
+            <div class="py-6 px-4 bg-indigo-50/40 rounded-2xl border border-indigo-100/80 mb-4">
+              <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider block mb-2">일본어 (한자 포함)</span>
+              <div id="cardJapanese" class="text-2xl md:text-3xl font-bold text-indigo-950 font-jp tracking-wide leading-relaxed">
+                日本語の 例文
+              </div>
+              <div id="cardHiragana" class="text-sm font-medium text-indigo-600 mt-2 font-jp">
+                にほんごの れいぶん
+              </div>
+            </div>
+
+            <!-- Grammar Point Box -->
+            <div class="bg-slate-50 rounded-xl p-3 text-xs text-left text-slate-600 flex items-start space-x-2 border border-slate-200/70 mb-6">
+              <span class="text-amber-500 font-bold text-sm">💡</span>
+              <div>
+                <span class="font-bold text-slate-700">핵심 포인트: </span>
+                <span id="cardGrammar">문법 포인트</span>
+              </div>
+            </div>
+
+            <!-- Audio & Navigation Controls -->
+            <div class="flex items-center justify-between gap-2">
+              <button id="prevCardBtn" class="flex items-center space-x-1 px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold text-sm transition">
+                <span>← 이전</span>
+              </button>
+              <button id="playAudioBtn" class="flex-1 max-w-xs flex items-center justify-center space-x-2 py-3 px-6 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base shadow-lg shadow-indigo-200 transition active:scale-95">
+                <span>🔊</span>
+                <span>원어민 음성 듣기</span>
+              </button>
+              <button id="nextCardBtn" class="flex items-center space-x-1 px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold text-sm transition">
+                <span>다음 →</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Jump Grid -->
+          <div class="bg-white rounded-2xl p-4 border border-slate-200">
+            <div class="text-xs font-bold text-slate-500 mb-2 flex items-center justify-between">
+              <span>문장 바로가기 (초록색 = 암기 완료)</span>
+              <span id="gridProgressText" class="text-indigo-600">0/32</span>
+            </div>
+            <div id="sentenceJumpGrid" class="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-12 gap-1.5">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 CONTAINER: 4-Choice Drill -->
+        <div id="step2-container" class="hidden space-y-4">
+          <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200">
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-3">
+              <span id="quizBadge" class="bg-violet-50 text-violet-700 font-bold px-3 py-1 rounded-full">객관식 퀴즈 1 / 32</span>
+              <button id="quizReplayBtn" class="flex items-center space-x-1 px-3 py-1 bg-indigo-50 text-indigo-700 rounded-lg hover:bg-indigo-100 font-semibold transition text-xs">
+                <span>🔊 음성 다시 듣기</span>
+              </button>
+            </div>
+
+            <div class="text-center py-4">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">다음 한국어에 알맞은 일본어 문장은?</span>
+              <h3 id="quizQuestion" class="text-xl md:text-2xl font-bold text-slate-900">
+                한국어 질문
+              </h3>
+            </div>
+
+            <div id="quizOptions" class="grid grid-cols-1 gap-3 my-4">
+              <!-- 4 Options populated by JS -->
+            </div>
+
+            <div id="quizFeedback" class="hidden p-4 rounded-2xl border text-sm space-y-2 mt-4">
+              <div id="quizFeedbackTitle" class="font-bold flex items-center space-x-1.5"></div>
+              <div id="quizFeedbackDetail" class="text-slate-600 text-xs"></div>
+              <div class="pt-2 flex justify-end">
+                <button id="quizNextBtn" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow transition">
+                  다음 문제 →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 CONTAINER: Cloze Blank -->
+        <div id="step3-container" class="hidden space-y-4">
+          <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200">
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-3">
+              <span id="clozeBadge" class="bg-amber-50 text-amber-700 font-bold px-3 py-1 rounded-full">빈칸 훈련 1 / 32</span>
+              <button id="clozeReplayBtn" class="flex items-center space-x-1 px-3 py-1 bg-indigo-50 text-indigo-700 rounded-lg hover:bg-indigo-100 font-semibold transition text-xs">
+                <span>🔊 음성 다시 듣기</span>
+              </button>
+            </div>
+
+            <div class="text-center py-2">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">한국어 뜻</span>
+              <div id="clozeKr" class="text-lg md:text-xl font-bold text-slate-900 mb-3">
+                한국어 문장 뜻
+              </div>
+              <div id="clozePrompt" class="text-xl md:text-2xl font-bold text-indigo-950 font-jp p-4 bg-indigo-50/50 rounded-2xl border border-indigo-100">
+                [ 빈칸 문제 텍스트 ]
+              </div>
+            </div>
+
+            <div class="max-w-md mx-auto my-6 space-y-3">
+              <div class="flex gap-2">
+                <input type="text" id="clozeInput" placeholder="빈칸에 들어갈 일본어를 적어보세요" class="flex-1 px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 font-jp font-semibold text-lg outline-none">
+                <button id="clozeCheckBtn" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow transition">
+                  확인
+                </button>
+              </div>
+
+              <div class="flex items-center justify-between text-xs">
+                <button id="clozeHintBtn" class="text-indigo-600 hover:text-indigo-800 font-medium flex items-center space-x-1">
+                  <span>💡 힌트 보기</span>
+                </button>
+                <button id="clozeGiveUpBtn" class="text-slate-400 hover:text-slate-600 font-medium">
+                  정답 바로 보기
+                </button>
+              </div>
+              <div id="clozeHintText" class="hidden p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-800 font-jp"></div>
+            </div>
+
+            <div id="clozeFeedback" class="hidden p-4 rounded-2xl border text-sm space-y-2 mt-4">
+              <div id="clozeFeedbackTitle" class="font-bold flex items-center space-x-1.5"></div>
+              <div id="clozeFeedbackCorrect" class="text-indigo-900 font-jp font-bold text-base"></div>
+              <div id="clozeFeedbackGrammar" class="text-slate-600 text-xs"></div>
+              <div class="pt-2 flex justify-end">
+                <button id="clozeNextBtn" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow transition">
+                  다음 문장 →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4 CONTAINER: Full Sentence Writing -->
+        <div id="step4-container" class="hidden space-y-4">
+          <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200">
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-3">
+              <span id="writeBadge" class="bg-rose-50 text-rose-700 font-bold px-3 py-1 rounded-full">전체 문장 쓰기 1 / 32</span>
+              <button id="writeReplayBtn" class="flex items-center space-x-1 px-3 py-1 bg-indigo-50 text-indigo-700 rounded-lg hover:bg-indigo-100 font-semibold transition text-xs">
+                <span>🔊 음성 듣기</span>
+              </button>
+            </div>
+
+            <div class="text-center py-2">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">한글만 보고 일본어 전체 문장(한자 포함)을 완성하세요</span>
+              <div id="writeKr" class="text-xl md:text-2xl font-bold text-slate-900 mb-4">
+                한국어 전체 문장
+              </div>
+            </div>
+
+            <div class="flex justify-center mb-4">
+              <div class="inline-flex bg-slate-100 p-1 rounded-xl text-xs font-semibold text-slate-600">
+                <button id="writeModeBlocksBtn" class="px-3 py-1.5 rounded-lg bg-white shadow-xs text-indigo-600 font-bold">단어 조각 맞추기 (추천)</button>
+                <button id="writeModeDirectBtn" class="px-3 py-1.5 rounded-lg hover:text-slate-900">직접 타이핑</button>
+              </div>
+            </div>
+
+            <div id="scrambleBlockSection" class="space-y-4 max-w-2xl mx-auto">
+              <div class="min-h-16 p-3 bg-slate-50 border-2 border-dashed border-indigo-200 rounded-2xl flex flex-wrap items-center gap-2" id="assembledWordsArea">
+                <span id="assembledPlaceholder" class="text-xs text-slate-400 font-medium pl-1">아래 단어 조각을 순서대로 눌러 문장을 완성하세요</span>
+              </div>
+
+              <div class="p-3 bg-indigo-50/40 rounded-2xl border border-indigo-100">
+                <div class="text-xs font-bold text-slate-500 mb-2">선택할 단어 조각:</div>
+                <div class="flex flex-wrap gap-2" id="availableWordsPool">
+                  <!-- Word tokens populated by JS -->
+                </div>
+              </div>
+
+              <div class="flex justify-between items-center text-xs">
+                <button id="resetBlocksBtn" class="text-slate-500 hover:text-slate-700 font-semibold">🔄 초기화</button>
+                <button id="checkBlocksBtn" class="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow transition">
+                  정답 확인
+                </button>
+              </div>
+            </div>
+
+            <div id="directInputSection" class="hidden space-y-3 max-w-xl mx-auto">
+              <textarea id="directInputText" rows="2" placeholder="일본어로 전체 문장을 입력하세요 (한자 또는 히라가나)" class="w-full p-4 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 font-jp font-semibold text-lg outline-none resize-none"></textarea>
+              <div class="flex justify-end gap-2">
+                <button id="directCheckBtn" class="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow transition">
+                  정답 확인
+                </button>
+              </div>
+            </div>
+
+            <div id="writeFeedback" class="hidden p-5 rounded-2xl border text-sm space-y-3 mt-6 max-w-2xl mx-auto">
+              <div id="writeFeedbackTitle" class="font-bold flex items-center space-x-1.5 text-base"></div>
+              <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+                <div class="text-xs font-bold text-slate-400">정답 문장:</div>
+                <div id="writeFeedbackCorrect" class="text-lg font-bold text-indigo-900 font-jp"></div>
+                <div id="writeFeedbackHira" class="text-xs text-indigo-600 font-jp"></div>
+              </div>
+              <div id="writeFeedbackGrammar" class="text-slate-600 text-xs"></div>
+              <div class="pt-2 flex justify-end">
+                <button id="writeNextBtn" class="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow transition">
+                  다음 문장 도전 →
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TAB 2: 숙제 마스터 (1. 읽어봅시다! 쓰기 / 2. 녹음하기) -->
+      <section id="tab-homework" class="tab-pane hidden space-y-6">
+
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-3 no-print">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md">
+              단원 필수 과제 시스템
+            </span>
+            <h2 id="hwHeaderTitle" class="text-lg font-bold text-slate-900 mt-1">숙제: 읽어봅시다! 쓰기 & 단문 10문장 녹음·병합</h2>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <div class="inline-flex bg-slate-100 p-1 rounded-xl text-xs font-semibold text-slate-600">
+              <button id="hwSubTabReading" class="px-4 py-2 rounded-lg bg-white shadow-xs text-emerald-700 font-bold">1) 읽어봅시다! 쓰기 & 프린트</button>
+              <button id="hwSubTabRecording" class="px-4 py-2 rounded-lg hover:text-slate-900">2) 10문장 녹음 & 합치기</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- HW SUB-PANEL 1: 읽어봅시다! 쓰기 & 프린트 장표 -->
+        <div id="hwReadingSection" class="space-y-4">
+          
+          <div class="bg-white rounded-2xl p-4 border border-slate-200 flex flex-wrap items-center justify-between gap-3 no-print">
+            <div class="text-xs text-slate-500 font-medium">
+              💡 아래 장표를 인쇄하여 수기로 작성하거나, 화면에서 바로 일본어 발음을 들으며 학습할 수 있습니다.
+            </div>
+            <div class="flex items-center space-x-2">
+              <button id="playReadingVoiceBtn" class="flex items-center space-x-1.5 px-4 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-xl text-xs font-bold transition border border-indigo-200">
+                <span>🔊</span>
+                <span>본문 전체 음성 듣기</span>
+              </button>
+              <button id="printWorksheetBtn" class="flex items-center space-x-1.5 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-100 transition active:scale-95">
+                <span>🖨️</span>
+                <span>학습 장표 인쇄 (A4 프린트)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- The Printable Worksheet Document Area -->
+          <div id="printableWorksheetArea" class="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-slate-200 text-slate-900 max-w-4xl mx-auto space-y-6">
+            
+            <!-- Document Header -->
+            <div class="border-b-2 border-slate-800 pb-4 flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <div class="text-xs font-bold text-indigo-600 tracking-wider">카나우 일본어 학원 • <span id="worksheetBookTag">다이스키(상)</span> 과제물</div>
+                <h2 id="worksheetMainHeading" class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">📖 읽어 봅시다! 쓰기 & 한국어 번역 과제</h2>
+              </div>
+              <div class="flex items-center space-x-4 text-xs font-medium text-slate-600 border border-slate-300 rounded-xl p-2 bg-slate-50">
+                <div>날짜: <span class="underline underline-offset-4 decoration-slate-400 font-mono">2026. &nbsp; &nbsp;. &nbsp; &nbsp;</span></div>
+                <div>이름: <input type="text" id="studentNameInput" placeholder="이름 입력" class="border-b border-slate-400 bg-transparent text-center font-bold px-1 w-24 outline-none"></div>
+                <div>확인: <span class="underline underline-offset-4 decoration-slate-400 font-bold min-w-10 inline-block text-center">&nbsp; &nbsp; &nbsp;</span></div>
+              </div>
+            </div>
+
+            <!-- Original Text Display -->
+            <div class="p-5 bg-indigo-50/40 rounded-2xl border border-indigo-100 space-y-3">
+              <div class="flex items-center justify-between text-xs font-bold text-indigo-700 border-b border-indigo-100 pb-2">
+                <span id="readingPassageTitleTag">【 본문 원문 (원문 읽기) 】</span>
+                <span id="readingTrackTag" class="text-slate-400 font-normal">교재 음성 연동</span>
+              </div>
+              <div id="readingPassageSentencesBox" class="text-base md:text-lg font-jp leading-relaxed text-indigo-950 font-medium space-y-2">
+                <!-- Injected by JS -->
+              </div>
+            </div>
+
+            <!-- Section 1: Japanese Handwriting Practice -->
+            <div class="space-y-3">
+              <div class="flex items-center justify-between text-xs font-bold text-slate-700 border-b border-slate-200 pb-1.5">
+                <span>✍️ [과제 1] 일본어로 필기하여 쓰기 (한자 포함 정자체 필사)</span>
+                <span class="text-slate-400 text-xs font-normal">한자 및 띄어쓰기 주의</span>
+              </div>
+              <div id="readingHandwritingJaList" class="space-y-4">
+                <!-- Injected by JS -->
+              </div>
+            </div>
+
+            <!-- Section 2: Korean Translation Handwriting -->
+            <div class="space-y-3 pt-2">
+              <div class="flex items-center justify-between text-xs font-bold text-slate-700 border-b border-slate-200 pb-1.5">
+                <span>🇰🇷 [과제 2] 아래에 한국어로 자연스럽게 해석하여 쓰기</span>
+                <span class="text-slate-400 text-xs font-normal">문맥에 맞추어 번역</span>
+              </div>
+              <div id="readingHandwritingKrList" class="space-y-4">
+                <!-- Injected by JS -->
+              </div>
+            </div>
+
+            <!-- Teacher feedback / Notes -->
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-500 flex justify-between items-center">
+              <div>
+                <span class="font-bold text-slate-700">과제 평가: </span>
+                <span>( &nbsp; &nbsp; ) A+ &nbsp; ( &nbsp; &nbsp; ) A &nbsp; ( &nbsp; &nbsp; ) B &nbsp; ( &nbsp; &nbsp; ) C</span>
+              </div>
+              <div>선생님 서명: _______________</div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- HW SUB-PANEL 2: 10문장 녹음 & 합치기 -->
+        <div id="hwRecordingSection" class="hidden space-y-6 no-print">
+          
+          <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md">
+                  과제 2: 단문 10문장 녹음
+                </span>
+                <h3 class="text-xl font-bold text-slate-900 mt-1">10개 문장 선택 및 개별 녹음 후 하나의 파일로 합치기</h3>
+                <p class="text-xs text-slate-500 mt-0.5">단문표현 문장 중 원하는 10개를 직접 고르거나 랜덤으로 뽑아 음성 녹음 과제를 완성하세요.</p>
+              </div>
+
+              <!-- Selection helper buttons -->
+              <div class="flex items-center space-x-2">
+                <button id="randomSelect10Btn" class="px-4 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-xl text-xs font-bold transition border border-indigo-200 flex items-center space-x-1 shadow-xs active:scale-95">
+                  <span>🎲</span>
+                  <span>랜덤 10개 선택</span>
+                </button>
+                <button id="clearSelectBtn" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl text-xs font-semibold transition active:scale-95">
+                  선택 초기화
+                </button>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <div class="flex items-center justify-between text-xs font-bold text-slate-600">
+                <span>문장 선택 목록 (원하는 문장 10개를 체크하세요):</span>
+                <span class="text-indigo-600">선택됨: <span id="selectedCountBadge" class="text-base font-extrabold text-indigo-600">10</span> / 10개</span>
+              </div>
+              <div id="sentencePickerGrid" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+              <div>
+                <h4 class="text-base font-bold text-slate-900">선택된 10문장 녹음 진행</h4>
+                <p class="text-xs text-slate-500">각 문장의 표준 발음을 듣고 따라 읽으며 녹음하세요. 완료 후 맨 아래에서 한 파일로 합칠 수 있습니다.</p>
+              </div>
+              <div class="text-xs font-bold bg-slate-100 text-slate-700 px-3 py-1.5 rounded-xl">
+                녹음 완료: <span id="completedRecordCount" class="text-emerald-600 text-sm font-extrabold">0</span> / 10문장
+              </div>
+            </div>
+
+            <div id="recordingCardsContainer" class="space-y-4">
+              <!-- 10 cards populated by JS -->
+            </div>
+
+            <div class="p-6 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-3xl border border-emerald-200 text-center space-y-4">
+              <div class="w-12 h-12 bg-emerald-600 text-white rounded-2xl flex items-center justify-center font-bold text-xl mx-auto shadow-md shadow-emerald-200">
+                📁
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-slate-900">10문장 음성 파일 최종 합치기 (Merge & Save)</h4>
+                <p class="text-xs text-slate-600 max-w-md mx-auto mt-1">
+                  10개 문장 녹음이 모두 끝나면 아래 [합치기] 버튼을 눌러주세요. 10개의 음성이 하나의 고음질 WAV 오디오 파일로 합쳐져 컴퓨터나 스마트폰에 바로 저장됩니다.
+                </p>
+              </div>
+
+              <div class="flex justify-center items-center gap-3">
+                <button id="mergeAudioBtn" class="px-8 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-base shadow-lg shadow-emerald-200 transition active:scale-95 flex items-center space-x-2">
+                  <span>⚡</span>
+                  <span>10개 문장 음성 합치기 & 파일 저장</span>
+                </button>
+              </div>
+
+              <div id="mergedPlayerBox" class="hidden p-4 bg-white rounded-2xl border border-emerald-200 max-w-md mx-auto text-left space-y-2">
+                <div class="flex items-center justify-between text-xs font-bold text-emerald-800">
+                  <span>✅ 합치기 완료! 생성된 최종 음성 파일:</span>
+                  <span id="mergedDurationText" class="font-mono text-slate-500">00:00</span>
+                </div>
+                <audio id="mergedAudioPlayer" controls class="w-full"></audio>
+                <div class="pt-1 flex justify-end">
+                  <a id="downloadMergedLink" class="text-xs font-bold text-emerald-700 hover:text-emerald-900 underline flex items-center space-x-1" download="단문표현_10문장_녹음과제.wav">
+                    <span>📥 파일 다시 다운로드하기</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- TAB 3: 단어 암기장 & 퀴즈 -->
+      <section id="tab-words" class="tab-pane hidden space-y-6">
+        
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 id="wordSectionHeading" class="text-base font-bold text-slate-900">단원 필수 단어장</h2>
+            <p class="text-xs text-slate-500">한글 뜻 ↔ 한자 표기 ↔ 히라가나 발음 완벽 암기</p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <div class="inline-flex bg-slate-100 p-1 rounded-xl text-xs font-semibold text-slate-600">
+              <button id="wordModeCardsBtn" class="px-3 py-1.5 rounded-lg bg-white shadow-xs text-indigo-600 font-bold">카드 암기 모드</button>
+              <button id="wordModeQuizBtn" class="px-3 py-1.5 rounded-lg hover:text-slate-900">단어 퀴즈 모드</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="wordCardsContainer" class="space-y-4">
+          <div class="flex flex-wrap gap-1.5 text-xs" id="wordCategoryFilters">
+            <!-- Populated dynamically -->
+          </div>
+          <div id="wordsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <div id="wordQuizContainer" class="hidden space-y-4">
+          <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200 max-w-xl mx-auto">
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-3">
+              <span id="wquizBadge" class="bg-indigo-50 text-indigo-700 font-bold px-3 py-1 rounded-full">단어 퀴즈 1 / 10</span>
+              <span id="wquizScore" class="text-xs font-semibold text-slate-600">점수: 0점</span>
+            </div>
+
+            <div class="text-center py-4">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">다음 한국어 뜻에 맞는 한자/히라가나는?</span>
+              <h3 id="wquizQuestion" class="text-2xl md:text-3xl font-bold text-slate-900 mb-1">
+                단어 텍스트
+              </h3>
+              <span id="wquizCatBadge" class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded">카테고리</span>
+            </div>
+
+            <div id="wquizOptions" class="grid grid-cols-1 gap-2.5 my-4">
+              <!-- 4 options -->
+            </div>
+
+            <div id="wquizFeedback" class="hidden p-4 rounded-2xl border text-sm space-y-2 mt-4">
+              <div id="wquizFeedbackTitle" class="font-bold flex items-center space-x-1.5"></div>
+              <div id="wquizFeedbackDetail" class="text-slate-600 text-xs"></div>
+              <div class="pt-2 flex justify-end">
+                <button id="wquizNextBtn" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow transition">
+                  다음 단어 →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TAB 4: 핵심 문법 & 조사 족집게 -->
+      <section id="tab-grammar" class="tab-pane hidden space-y-6">
+        <div id="grammarContentBox" class="space-y-6">
+          <!-- Injected dynamically based on lesson -->
+        </div>
+      </section>
+
+      <!-- TAB 5: 실전 모의고사 -->
+      <section id="tab-mocktest" class="tab-pane hidden space-y-6">
+        <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200 max-w-2xl mx-auto space-y-6">
+          
+          <div id="mockIntro" class="text-center space-y-4">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-indigo-500 to-emerald-500 text-white flex items-center justify-center font-bold text-2xl mx-auto shadow-lg shadow-indigo-200">
+              🎯
+            </div>
+            <div>
+              <h2 id="mockTestMainTitle" class="text-xl md:text-2xl font-bold text-slate-900">다이스키 (상) 실전 모의고사</h2>
+              <p id="mockTestSubtitle" class="text-xs text-slate-500 mt-1">
+                단어 10문항 + 단문표현 10문항 = 총 20문항 실전 시험<br>
+                핵심 문형과 조사를 총망라한 실전 테스트입니다.
+              </p>
+            </div>
+            <button id="startMockBtn" class="px-8 py-3.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base shadow-lg shadow-indigo-200 transition active:scale-95">
+              시험 시작하기 (총 20문제)
+            </button>
+          </div>
+
+          <div id="mockTesting" class="hidden space-y-4">
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span id="mockProgressBadge" class="bg-indigo-50 text-indigo-700 font-bold px-3 py-1 rounded-full">문제 1 / 20</span>
+              <span id="mockTimerBadge" class="font-mono text-slate-600">진행 중</span>
+            </div>
+
+            <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 text-center space-y-2">
+              <span id="mockTypeBadge" class="text-xs font-bold text-indigo-600 uppercase tracking-wider block">단문표현 문제</span>
+              <h3 id="mockQuestionText" class="text-xl md:text-2xl font-bold text-slate-900">
+                문제 텍스트
+              </h3>
+            </div>
+
+            <div id="mockOptions" class="grid grid-cols-1 gap-2.5 my-4">
+              <!-- 4 options -->
+            </div>
+
+            <div class="flex justify-between items-center pt-2">
+              <button id="mockReplayAudioBtn" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold">
+                🔊 음성 듣기
+              </button>
+              <button id="mockNextBtn" class="hidden px-6 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow transition">
+                다음 문제 →
+              </button>
+            </div>
+          </div>
+
+          <div id="mockResult" class="hidden text-center space-y-6">
+            <div class="w-20 h-20 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-3xl mx-auto border-4 border-emerald-200" id="mockResultEmoji">
+              🎉
+            </div>
+            <div>
+              <h3 id="mockResultTitle" class="text-2xl font-bold text-slate-900">모의고사 채점 결과</h3>
+              <div class="text-4xl font-extrabold text-indigo-600 my-2" id="mockScoreDisplay">100점</div>
+              <p class="text-xs text-slate-500" id="mockScoreComment">완벽 마스터!</p>
+            </div>
+
+            <div id="mockWrongSection" class="text-left space-y-2">
+              <h4 class="text-xs font-bold text-rose-600 uppercase tracking-wider">오답 다시보기 & 복습</h4>
+              <div id="mockWrongList" class="space-y-2 text-xs">
+                <!-- populated by JS -->
+              </div>
+            </div>
+
+            <button id="restartMockBtn" class="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow transition">
+              다시 시험 보기
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-400 no-print flex flex-col items-center justify-center space-y-1">
+      <div>다이스키 (상) 12~15과 • (하) 1과 통합 마스터 시스템 • 카나우 일본어 학원 공식</div>
+      <div class="flex items-center space-x-3 text-slate-500">
+        <button id="footerUserBtn" class="hover:text-indigo-600 underline font-medium">👤 학생 계정 관리</button>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: USER LOGIN & PROFILE MANAGEMENT -->
+  <!-- ======================================================== -->
+  <div id="userLoginModal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 no-print">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200 space-y-5 animate-in fade-in duration-200">
+      
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <div class="flex items-center space-x-2">
+          <span class="text-2xl">👤</span>
+          <div>
+            <h3 class="text-lg font-bold text-slate-900">학생 계정 관리</h3>
+            <p class="text-xs text-slate-500">개인별 암기 진행도와 숙제 기록이 분리 저장됩니다</p>
+          </div>
+        </div>
+        <button id="closeUserModalBtn" class="text-slate-400 hover:text-slate-600 text-xl font-bold p-1">×</button>
+      </div>
+
+      <!-- Current Login Status Box -->
+      <div id="modalUserStatusBox" class="p-4 rounded-2xl bg-indigo-50/60 border border-indigo-100 flex items-center justify-between">
+        <div>
+          <span class="text-xs text-indigo-500 font-semibold block">현재 학습자:</span>
+          <span id="modalCurrentUserName" class="text-base font-extrabold text-indigo-950">게스트 (비로그인)</span>
+        </div>
+        <button id="modalLogoutBtn" class="hidden px-3 py-1.5 rounded-xl bg-white border border-slate-200 hover:bg-rose-50 hover:text-rose-600 text-slate-600 text-xs font-bold transition">
+          로그아웃
+        </button>
+      </div>
+
+      <!-- User Form: Switch or Register -->
+      <div class="space-y-4">
+        
+        <div class="flex border-b border-slate-200 text-xs font-bold">
+          <button id="userTabLogin" class="flex-1 py-2.5 text-center border-b-2 border-indigo-600 text-indigo-600">기존 학생 로그인</button>
+          <button id="userTabRegister" class="flex-1 py-2.5 text-center border-b-2 border-transparent text-slate-400 hover:text-slate-600">새 학생 등록</button>
+        </div>
+
+        <!-- Registered users quick pills -->
+        <div id="quickUserPillsBox" class="space-y-1.5">
+          <span class="text-xs font-bold text-slate-500 block">등록된 학생 목록:</span>
+          <div id="quickUserList" class="flex flex-wrap gap-1.5">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Input Fields -->
+        <div class="space-y-3">
+          <div>
+            <label class="text-xs font-bold text-slate-600 block mb-1">학생 이름 (또는 아이디)</label>
+            <input type="text" id="modalInputName" placeholder="예: 홍길동" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 text-sm font-semibold outline-none">
+          </div>
+          <div>
+            <label class="text-xs font-bold text-slate-600 block mb-1">비밀번호 (3자리 이상)</label>
+            <input type="password" id="modalInputPass" placeholder="비밀번호 입력" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 text-sm font-semibold outline-none">
+          </div>
+        </div>
+
+        <button id="modalSubmitUserBtn" class="w-full py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md transition active:scale-95">
+          로그인하기
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- In-page Toast Notification -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform transition-all duration-300 translate-y-20 opacity-0 bg-slate-900/90 backdrop-blur text-white text-xs font-semibold px-4 py-3 rounded-2xl shadow-2xl flex items-center space-x-2 pointer-events-none no-print">
+    <span id="toastIcon">ℹ️</span>
+    <span id="toastMessage">알림 메시지</span>
+  </div>
+
+  <!-- Main Unified JavaScript Engine -->
+  <!-- Data (one file per lesson / special module) -->
+  <script src="data/manifest.js"></script>
+  <script src="data/furigana.js"></script>
+  <script src="data/lessons/s12.js"></script>
+  <script src="data/lessons/s13.js"></script>
+  <script src="data/lessons/s14.js"></script>
+  <script src="data/lessons/s15.js"></script>
+  <script src="data/lessons/h01.js"></script>
+  <script src="data/special/verb.js"></script>
+  <script src="data/special/iadj.js"></script>
+  <script src="data/special/naadj.js"></script>
+  <script src="data/special/noun.js"></script>
+  <script src="data/special/counter.js"></script>
+  <script src="data/special/number.js"></script>
+  <script src="data/special/date.js"></script>
+  <script src="data/special/family.js"></script>
+  <script src="data/special/location.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
