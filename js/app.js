@@ -773,21 +773,21 @@
     function renderReadingHomework() {
       const mainHeading = document.getElementById('worksheetMainHeading');
       const titleTag = document.getElementById('readingPassageTitleTag');
-      const trackTag = document.getElementById('readingTrackTag');
       const sentBox = document.getElementById('readingPassageSentencesBox');
       const jaList = document.getElementById('readingHandwritingJaList');
       const krList = document.getElementById('readingHandwritingKrList');
+      const answerKey = document.getElementById('readingAnswerKey');
 
       if (!readingPassage || !readingPassage.sentences) return;
 
       const lessonLabelText = lessonLabel();
       mainHeading.textContent = `📖 [${lessonLabelText}] 읽어 봅시다! 쓰기 & 한국어 번역 과제`;
       titleTag.textContent = `【 ${readingPassage.title} 】`;
-      trackTag.textContent = `표준 원어민 음성 연동 (${lessonLabel})`;
 
       sentBox.innerHTML = '';
       jaList.innerHTML = '';
       krList.innerHTML = '';
+      answerKey.innerHTML = '<div class="font-bold text-slate-500 pb-1">해석 참고</div>';
 
       readingPassage.sentences.forEach((ps, idx) => {
         const p = document.createElement('p');
@@ -807,12 +807,15 @@
         const krDiv = document.createElement('div');
         krDiv.className = 'space-y-1';
         krDiv.innerHTML = `
-          <div class="text-xs text-slate-400">${idx + 1}문장 해석 쓰기:</div>
-          <div class="min-h-10 border-b-2 border-slate-300 border-dashed flex items-end pb-1 text-slate-300 text-xs">
-            (${ps.kr})
+          <div class="flex items-end gap-2 min-h-10 border-b-2 border-slate-300 border-dashed pb-1">
+            <span class="text-xs text-slate-500 font-bold">${idx + 1}.</span>
           </div>
         `;
         krList.appendChild(krDiv);
+
+        const keyLine = document.createElement('div');
+        keyLine.textContent = `${idx + 1}. ${ps.kr}`;
+        answerKey.appendChild(keyLine);
       });
     }
 
