@@ -687,9 +687,13 @@
       renderBlocksUI();
     }
 
+    let assembledPlaceholderEl = null;
     function renderBlocksUI() {
       const assembledArea = document.getElementById('assembledWordsArea');
-      const placeholder = document.getElementById('assembledPlaceholder');
+      // 조각을 고르면 placeholder가 DOM에서 빠지므로, 처음 한 번 잡아 둔 노드를 재사용한다
+      // (매번 getElementById로 찾으면 null이 되어 appendChild에서 오류 → 조각 목록이 갱신되지 않던 버그)
+      if (!assembledPlaceholderEl) assembledPlaceholderEl = document.getElementById('assembledPlaceholder');
+      const placeholder = assembledPlaceholderEl;
       assembledArea.innerHTML = '';
 
       if (currentAssembledWords.length === 0) {

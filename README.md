@@ -10,7 +10,7 @@
 python -I tools/serve.py
 ```
 
-브라우저에서 http://localhost:8765 를 엽니다. (`python -m http.server`는 Range 요청을 지원하지 않아 문장별 음성 구간 이동이 안 됩니다. GitHub Pages는 지원합니다.)
+브라우저에서 http://localhost:8791 를 엽니다. (`python -m http.server`는 Range 요청을 지원하지 않아 문장별 음성 구간 이동이 안 됩니다. GitHub Pages는 지원합니다.)
 
 ## 폴더 구조
 

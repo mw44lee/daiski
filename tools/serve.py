@@ -1,6 +1,6 @@
 """Local dev server with HTTP Range support (needed so <audio> can seek to sentence start times).
 
-Usage: python -I tools/serve.py [port]   → http://localhost:8765
+Usage: python -I tools/serve.py [port]   → http://localhost:8791
 """
 import functools
 import http.server
@@ -57,8 +57,10 @@ class RangeHandler(http.server.SimpleHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-    port = int(sys.argv[1]) if len(sys.argv) > 1 else 8765
+    port = int(sys.argv[1]) if len(sys.argv) > 1 else 8791
     handler = functools.partial(RangeHandler, directory=str(ROOT))
+    # Windows에서 SO_REUSEADDR이면 다른 앱이 쓰는 포트에도 겹쳐서 바인딩되므로 끔
+    http.server.ThreadingHTTPServer.allow_reuse_address = False
     with http.server.ThreadingHTTPServer(('', port), handler) as httpd:
         print(f'Serving {ROOT} on http://localhost:{port}')
         httpd.serve_forever()
