@@ -47,6 +47,10 @@ def polite(d):
     return s + '습니다'
 
 
+F_HIEUT = 27  # ㅎ 받침
+H_REGULAR = {'좋', '놓', '낳', '넣', '괜찮', '많', '않'}  # ㅎ 받침이지만 규칙 활용
+JV = {**J, 'ㅒ': 3}
+
 IRREG_A = {'걷다': '걸어', '듣다': '들어', '묻다': '물어'}  # ㄷ 불규칙
 
 
@@ -59,6 +63,10 @@ def a_form(d):
         return s[:-1] + '해'
     last = s[-1]
     cho, jung, jong = split(last)
+    # ㅎ irregular (파랗다→파래, 빨갛다→빨개, 하얗다→하얘)
+    if jong == F_HIEUT and s not in H_REGULAR:
+        nj = {'ㅏ': 'ㅐ', 'ㅑ': 'ㅒ', 'ㅓ': 'ㅔ'}.get(JR.get(jung), 'ㅐ')
+        return s[:-1] + chr(BASE + (cho * JUNG + JV[nj]) * JONG)
     # 르 irregular
     if last == '르' and len(s) > 1:
         if s in REO_IRREG:
@@ -107,6 +115,8 @@ def adnominal_adj(d):
     cho, jung, jong = split(s[-1])
     if jong == 0:
         return set_final(s, 'ㄴ')
+    if jong == F_HIEUT and s not in H_REGULAR:  # 파랗다 → 파란
+        return s[:-1] + join(cho, jung, F['ㄴ'])
     if jong == F['ㄹ']:
         return set_final(s, 'ㄴ')
     if jong == F['ㅂ'] and s not in B_REGULAR:
@@ -147,5 +157,5 @@ def eul(word):
 
 if __name__ == '__main__':
     for w in ['비싸다', '높다', '덥다', '크다', '빠르다', '이르다', '길다', '맛있다', '느리다', '조용하다',
-              '좁다', '나쁘다', '아프다', '가볍다', '오래되다', '시원하다', '좋다', '괜찮다', '멀다', '슬프다', '잘생기다', '귀엽다']:
+              '좁다', '파랗다', '빨갛다', '나쁘다', '아프다', '가볍다', '오래되다', '시원하다', '좋다', '괜찮다', '멀다', '슬프다', '잘생기다', '귀엽다']:
         print(w, adnominal_adj(w), polite(w), neg(w), past(w), become(w), go(w), seo(w))

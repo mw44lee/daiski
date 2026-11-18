@@ -19,6 +19,7 @@ from datafile import load_data, save_data  # noqa: E402
 import ko  # noqa: E402
 from jp import group_of, masu_stem, te, te_rule  # noqa: E402
 from content_h1 import build_h1, H1_FURIGANA  # noqa: E402
+from content_h2 import build_h2, FURIGANA as H2_FURIGANA  # noqa: E402
 from content_special import build_noun, build_date, VERB_TE_SENTENCES, VERB_TE_GRAMMAR_HTML, SPECIAL_FURIGANA  # noqa: E402
 
 D = ROOT / 'data'
@@ -70,7 +71,8 @@ def ko_te_forms(d):
     return {'te': f'{s}고 / {a}서', 'teiru': f'{s}고 있습니다', 'kudasai': f'{a} 주세요', 'tekara': f'{s}고 나서'}
 
 
-NO_KUDASAI = {'終わる', '知る'}  # 부자연스러운 요청형은 제외
+NATURE = {'降る', '吹く'}  # 자연현상 동사: 희망·목적·청유·권유·요청형은 부자연스러워 제외
+NO_KUDASAI = {'終わる', '知る'} | NATURE  # 부자연스러운 요청형은 제외
 TEIRU_RESULT = {'終わる': '끝나 있습니다 (결과 상태)', '入る': '들어가 있습니다 (결과 상태)'}
 
 TE_LABELS = [('te', 'て형 (~て: ~하고/~해서)', '', ''),
@@ -108,6 +110,17 @@ NEW_VERBS = [  # dict, hira, kr(표시), 한국어 기본형(활용용), cat
     ('泳ぐ', 'およぐ', '헤엄치다 / 수영하다', '수영하다', '1그룹 (5단 동사)'),
     ('開ける', 'あける', '열다', '열다', '2그룹 (1단 동사)'),
     ('つける', 'つける', '(불을) 켜다', '켜다', '2그룹 (1단 동사)'),
+    # 하 2과
+    ('降る', 'ふる', '(비·눈이) 내리다', '내리다', '1그룹 (5단 동사)'),
+    ('吹く', 'ふく', '(바람이) 불다', '불다', '1그룹 (5단 동사)'),
+    ('住む', 'すむ', '살다 (~に 住む)', '살다', '1그룹 (5단 동사)'),
+    ('持つ', 'もつ', '가지다, 들다', '가지다', '1그룹 (5단 동사)'),
+    ('かぶる', 'かぶる', '(모자를) 쓰다', '쓰다', '1그룹 (5단 동사)'),
+    ('はく', 'はく', '(하의·신발을) 입다/신다', '신다', '1그룹 (5단 동사)'),
+    ('かける', 'かける', '(안경을) 쓰다', '쓰다', '2그룹 (1단 동사)'),
+    ('しめる', 'しめる', '(넥타이를) 매다', '매다', '2그룹 (1단 동사)'),
+    ('着る', 'きる', '(상의를) 입다', '입다', '2그룹 (1단 동사)'),
+    ('予約する', 'よやくする', '예약하다', '예약하다', '3그룹 (불규칙)'),
 ]
 MASU_LABELS = [('masu', '현재 긍정 (~ます)', 'ます'), ('masen', '현재 부정 (~ません)', 'ません'),
                ('mashita', '과거 긍정 (~ました)', 'ました'), ('masendeshita', '과거 부정 (~ませんでした)', 'ませんでした'),
@@ -121,9 +134,13 @@ def make_verb(dict_, hira, kr, kbase, cat):
     kf = ko_verb_forms(kbase)
     forms = []
     for key, label, suf in MASU_LABELS:
+        if dict_ in NATURE and key in ('tai', 'ni_iku', 'mashou', 'masenka'):
+            continue
         js, hs = (suf, suf) if isinstance(suf, str) else suf
         forms.append({'label': label, 'ja': st + js, 'hira': sth + hs, 'kr': kf[key]})
-    if g == 2:
+    if g == 3:
+        rule = 'する ➔ します (3그룹 불규칙: 명사 + する)'
+    elif g == 2:
         rule = f'어미 る 앞이 {"い" if sth[-1] in "いきしちにひみりぎじびぴ" else "え"}단({sth[-1]}): 어미 る를 떼고 ます 결합'
     else:
         rule = f'어미 「{dict_[-1]}」를 い단 「{st[-1]}」로 바꾸고 ます 결합'
@@ -213,6 +230,20 @@ def regen_adj(item, primary, kind):
 
 iadj_p = D / 'special' / 'iadj.js'
 iadj = load_data(iadj_p)
+COLOR_ADJ = [('青い', 'あおい', '파랗다', ('ブラウス', '블라우스')), ('赤い', 'あかい', '빨갛다', ('靴', '구두'))]
+have_adj = {i['dict'] for i in iadj['conjugationItems']}
+for dict_, hira, kr, (noun, noun_kr) in COLOR_ADJ:
+    if dict_ in have_adj:
+        continue
+    st, sth = dict_[:-1], hira[:-1]
+    noun_hira = {'靴': 'くつ'}.get(noun, noun)
+    forms = [('명사 수식 (~い + 명사)', f'{dict_} {noun}', f'{hira} {noun_hira}', f'{ko.adnominal_adj(kr)} {noun_kr}')]
+    forms += [(lab, st + suf, sth + suf, '') for lab, suf in [
+        ('현재 긍정 (~いです)', 'いです'), ('현재 부정 1 (~くないです)', 'くないです'), ('현재 부정 2 (~くありません)', 'くありません'),
+        ('과거 긍정 (~かったです)', 'かったです'), ('과거 부정 (~くなかったです)', 'くなかったです'), ('상태 변화 (~くなります)', 'くなります')]]
+    iadj['conjugationItems'].append({'cat': '④ 색깔 어휘 (하 2과)', 'dict': dict_, 'dictHira': hira, 'kr': kr,
+        'rule': '어미 い를 활용: 명사 수식은 그대로 ~い + 명사', 'forms': [{'label': a, 'ja': b, 'hira': c, 'kr': d} for a, b, c, d in forms]})
+    iadj['words'].append({'kr': kr, 'hira': hira, 'kanji': dict_, 'category': '④ 색깔 어휘 (하 2과)'})
 for item in iadj['conjugationItems']:
     d = regen_adj(item, IADJ_PRIMARY.get(item['dict'], ko_primary(item['kr'])), 'i')
     lab = 'て형 연결 (~くて: 나열·이유)'
@@ -260,6 +291,7 @@ for n in (12, 13, 14, 15):
 save_data(D / 'special' / 'noun.js', 'LESSONS_DB', 'noun', build_noun())
 save_data(D / 'special' / 'date.js', 'LESSONS_DB', 'date', build_date())
 save_data(D / 'lessons' / 'h01.js', 'LESSONS_DB', 'h1', build_h1())
+save_data(D / 'lessons' / 'h02.js', 'LESSONS_DB', 'h2', build_h2())
 
 # ------------------------------------------------------------------ furigana map
 fp = D / 'furigana.js'
@@ -268,9 +300,9 @@ keys = {k for k, _ in furi}
 FURIGANA_FIXES = [  # 기존 맵이 잘못 읽던 경우를 더 긴 키로 바로잡음 (긴 키가 먼저 적용됨)
     ('中国', 'ちゅうごく'), ('電話します', 'でんわします'), ('主人公', 'しゅじんこう'), ('何ですか', 'なんですか'),
     ('何歳', 'なんさい'), ('後は', 'あとは'), ('後に', 'あとに'), ('一日です', 'ついたちです'), ('一日、', 'ついたち、'),
-    ('日本', 'にほん'),
+    ('日本', 'にほん'), ('今度', 'こんど'),
 ]
-for k, r in FURIGANA_FIXES + H1_FURIGANA + SPECIAL_FURIGANA:
+for k, r in FURIGANA_FIXES + H1_FURIGANA + H2_FURIGANA + SPECIAL_FURIGANA:
     if k not in keys:
         furi.append([k, r])
         keys.add(k)

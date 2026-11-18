@@ -19,7 +19,7 @@ def check_ruby(where, ja, hira):
     h = kata2hira(hira).replace(' ', '').replace('　', '')
     for k, r in furi:
         if k in rest:
-            if r.replace(" ", "") not in h:
+            if kata2hira(r).replace(" ", "") not in h:
                 problems.append(f'[ruby] {where}: {k}→{r} not in hira「{hira}」')
             rest = rest.replace(k, '□')
 

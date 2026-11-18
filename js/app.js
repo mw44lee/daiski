@@ -1785,11 +1785,25 @@
       };
 
       // Reading Voice Playback
+      // 교재 트랙(reading_passage.audio)이 있으면 원어민 음성, 없으면 TTS. 재생 중 다시 누르면 정지.
+      const readingAudio = new Audio();
       document.getElementById('playReadingVoiceBtn').onclick = () => {
-        if (readingPassage && readingPassage.sentences) {
-          const fullText = readingPassage.sentences.map(s => s.ja).join(' ');
-          speakTTS(fullText);
+        if (!readingPassage || !readingPassage.sentences) return;
+        if (readingPassage.audio) {
+          const src = new URL(readingPassage.audio, location.href).href;
+          if (readingAudio.src === src && !readingAudio.paused) {
+            readingAudio.pause();
+            return;
+          }
+          if (nativeAudio) nativeAudio.pause();
+          if (readingAudio.src !== src) readingAudio.src = src;
+          readingAudio.currentTime = 0;
+          readingAudio.playbackRate = audioPlaybackRate;
+          readingAudio.play().catch(err => console.log('Reading audio blocked:', err));
+          return;
         }
+        const fullText = readingPassage.sentences.map(s => s.ja).join(' ');
+        speakTTS(fullText);
       };
 
       // Print Worksheet Button
