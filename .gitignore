@@ -5,3 +5,7 @@ legacy/
 __pycache__/
 *.pyc
 NVIDIA Corporation/
+# 프로젝트 루트에 놓인 사진(교재 촬영본 등)은 올리지 않음
+/*.jpg
+/*.jpeg
+/*.png
