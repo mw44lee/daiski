@@ -127,9 +127,13 @@ def build_noun():
             ('て형 연결 (~で: 나열·이유)', 'で', 'で', k['de']),
             ('상태 변화 (~に なります)', 'に なります', 'に なります', k['naru']),
         ]
+        fl = [{'label': l, 'ja': ja + j, 'hira': hi + h, 'kr': kk} for l, j, h, kk in forms]
+        n0 = kr.split(' / ')[0]
+        fl.append({'label': '허가 (~でも いいです)', 'ja': ja + 'でも いいです', 'hira': hi + 'でも いいです',
+                   'kr': n0 + ('이어도' if ko.has_batchim(n0) else '여도') + ' 됩니다', 'since': 4})
         items.append({'cat': cat, 'dict': ja, 'dictHira': hi, 'kr': kr,
-                      'rule': '명사 + です / では ありません / でした / では ありませんでした | て형: 명사 + で (~이고 / ~라서) | 변화: 명사 + に なります',
-                      'forms': [{'label': l, 'ja': ja + j, 'hira': hi + h, 'kr': kk} for l, j, h, kk in forms]})
+                      'rule': '명사 + です / では ありません / でした / では ありませんでした | て형: 명사 + で (~이고 / ~라서) | 변화: 명사 + に なります | 허가: 명사 + でも いいです',
+                      'forms': fl})
     words = [{'kr': kr, 'hira': hi, 'kanji': ja, 'category': cat} for ja, hi, kr, cat in NOUNS]
     words += [
         {'kr': '~입니다', 'hira': '～です', 'kanji': '～です', 'category': '명사 문형'},
@@ -196,7 +200,7 @@ def build_noun():
 </div>
 '''
     return {
-        'id': 'noun', 'isSpecial': True, 'icon': '🏷️', 'shortLabel': '명사 활용',
+        'id': 'noun', 'isSpecial': True, 'updatedIn': 4, 'icon': '🏷️', 'shortLabel': '명사 활용',
         'title': '일본어 명사 활용 (です형 4가지 & て형 で・상태변화) 마스터', 'badge': '명사 です형 & て형(で)',
         'theme': 'from-lime-500 to-green-600', 'accent': 'lime',
         'subtitle': '명사 + です / では ありません / でした / では ありませんでした • て형(で: 나열·이유) • ~に なります',

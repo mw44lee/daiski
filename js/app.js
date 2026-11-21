@@ -1192,16 +1192,20 @@
       const grid = document.getElementById('conjItemsGrid');
       if (!filterBox || !grid) return;
 
-      const cats = ['all', ...Array.from(new Set(items.map(x => x.cat)))];
+      const hasNewIn = x => isNewSince(x.since) || (x.forms || []).some(f => isNewSince(f.since));
+      const newCount = items.filter(hasNewIn).length;
+      const cats = ['all', ...(newCount ? ['__new__'] : []), ...Array.from(new Set(items.map(x => x.cat)))];
+      if (currentConjCat === '__new__' && !newCount) currentConjCat = 'all';
       filterBox.innerHTML = '';
       cats.forEach(c => {
         const btn = document.createElement('button');
-        const count = c === 'all' ? items.length : items.filter(x => x.cat === c).length;
+        const count = c === 'all' ? items.length : c === '__new__' ? newCount : items.filter(x => x.cat === c).length;
         const isActive = currentConjCat === c;
         btn.className = `px-3 py-1.5 rounded-full text-xs transition ${
           isActive ? 'bg-indigo-600 text-white font-bold shadow-xs' : 'bg-slate-200 text-slate-700 font-medium hover:bg-slate-300'
         }`;
-        btn.textContent = `${c === 'all' ? '전체 보기' : c} (${count})`;
+        btn.textContent = `${c === 'all' ? '전체 보기' : c === '__new__' ? '🆕 새로 추가된 것' : c} (${count})`;
+        if (c === '__new__' && !isActive) btn.className = 'px-3 py-1.5 rounded-full text-xs transition bg-rose-100 text-rose-700 font-bold hover:bg-rose-200';
         btn.onclick = () => {
           currentConjCat = c;
           renderConjugationTable();
@@ -1210,16 +1214,17 @@
       });
 
       grid.innerHTML = '';
-      const filtered = items.filter(x => currentConjCat === 'all' || x.cat === currentConjCat);
+      const filtered = items.filter(x => currentConjCat === 'all' || (currentConjCat === '__new__' ? hasNewIn(x) : x.cat === currentConjCat));
 
       filtered.forEach(item => {
         const card = document.createElement('div');
-        card.className = 'p-5 rounded-3xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition space-y-3 flex flex-col justify-between';
+        const itemNew = isNewSince(item.since);
+        card.className = `p-5 rounded-3xl bg-white border ${itemNew ? 'border-rose-300 ring-2 ring-rose-100' : 'border-slate-200'} shadow-xs hover:shadow-md transition space-y-3 flex flex-col justify-between`;
 
         const formsHtml = (item.forms || []).map((f, fIdx) => `
-          <div class="p-2.5 rounded-xl bg-slate-50 hover:bg-indigo-50/50 border border-slate-200/80 flex items-center justify-between gap-2 transition">
+          <div class="p-2.5 rounded-xl ${isNewSince(f.since) ? 'bg-rose-50/60 border-rose-300' : 'bg-slate-50 border-slate-200/80'} hover:bg-indigo-50/50 border flex items-center justify-between gap-2 transition">
             <div class="space-y-0.5 min-w-0 flex-1">
-              <div class="text-[11px] font-bold text-indigo-600">${f.label}</div>
+              <div class="text-[11px] font-bold text-indigo-600">${isNewSince(f.since) ? newBadgeHtml('NEW') + ' ' : ''}${f.label}</div>
               <div class="text-sm md:text-base font-extrabold font-jp text-slate-900 truncate">${renderRubyFromText(f.ja, f.hira)}</div>
               <div class="text-[11px] text-slate-500 font-jp">${f.hira} <span class="font-sans text-slate-600 font-semibold">• ${f.kr}</span></div>
             </div>
@@ -1233,7 +1238,7 @@
           <div class="space-y-2.5">
             <div class="flex items-start justify-between gap-2 border-b border-slate-100 pb-2.5">
               <div>
-                <span class="text-[11px] font-bold bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-md">${item.cat}</span>
+                <span class="text-[11px] font-bold bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-md">${item.cat}</span>${itemNew ? ' ' + newBadgeHtml('NEW') : ''}
                 <h3 class="text-xl font-extrabold font-jp text-slate-900 mt-1">${renderRubyFromText(item.dict, item.dictHira)} <span class="text-sm font-normal text-indigo-600">(${item.dictHira})</span></h3>
                 <div class="text-sm font-bold text-slate-700">${item.kr}</div>
               </div>
@@ -2138,7 +2143,7 @@
         const c = d.card || {};
         const accent = d.accent || 'orange';
         const el = document.createElement('div');
-        el.className = `bg-white rounded-3xl p-6 border-2 border-slate-200 hover:border-${accent}-500 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group`;
+        el.className = `bg-white rounded-3xl p-6 border-2 ${isNewSince(d.since) ? 'border-rose-300 ring-4 ring-rose-100' : 'border-slate-200'} hover:border-${accent}-500 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group`;
         const points = (c.points || []).map(p => `<li>• ${p}</li>`).join('');
         const audioTag = d.sentences.some(s => s.audio) ? '🔊 원어민 음성' : '🔈 TTS 음성';
         el.innerHTML = `
@@ -2148,7 +2153,7 @@
               <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-${accent}-50 text-${accent}-700 border border-${accent}-200">${d.badge}</span>
             </div>
             <div>
-              <h3 class="text-xl font-bold text-slate-900 group-hover:text-${accent}-600 transition">제 ${d.lessonNo} 과 <span class="text-sm font-bold text-slate-400">(하)</span></h3>
+              <h3 class="text-xl font-bold text-slate-900 group-hover:text-${accent}-600 transition">제 ${d.lessonNo} 과 <span class="text-sm font-bold text-slate-400">(하)</span>${isNewSince(d.since) ? ' ' + newBadgeHtml('NEW') : ''}</h3>
               <p class="text-xs text-slate-500 mt-1 line-clamp-2 font-jp">${c.summary || d.sample || ''}</p>
             </div>
             <div class="p-3 bg-${accent}-50/50 rounded-2xl border border-${accent}-100 text-xs text-slate-700 space-y-1.5">
@@ -2168,4 +2173,71 @@
         box.appendChild(el);
       });
     }
-    renderBookCards();
+    // --- 업데이트 표시 (data/changelog.js) ---
+    // since / updatedIn 이 "마지막으로 확인한 버전"보다 크면 NEW·UPDATE 표시. 처음 방문이면 직전 버전 기준(최신 업데이트만 표시).
+    function latestVersion() {
+      return (window.CHANGELOG || []).reduce((m, c) => Math.max(m, c.id), 0);
+    }
+    function seenVersion() {
+      try {
+        const v = parseInt(localStorage.getItem('daisuki_seen_version'), 10);
+        if (!isNaN(v)) return v;
+      } catch (e) {}
+      return latestVersion() - 1;
+    }
+    function isNewSince(v) { return !!v && v > seenVersion(); }
+    function newBadgeHtml(text) {
+      return `<span class="upd-mark inline-block align-middle px-1.5 py-0.5 rounded-md bg-rose-500 text-white text-[10px] font-extrabold tracking-wide">${text}</span>`;
+    }
+    function lessonIsUpdated(d) { return !!d && (isNewSince(d.since) || isNewSince(d.updatedIn)); }
+
+    function renderUpdateBanner() {
+      const box = document.getElementById('updateBanner');
+      if (!box) return;
+      const seen = seenVersion();
+      const fresh = (window.CHANGELOG || []).filter(c => c.id > seen).sort((a, b) => b.id - a.id);
+      if (!fresh.length) { box.classList.add('hidden'); box.innerHTML = ''; return; }
+      box.className = 'rounded-3xl border-2 border-rose-200 bg-gradient-to-r from-rose-50 to-amber-50 p-5 space-y-3 shadow-sm';
+      box.innerHTML = `
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="font-extrabold text-rose-700 flex items-center gap-2">🆕 새로 업데이트되었어요 <span class="text-xs font-bold text-rose-500">${fresh[0].date}</span></div>
+          <button id="updateSeenBtn" class="px-4 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold shadow-sm transition active:scale-95">확인했어요 (표시 끄기)</button>
+        </div>
+        ${fresh.map(c => `
+          <div class="space-y-1">
+            <div class="text-sm font-bold text-slate-900">${c.title}</div>
+            <ul class="text-xs text-slate-700 space-y-0.5">${c.items.map(i => `<li>• ${i}</li>`).join('')}</ul>
+          </div>`).join('')}
+        <div class="text-[11px] text-slate-500">빨간 <b>NEW</b> · <b>UPDATE</b> 표시와 활용 연습실의 "🆕 새로 추가된 것" 필터로 바뀐 내용만 골라 볼 수 있습니다.</div>`;
+      document.getElementById('updateSeenBtn').onclick = () => {
+        try { localStorage.setItem('daisuki_seen_version', String(latestVersion())); } catch (e) {}
+        refreshUpdateMarks();
+        showToast('업데이트 표시를 껐습니다.', '✅');
+      };
+    }
+
+    // 특강 카드(정적 HTML)·단원 전환 버튼에 UPDATE / 빨간 점 붙이기
+    function markUpdatedButtons() {
+      document.querySelectorAll('.upd-dynamic').forEach(el => el.remove());
+      Object.entries(LESSONS_DB).forEach(([key, d]) => {
+        if (!lessonIsUpdated(d)) return;
+        document.querySelectorAll(`.lesson-switch-btn[data-lesson="${key}"]`).forEach(btn => {
+          btn.classList.add('relative');
+          btn.insertAdjacentHTML('beforeend', '<span class="upd-dynamic absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-rose-500"></span>');
+        });
+        if (d.isSpecial) {
+          const btn = document.querySelector(`#lessonPortal button[onclick^="openLesson('${key}'"]`);
+          const title = btn && btn.closest('.group') && btn.closest('.group').querySelector('h3');
+          if (title) title.insertAdjacentHTML('beforeend', ` <span class="upd-dynamic">${newBadgeHtml(isNewSince(d.since) ? 'NEW' : 'UPDATE')}</span>`);
+        }
+      });
+    }
+
+    function refreshUpdateMarks() {
+      renderUpdateBanner();
+      renderBookCards();
+      markUpdatedButtons();
+      if (document.getElementById('conjItemsGrid') && APP_DATA && APP_DATA.conjugationItems) renderConjugationTable();
+    }
+
+    refreshUpdateMarks();

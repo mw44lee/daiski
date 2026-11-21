@@ -5,11 +5,11 @@ window.LESSONS_DB["verb"] = {
  "isSpecial": true,
  "icon": "⚡",
  "shortLabel": "동사 활용",
- "title": "일본어 동사 활용 (1·2·3그룹 구분 & ます형·て형 12대 응용) 마스터",
+ "title": "일본어 동사 활용 (1·2·3그룹 구분 & ます형·て형·て형Ⅱ 응용) 마스터",
  "badge": "동사 그룹 & ます형·て형 활용",
  "theme": "from-amber-500 to-orange-600",
  "accent": "amber",
- "subtitle": "3그룹(불규칙) • 2그룹(1단) • 1그룹(5단/예외) 구분법 및 시제·희망·목적·청유·권유 + て형(~て/~ています/~てください/~てから)",
+ "subtitle": "3그룹 • 2그룹 • 1그룹 구분 · ます형 8형태 + て형(~て/~ています/~てください/~てから) + て형Ⅱ(~てみる/~ておく/~てしまう/~てもいい/~てはいけない/~てばかり) + ~たがる",
  "sample": "待つ ➔ 待ちます / 待って / 待っています / 待ってください / 待ってから",
  "words": [
   {
@@ -335,6 +335,120 @@ window.LESSONS_DB["verb"] = {
    "hira": "よやくする",
    "kanji": "予約する",
    "category": "3그룹 (불규칙)"
+  },
+  {
+   "kr": "잊다 (→ 忘れます / 忘れて)",
+   "hira": "わすれる",
+   "kanji": "忘れる",
+   "category": "2그룹 (1단 동사)"
+  },
+  {
+   "kr": "세우다, 멈추다 (→ 止めます / 止めて)",
+   "hira": "とめる",
+   "kanji": "止める",
+   "category": "2그룹 (1단 동사)"
+  },
+  {
+   "kr": "데리고 가다 (つれて 行く) (→ つれます / つれて)",
+   "hira": "つれる",
+   "kanji": "-",
+   "category": "2그룹 (1단 동사)"
+  },
+  {
+   "kr": "앉다 (→ 座ります / 座って)",
+   "hira": "すわる",
+   "kanji": "座る",
+   "category": "1그룹 (5단 동사)"
+  },
+  {
+   "kr": "찾다 (→ 探します / 探して)",
+   "hira": "さがす",
+   "kanji": "探す",
+   "category": "1그룹 (5단 동사)"
+  },
+  {
+   "kr": "울다 (→ 泣きます / 泣いて)",
+   "hira": "なく",
+   "kanji": "泣く",
+   "category": "1그룹 (5단 동사)"
+  },
+  {
+   "kr": "일하다 (→ 働きます / 働いて)",
+   "hira": "はたらく",
+   "kanji": "働く",
+   "category": "1그룹 (5단 동사)"
+  },
+  {
+   "kr": "다니다 (~に 通う) (→ 通います / 通って)",
+   "hira": "かよう",
+   "kanji": "通う",
+   "category": "1그룹 (5단 동사)"
+  },
+  {
+   "kr": "열심히 하다, 힘내다 (→ 頑張ります / 頑張って)",
+   "hira": "がんばる",
+   "kanji": "頑張る",
+   "category": "1그룹 (5단 동사)"
+  },
+  {
+   "kr": "~해 보다",
+   "hira": "～てみる",
+   "kanji": "～てみる",
+   "category": "て형 활용 Ⅱ (하 3과)"
+  },
+  {
+   "kr": "~해 두다",
+   "hira": "～ておく",
+   "kanji": "～ておく",
+   "category": "て형 활용 Ⅱ (하 3과)"
+  },
+  {
+   "kr": "~해 버리다",
+   "hira": "～てしまう",
+   "kanji": "～てしまう",
+   "category": "て형 활용 Ⅱ (하 3과)"
+  },
+  {
+   "kr": "~해도 됩니다",
+   "hira": "～てもいいです",
+   "kanji": "～てもいいです",
+   "category": "て형 활용 Ⅱ (하 3과)"
+  },
+  {
+   "kr": "~해서는 안 됩니다",
+   "hira": "～てはいけません",
+   "kanji": "～てはいけません",
+   "category": "て형 활용 Ⅱ (하 3과)"
+  },
+  {
+   "kr": "~하고만 있다",
+   "hira": "～てばかりいる",
+   "kanji": "～てばかりいる",
+   "category": "て형 활용 Ⅱ (하 3과)"
+  },
+  {
+   "kr": "(3인칭) ~하고 싶어 하다",
+   "hira": "～たがる",
+   "kanji": "～たがる",
+   "category": "て형 활용 Ⅱ (하 3과)"
+  },
+  {
+   "kr": "죽다 (유일한 ぬ 동사) (→ 死にます / 死んで)",
+   "hira": "しぬ",
+   "kanji": "死ぬ",
+   "category": "1그룹 (5단 동사)"
+  },
+  {
+   "kr": "살이 빠지다, 마르다 (→ やせます / やせて)",
+   "hira": "やせる",
+   "kanji": "-",
+   "category": "2그룹 (1단 동사)"
+  },
+  {
+   "kr": "살찌다 (→ 太ります / 太って)",
+   "hira": "ふとる",
+   "kanji": "太る",
+   "category": "1그룹 (5단 동사)"
   }
  ],
  "sentences": [
@@ -677,6 +791,72 @@ window.LESSONS_DB["verb"] = {
    "grammar": "순서 ~てから: 飲む ➔ 飲んで (む ➔ んで)",
    "blankWord": "飲んでから",
    "blankQ": "コーヒーを [ 빈칸: 마시고 나서(飲む ~てから) ] 宿題を します。"
+  },
+  {
+   "id": 35,
+   "part": 2,
+   "kr": "여동생이 나의 빵을 먹어버렸습니다. (완료)",
+   "ja": "妹が 私の パンを 食べて しまいました。",
+   "hira": "いもうとが わたしの ぱんを たべて しまいました。",
+   "grammar": "~て しまう ① 완료 (~해 버리다)",
+   "blankWord": "食べて しまいました",
+   "blankQ": "妹が 私の パンを [ 빈칸: 먹어 버렸습니다 ]。",
+   "since": 4
+  },
+  {
+   "id": 36,
+   "part": 2,
+   "kr": "김 씨는 일본에 가고 싶어 합니다.",
+   "ja": "キムさんは 日本へ 行きたがって います。",
+   "hira": "きむさんは にほんへ いきたがって います。",
+   "grammar": "3인칭 희망: ます형 어간 + たがって います",
+   "blankWord": "行きたがって います",
+   "blankQ": "キムさんは 日本へ [ 빈칸: 가고 싶어 합니다 ]。",
+   "since": 4
+  },
+  {
+   "id": 37,
+   "part": 2,
+   "kr": "히라가나로 써도 됩니까?",
+   "ja": "ひらがなで 書いても いいですか。",
+   "hira": "ひらがなで かいても いいですか。",
+   "grammar": "허가 질문: ~ても いいですか",
+   "blankWord": "書いても いいですか",
+   "blankQ": "ひらがなで [ 빈칸: 써도 됩니까 ]。",
+   "since": 4
+  },
+  {
+   "id": 38,
+   "part": 2,
+   "kr": "여기에서 사진을 찍어서는 안 됩니다.",
+   "ja": "ここで 写真を 撮っては いけません。",
+   "hira": "ここで しゃしんを とっては いけません。",
+   "grammar": "금지: ~ては いけません",
+   "blankWord": "撮っては いけません",
+   "blankQ": "ここで 写真を [ 빈칸: 찍어서는 안 됩니다 ]。",
+   "since": 4
+  },
+  {
+   "id": 39,
+   "part": 2,
+   "kr": "하루 종일 자고만 있습니다.",
+   "ja": "一日中 寝てばかり います。",
+   "hira": "いちにちじゅう ねてばかり います。",
+   "grammar": "~て ばかり いる (~하고만 있다)",
+   "blankWord": "寝てばかり います",
+   "blankQ": "一日中 [ 빈칸: 자고만 있습니다 ]。",
+   "since": 4
+  },
+  {
+   "id": 40,
+   "part": 2,
+   "kr": "아이가 울어버렸습니다.",
+   "ja": "子供が 泣いて しまいました。",
+   "hira": "こどもが ないて しまいました。",
+   "grammar": "~て しまう: 泣く ➔ 泣いて しまいました",
+   "blankWord": "泣いて しまいました",
+   "blankQ": "子供が [ 빈칸: 울어 버렸습니다 ]。",
+   "since": 4
   }
  ],
  "reading_passage": {
@@ -704,14 +884,14 @@ window.LESSONS_DB["verb"] = {
    }
   ]
  },
- "grammarHtml": "\n<div class=\"bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6\">\n  <div class=\"border-b border-slate-100 pb-4\">\n    <span class=\"text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full\">동사 활용 핵심 마스터 노트</span>\n    <h3 class=\"text-2xl font-extrabold text-slate-900 mt-2\">1. 일본어 동사 그룹 구분법 (1·2·3그룹) 및 ます형 변형 공식</h3>\n    <p class=\"text-xs text-slate-500 mt-1\">기본형(사전형)의 어미 형태에 따라 3가지 그룹으로 나누며, 어미 변형 공식이 각각 다릅니다.</p>\n  </div>\n\n  <div class=\"grid grid-cols-1 md:grid-cols-3 gap-4\">\n    <div class=\"p-5 rounded-2xl bg-rose-50/60 border border-rose-200 space-y-2\">\n      <div class=\"text-xs font-extrabold text-rose-700 bg-rose-100 inline-block px-2.5 py-0.5 rounded-md\">📌 3그룹 동사 (불규칙 동사)</div>\n      <div class=\"text-sm font-bold text-slate-900\">규칙 없이 불규칙 변형 — 단 2개 통째 암기!</div>\n      <ul class=\"text-xs text-slate-700 space-y-1.5 font-jp pt-1\">\n        <li>• <b>する</b> (하다) ➔ <b class=\"text-rose-700\">します</b> (합니다)</li>\n        <li>• <b>勉強する</b> ➔ <b class=\"text-rose-700\">勉強します</b> (공부합니다)</li>\n        <li>• <b>来(く)る</b> (오다) ➔ <b class=\"text-rose-700\">来(き)ます</b> (옵니다)</li>\n      </ul>\n    </div>\n\n    <div class=\"p-5 rounded-2xl bg-emerald-50/60 border border-emerald-200 space-y-2\">\n      <div class=\"text-xs font-extrabold text-emerald-700 bg-emerald-100 inline-block px-2.5 py-0.5 rounded-md\">📌 2그룹 동사 (1단 동사)</div>\n      <div class=\"text-sm font-bold text-slate-900\">어미 「～る」 앞이 <b>い단</b> 또는 <b>え단</b>!</div>\n      <p class=\"text-xs text-emerald-800 font-semibold\">공식: 어미 <b>る를 떼고 + ます</b></p>\n      <ul class=\"text-xs text-slate-700 space-y-1 font-jp pt-1\">\n        <li>• 見(み)る (み=い단) ➔ <b class=\"text-emerald-700\">見ます</b> (봅니다)</li>\n        <li>• 起(お)きる (き=い단) ➔ <b class=\"text-emerald-700\">起きます</b> (일어납니다)</li>\n        <li>• 食(た)べる (べ=え단) ➔ <b class=\"text-emerald-700\">食べます</b> (먹습니다)</li>\n        <li>• 教(おし)える (え=え단) ➔ <b class=\"text-emerald-700\">教えます</b> (가르칩니다)</li>\n        <li>• 寝(ね)る (ね=え단) ➔ <b class=\"text-emerald-700\">寝ます</b> (잡니다)</li>\n      </ul>\n    </div>\n\n    <div class=\"p-5 rounded-2xl bg-indigo-50/60 border border-indigo-200 space-y-2\">\n      <div class=\"text-xs font-extrabold text-indigo-700 bg-indigo-100 inline-block px-2.5 py-0.5 rounded-md\">📌 1그룹 동사 (5단 동사)</div>\n      <div class=\"text-sm font-bold text-slate-900\">2·3그룹을 제외한 모든 동사!</div>\n      <p class=\"text-xs text-indigo-800 font-semibold\">공식: 어미(う단)를 <b>い단으로 바꾸고 + ます</b></p>\n      <ul class=\"text-xs text-slate-700 space-y-1 font-jp pt-1\">\n        <li>• 買(か)<b>う</b> / 会(あ)<b>う</b> ➔ 買<b>い</b>ます / 会<b>い</b>ます</li>\n        <li>• 書(か)<b>く</b> / 聞(き)<b>く</b> ➔ 書<b>き</b>ます / 聞<b>き</b>ます</li>\n        <li>• 話(はな)<b>す</b> ➔ 話<b>し</b>ます (이야기합니다)</li>\n        <li>• 飲(の)<b>む</b> / 読(よ)<b>む</b> ➔ 飲<b>み</b>ます / 読<b>み</b>ます</li>\n        <li>• 作(つく)<b>る</b> / 乗(の)<b>る</b> ➔ 作<b>り</b>ます / 乗<b>り</b>ます</li>\n        <li class=\"text-amber-800 font-bold\">• ⚠️예외1그룹: 帰る ➔ 帰ります / 知る ➔ 知ります / 入る ➔ 入ります</li>\n      </ul>\n    </div>\n  </div>\n\n  <div class=\"pt-4 border-t border-slate-100 space-y-3\">\n    <h4 class=\"text-lg font-extrabold text-slate-900\">2. ます형의 시제 및 용법 응용표 (ます형 어간 + 핵심 표현)</h4>\n    <div class=\"overflow-x-auto rounded-2xl border border-slate-200\">\n      <table class=\"w-full text-left text-xs\">\n        <thead class=\"bg-slate-100 text-slate-700 font-bold\">\n          <tr>\n            <th class=\"p-3\">구문 / 표현</th>\n            <th class=\"p-3\">어미 변형</th>\n            <th class=\"p-3\">2그룹 예시 (食べる - 먹다)</th>\n            <th class=\"p-3\">1그룹 예시 (行く - 가다)</th>\n            <th class=\"p-3\">의미</th>\n          </tr>\n        </thead>\n        <tbody class=\"divide-y divide-slate-200 font-jp\">\n          <tr><td class=\"p-3 font-sans font-bold\">현재 긍정</td><td class=\"p-3 text-indigo-600 font-bold\">～ます</td><td class=\"p-3\">食べます</td><td class=\"p-3\">行きます</td><td class=\"p-3 font-sans\">먹습니다 / 갑니다</td></tr>\n          <tr><td class=\"p-3 font-sans font-bold\">현재 부정</td><td class=\"p-3 text-rose-600 font-bold\">～ません</td><td class=\"p-3\">食べません</td><td class=\"p-3\">行きません</td><td class=\"p-3 font-sans\">먹지 않습니다 / 가지 않습니다</td></tr>\n          <tr><td class=\"p-3 font-sans font-bold\">과거 긍정</td><td class=\"p-3 text-indigo-600 font-bold\">～ました</td><td class=\"p-3\">食べました</td><td class=\"p-3\">行きました</td><td class=\"p-3 font-sans\">먹었습니다 / 갔습니다</td></tr>\n          <tr><td class=\"p-3 font-sans font-bold\">과거 부정</td><td class=\"p-3 text-rose-600 font-bold\">～ませんでした</td><td class=\"p-3\">食べませんでした</td><td class=\"p-3\">行きませんでした</td><td class=\"p-3 font-sans\">먹지 않았습니다 / 가지 않았습니다</td></tr>\n          <tr class=\"bg-indigo-50/40\"><td class=\"p-3 font-sans font-bold\">희망 (~하고 싶다)</td><td class=\"p-3 text-indigo-700 font-bold\">～たい(です)</td><td class=\"p-3\">食べたいです</td><td class=\"p-3\">行きたいです</td><td class=\"p-3 font-sans\">먹고 싶습니다 / 가고 싶습니다</td></tr>\n          <tr class=\"bg-indigo-50/40\"><td class=\"p-3 font-sans font-bold\">목적 (~하러 가다)</td><td class=\"p-3 text-indigo-700 font-bold\">～に行(い)く</td><td class=\"p-3\">食べに行きます</td><td class=\"p-3\">買いに行きます(사러)</td><td class=\"p-3 font-sans\">먹으러 갑니다 / 사러 갑니다</td></tr>\n          <tr class=\"bg-emerald-50/40\"><td class=\"p-3 font-sans font-bold\">청유 (~합시다)</td><td class=\"p-3 text-emerald-700 font-bold\">～ましょう</td><td class=\"p-3\">食べましょう</td><td class=\"p-3\">行きましょう</td><td class=\"p-3 font-sans\">먹읍시다 / 갑시다</td></tr>\n          <tr class=\"bg-emerald-50/40\"><td class=\"p-3 font-sans font-bold\">권유 (~하지 않을래요?)</td><td class=\"p-3 text-emerald-700 font-bold\">～ませんか</td><td class=\"p-3\">食べませんか</td><td class=\"p-3\">行きませんか</td><td class=\"p-3 font-sans\">먹지 않을래요? / 가지 않을래요?</td></tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>\n\n<div data-te-section class=\"bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-orange-200 space-y-6 mt-6\">\n  <div class=\"border-b border-slate-100 pb-4\">\n    <span class=\"text-xs font-bold text-orange-700 bg-orange-50 px-3 py-1 rounded-full\">NEW • 다이스키 (하) 1과</span>\n    <h3 class=\"text-2xl font-extrabold text-slate-900 mt-2\">2. 동사의 て형 (~하고 / ~해서) 만들기</h3>\n    <p class=\"text-xs text-slate-500 mt-1\">1그룹은 어미에 따라 음편(音便)이 생기고, 2그룹은 る를 떼고 て, 3그룹은 통째로 암기합니다.</p>\n  </div>\n  <div class=\"overflow-x-auto\">\n    <table class=\"w-full text-sm font-jp border border-slate-200 rounded-2xl overflow-hidden\">\n      <thead class=\"bg-slate-50 text-xs text-slate-600 font-sans\"><tr><th class=\"p-3 text-left\">그룹</th><th class=\"p-3 text-left\">규칙</th><th class=\"p-3 text-left\">예</th></tr></thead>\n      <tbody class=\"divide-y divide-slate-100\">\n        <tr><td class=\"p-3 font-sans font-bold\" rowspan=\"7\">1그룹<br>(5단 동사)</td><td class=\"p-3 text-orange-700 font-bold\">う・つ・る ➔ って</td><td class=\"p-3\">会う ➔ 会って / 待つ ➔ 待って / 撮る ➔ 撮って</td></tr>\n        <tr><td class=\"p-3 text-orange-700 font-bold\">ぬ・む・ぶ ➔ んで</td><td class=\"p-3\">飲む ➔ 飲んで / 遊ぶ ➔ 遊んで</td></tr>\n        <tr><td class=\"p-3 text-orange-700 font-bold\">く ➔ いて</td><td class=\"p-3\">書く ➔ 書いて / 聞く ➔ 聞いて / 歩く ➔ 歩いて</td></tr>\n        <tr><td class=\"p-3 text-orange-700 font-bold\">ぐ ➔ いで</td><td class=\"p-3\">泳ぐ ➔ 泳いで</td></tr>\n        <tr><td class=\"p-3 text-orange-700 font-bold\">す ➔ して</td><td class=\"p-3\">話す ➔ 話して</td></tr>\n        <tr><td class=\"p-3 text-rose-700 font-bold\">★ 예외 1그룹</td><td class=\"p-3\">帰る ➔ 帰って / 入る ➔ 入って / 知る ➔ 知って</td></tr>\n        <tr><td class=\"p-3 text-rose-700 font-bold\">★ 예외 行く</td><td class=\"p-3\">行く ➔ <b>行って</b> (行いて ✕)</td></tr>\n        <tr><td class=\"p-3 font-sans font-bold\">2그룹<br>(1단 동사)</td><td class=\"p-3 text-emerald-700 font-bold\">る를 떼고 + て</td><td class=\"p-3\">見る ➔ 見て / 起きる ➔ 起きて / 食べる ➔ 食べて / 寝る ➔ 寝て</td></tr>\n        <tr><td class=\"p-3 font-sans font-bold\">3그룹<br>(불규칙)</td><td class=\"p-3 text-indigo-700 font-bold\">통째로 암기</td><td class=\"p-3\">来る ➔ 来(き)て / する ➔ して / 勉強する ➔ 勉強して</td></tr>\n      </tbody>\n    </table>\n  </div>\n  <div class=\"grid grid-cols-1 md:grid-cols-3 gap-4 text-xs\">\n    <div class=\"p-4 rounded-2xl bg-orange-50/60 border border-orange-200 space-y-1.5\">\n      <div class=\"font-extrabold text-orange-800\">～て います (~하고 있습니다)</div>\n      <div class=\"font-jp text-slate-800\">学校の 前で 友達を 待って います。</div>\n      <div class=\"text-slate-500\">학교 앞에서 친구를 기다리고 있습니다.</div>\n    </div>\n    <div class=\"p-4 rounded-2xl bg-sky-50/60 border border-sky-200 space-y-1.5\">\n      <div class=\"font-extrabold text-sky-800\">～て ください (~해 주세요)</div>\n      <div class=\"font-jp text-slate-800\">写真を 撮って ください。</div>\n      <div class=\"text-slate-500\">사진을 찍어 주세요.</div>\n    </div>\n    <div class=\"p-4 rounded-2xl bg-emerald-50/60 border border-emerald-200 space-y-1.5\">\n      <div class=\"font-extrabold text-emerald-800\">～てから (~하고 나서)</div>\n      <div class=\"font-jp text-slate-800\">朝ご飯を 食べてから 会社へ 行きます。</div>\n      <div class=\"text-slate-500\">아침밥을 먹고 나서 회사에 갑니다.</div>\n    </div>\n  </div>\n</div>\n",
+ "grammarHtml": "\n<div class=\"bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6\">\n  <div class=\"border-b border-slate-100 pb-4\">\n    <span class=\"text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full\">동사 활용 핵심 마스터 노트</span>\n    <h3 class=\"text-2xl font-extrabold text-slate-900 mt-2\">1. 일본어 동사 그룹 구분법 (1·2·3그룹) 및 ます형 변형 공식</h3>\n    <p class=\"text-xs text-slate-500 mt-1\">기본형(사전형)의 어미 형태에 따라 3가지 그룹으로 나누며, 어미 변형 공식이 각각 다릅니다.</p>\n  </div>\n\n  <div class=\"grid grid-cols-1 md:grid-cols-3 gap-4\">\n    <div class=\"p-5 rounded-2xl bg-rose-50/60 border border-rose-200 space-y-2\">\n      <div class=\"text-xs font-extrabold text-rose-700 bg-rose-100 inline-block px-2.5 py-0.5 rounded-md\">📌 3그룹 동사 (불규칙 동사)</div>\n      <div class=\"text-sm font-bold text-slate-900\">규칙 없이 불규칙 변형 — 단 2개 통째 암기!</div>\n      <ul class=\"text-xs text-slate-700 space-y-1.5 font-jp pt-1\">\n        <li>• <b>する</b> (하다) ➔ <b class=\"text-rose-700\">します</b> (합니다)</li>\n        <li>• <b>勉強する</b> ➔ <b class=\"text-rose-700\">勉強します</b> (공부합니다)</li>\n        <li>• <b>来(く)る</b> (오다) ➔ <b class=\"text-rose-700\">来(き)ます</b> (옵니다)</li>\n      </ul>\n    </div>\n\n    <div class=\"p-5 rounded-2xl bg-emerald-50/60 border border-emerald-200 space-y-2\">\n      <div class=\"text-xs font-extrabold text-emerald-700 bg-emerald-100 inline-block px-2.5 py-0.5 rounded-md\">📌 2그룹 동사 (1단 동사)</div>\n      <div class=\"text-sm font-bold text-slate-900\">어미 「～る」 앞이 <b>い단</b> 또는 <b>え단</b>!</div>\n      <p class=\"text-xs text-emerald-800 font-semibold\">공식: 어미 <b>る를 떼고 + ます</b></p>\n      <ul class=\"text-xs text-slate-700 space-y-1 font-jp pt-1\">\n        <li>• 見(み)る (み=い단) ➔ <b class=\"text-emerald-700\">見ます</b> (봅니다)</li>\n        <li>• 起(お)きる (き=い단) ➔ <b class=\"text-emerald-700\">起きます</b> (일어납니다)</li>\n        <li>• 食(た)べる (べ=え단) ➔ <b class=\"text-emerald-700\">食べます</b> (먹습니다)</li>\n        <li>• 教(おし)える (え=え단) ➔ <b class=\"text-emerald-700\">教えます</b> (가르칩니다)</li>\n        <li>• 寝(ね)る (ね=え단) ➔ <b class=\"text-emerald-700\">寝ます</b> (잡니다)</li>\n      </ul>\n    </div>\n\n    <div class=\"p-5 rounded-2xl bg-indigo-50/60 border border-indigo-200 space-y-2\">\n      <div class=\"text-xs font-extrabold text-indigo-700 bg-indigo-100 inline-block px-2.5 py-0.5 rounded-md\">📌 1그룹 동사 (5단 동사)</div>\n      <div class=\"text-sm font-bold text-slate-900\">2·3그룹을 제외한 모든 동사!</div>\n      <p class=\"text-xs text-indigo-800 font-semibold\">공식: 어미(う단)를 <b>い단으로 바꾸고 + ます</b></p>\n      <ul class=\"text-xs text-slate-700 space-y-1 font-jp pt-1\">\n        <li>• 買(か)<b>う</b> / 会(あ)<b>う</b> ➔ 買<b>い</b>ます / 会<b>い</b>ます</li>\n        <li>• 書(か)<b>く</b> / 聞(き)<b>く</b> ➔ 書<b>き</b>ます / 聞<b>き</b>ます</li>\n        <li>• 話(はな)<b>す</b> ➔ 話<b>し</b>ます (이야기합니다)</li>\n        <li>• 飲(の)<b>む</b> / 読(よ)<b>む</b> ➔ 飲<b>み</b>ます / 読<b>み</b>ます</li>\n        <li>• 作(つく)<b>る</b> / 乗(の)<b>る</b> ➔ 作<b>り</b>ます / 乗<b>り</b>ます</li>\n        <li class=\"text-amber-800 font-bold\">• ⚠️예외1그룹: 帰る ➔ 帰ります / 知る ➔ 知ります / 入る ➔ 入ります</li>\n      </ul>\n    </div>\n  </div>\n\n  <div class=\"pt-4 border-t border-slate-100 space-y-3\">\n    <h4 class=\"text-lg font-extrabold text-slate-900\">2. ます형의 시제 및 용법 응용표 (ます형 어간 + 핵심 표현)</h4>\n    <div class=\"overflow-x-auto rounded-2xl border border-slate-200\">\n      <table class=\"w-full text-left text-xs\">\n        <thead class=\"bg-slate-100 text-slate-700 font-bold\">\n          <tr>\n            <th class=\"p-3\">구문 / 표현</th>\n            <th class=\"p-3\">어미 변형</th>\n            <th class=\"p-3\">2그룹 예시 (食べる - 먹다)</th>\n            <th class=\"p-3\">1그룹 예시 (行く - 가다)</th>\n            <th class=\"p-3\">의미</th>\n          </tr>\n        </thead>\n        <tbody class=\"divide-y divide-slate-200 font-jp\">\n          <tr><td class=\"p-3 font-sans font-bold\">현재 긍정</td><td class=\"p-3 text-indigo-600 font-bold\">～ます</td><td class=\"p-3\">食べます</td><td class=\"p-3\">行きます</td><td class=\"p-3 font-sans\">먹습니다 / 갑니다</td></tr>\n          <tr><td class=\"p-3 font-sans font-bold\">현재 부정</td><td class=\"p-3 text-rose-600 font-bold\">～ません</td><td class=\"p-3\">食べません</td><td class=\"p-3\">行きません</td><td class=\"p-3 font-sans\">먹지 않습니다 / 가지 않습니다</td></tr>\n          <tr><td class=\"p-3 font-sans font-bold\">과거 긍정</td><td class=\"p-3 text-indigo-600 font-bold\">～ました</td><td class=\"p-3\">食べました</td><td class=\"p-3\">行きました</td><td class=\"p-3 font-sans\">먹었습니다 / 갔습니다</td></tr>\n          <tr><td class=\"p-3 font-sans font-bold\">과거 부정</td><td class=\"p-3 text-rose-600 font-bold\">～ませんでした</td><td class=\"p-3\">食べませんでした</td><td class=\"p-3\">行きませんでした</td><td class=\"p-3 font-sans\">먹지 않았습니다 / 가지 않았습니다</td></tr>\n          <tr class=\"bg-indigo-50/40\"><td class=\"p-3 font-sans font-bold\">희망 (~하고 싶다)</td><td class=\"p-3 text-indigo-700 font-bold\">～たい(です)</td><td class=\"p-3\">食べたいです</td><td class=\"p-3\">行きたいです</td><td class=\"p-3 font-sans\">먹고 싶습니다 / 가고 싶습니다</td></tr>\n          <tr class=\"bg-indigo-50/40\"><td class=\"p-3 font-sans font-bold\">목적 (~하러 가다)</td><td class=\"p-3 text-indigo-700 font-bold\">～に行(い)く</td><td class=\"p-3\">食べに行きます</td><td class=\"p-3\">買いに行きます(사러)</td><td class=\"p-3 font-sans\">먹으러 갑니다 / 사러 갑니다</td></tr>\n          <tr class=\"bg-emerald-50/40\"><td class=\"p-3 font-sans font-bold\">청유 (~합시다)</td><td class=\"p-3 text-emerald-700 font-bold\">～ましょう</td><td class=\"p-3\">食べましょう</td><td class=\"p-3\">行きましょう</td><td class=\"p-3 font-sans\">먹읍시다 / 갑시다</td></tr>\n          <tr class=\"bg-emerald-50/40\"><td class=\"p-3 font-sans font-bold\">권유 (~하지 않을래요?)</td><td class=\"p-3 text-emerald-700 font-bold\">～ませんか</td><td class=\"p-3\">食べませんか</td><td class=\"p-3\">行きませんか</td><td class=\"p-3 font-sans\">먹지 않을래요? / 가지 않을래요?</td></tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>\n\n<div data-te-section class=\"bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-orange-200 space-y-6 mt-6\">\n  <div class=\"border-b border-slate-100 pb-4\">\n    <span class=\"text-xs font-bold text-orange-700 bg-orange-50 px-3 py-1 rounded-full\">NEW • 다이스키 (하) 1과</span>\n    <h3 class=\"text-2xl font-extrabold text-slate-900 mt-2\">2. 동사의 て형 (~하고 / ~해서) 만들기</h3>\n    <p class=\"text-xs text-slate-500 mt-1\">1그룹은 어미에 따라 음편(音便)이 생기고, 2그룹은 る를 떼고 て, 3그룹은 통째로 암기합니다.</p>\n  </div>\n  <div class=\"overflow-x-auto\">\n    <table class=\"w-full text-sm font-jp border border-slate-200 rounded-2xl overflow-hidden\">\n      <thead class=\"bg-slate-50 text-xs text-slate-600 font-sans\"><tr><th class=\"p-3 text-left\">그룹</th><th class=\"p-3 text-left\">규칙</th><th class=\"p-3 text-left\">예</th></tr></thead>\n      <tbody class=\"divide-y divide-slate-100\">\n        <tr><td class=\"p-3 font-sans font-bold\" rowspan=\"7\">1그룹<br>(5단 동사)</td><td class=\"p-3 text-orange-700 font-bold\">う・つ・る ➔ って</td><td class=\"p-3\">会う ➔ 会って / 待つ ➔ 待って / 撮る ➔ 撮って</td></tr>\n        <tr><td class=\"p-3 text-orange-700 font-bold\">ぬ・む・ぶ ➔ んで</td><td class=\"p-3\">飲む ➔ 飲んで / 遊ぶ ➔ 遊んで</td></tr>\n        <tr><td class=\"p-3 text-orange-700 font-bold\">く ➔ いて</td><td class=\"p-3\">書く ➔ 書いて / 聞く ➔ 聞いて / 歩く ➔ 歩いて</td></tr>\n        <tr><td class=\"p-3 text-orange-700 font-bold\">ぐ ➔ いで</td><td class=\"p-3\">泳ぐ ➔ 泳いで</td></tr>\n        <tr><td class=\"p-3 text-orange-700 font-bold\">す ➔ して</td><td class=\"p-3\">話す ➔ 話して</td></tr>\n        <tr><td class=\"p-3 text-rose-700 font-bold\">★ 예외 1그룹</td><td class=\"p-3\">帰る ➔ 帰って / 入る ➔ 入って / 知る ➔ 知って</td></tr>\n        <tr><td class=\"p-3 text-rose-700 font-bold\">★ 예외 行く</td><td class=\"p-3\">行く ➔ <b>行って</b> (行いて ✕)</td></tr>\n        <tr><td class=\"p-3 font-sans font-bold\">2그룹<br>(1단 동사)</td><td class=\"p-3 text-emerald-700 font-bold\">る를 떼고 + て</td><td class=\"p-3\">見る ➔ 見て / 起きる ➔ 起きて / 食べる ➔ 食べて / 寝る ➔ 寝て</td></tr>\n        <tr><td class=\"p-3 font-sans font-bold\">3그룹<br>(불규칙)</td><td class=\"p-3 text-indigo-700 font-bold\">통째로 암기</td><td class=\"p-3\">来る ➔ 来(き)て / する ➔ して / 勉強する ➔ 勉強して</td></tr>\n      </tbody>\n    </table>\n  </div>\n  <div class=\"grid grid-cols-1 md:grid-cols-3 gap-4 text-xs\">\n    <div class=\"p-4 rounded-2xl bg-orange-50/60 border border-orange-200 space-y-1.5\">\n      <div class=\"font-extrabold text-orange-800\">～て います (~하고 있습니다)</div>\n      <div class=\"font-jp text-slate-800\">学校の 前で 友達を 待って います。</div>\n      <div class=\"text-slate-500\">학교 앞에서 친구를 기다리고 있습니다.</div>\n    </div>\n    <div class=\"p-4 rounded-2xl bg-sky-50/60 border border-sky-200 space-y-1.5\">\n      <div class=\"font-extrabold text-sky-800\">～て ください (~해 주세요)</div>\n      <div class=\"font-jp text-slate-800\">写真を 撮って ください。</div>\n      <div class=\"text-slate-500\">사진을 찍어 주세요.</div>\n    </div>\n    <div class=\"p-4 rounded-2xl bg-emerald-50/60 border border-emerald-200 space-y-1.5\">\n      <div class=\"font-extrabold text-emerald-800\">～てから (~하고 나서)</div>\n      <div class=\"font-jp text-slate-800\">朝ご飯を 食べてから 会社へ 行きます。</div>\n      <div class=\"text-slate-500\">아침밥을 먹고 나서 회사에 갑니다.</div>\n    </div>\n  </div>\n</div>\n<div data-te2-section class=\"mt-6\">\n<div class=\"bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8\">\n  <div class=\"border-b border-slate-100 pb-4\">\n    <span class=\"text-xs font-bold text-violet-700 bg-violet-50 px-3 py-1 rounded-full\">다이스키 (하) 3과 핵심 문법</span>\n    <h3 class=\"text-2xl font-extrabold text-slate-900 mt-2\">① て형 활용 Ⅱ</h3>\n    <p class=\"text-xs text-slate-500 mt-1\">て형 뒤에 붙여서 \"해 보다 · 해 두다 · 해 버리다 · 해도 된다 · 하면 안 된다 · 하고만 있다\"를 만듭니다.</p>\n  </div>\n  <table class=\"w-full text-sm font-jp border border-slate-200\">\n    <tbody class=\"divide-y divide-slate-100\">\n      <tr><td class=\"p-3 font-bold text-violet-700\">～て みる</td><td class=\"p-3 font-sans\">~해 보다</td><td class=\"p-3\">食べて みる</td></tr>\n      <tr><td class=\"p-3 font-bold text-violet-700\">～て おく</td><td class=\"p-3 font-sans\">~해 놓다(두다)</td><td class=\"p-3\">食べて おく</td></tr>\n      <tr><td class=\"p-3 font-bold text-violet-700\">～て いる + 명사</td><td class=\"p-3 font-sans\">~하고 있는 + 명사</td><td class=\"p-3\">食べて いる 人</td></tr>\n      <tr><td class=\"p-3 font-bold text-violet-700\">～て しまう</td><td class=\"p-3 font-sans\">~해 버리다</td><td class=\"p-3\">食べて しまう</td></tr>\n      <tr><td class=\"p-3 font-bold text-violet-700\">～ても いいです</td><td class=\"p-3 font-sans\">~해도 됩니다</td><td class=\"p-3\">食べても いいです</td></tr>\n      <tr><td class=\"p-3 font-bold text-violet-700\">～ては いけません</td><td class=\"p-3 font-sans\">~해서는 안 됩니다</td><td class=\"p-3\">食べては いけません</td></tr>\n      <tr><td class=\"p-3 font-bold text-violet-700\">～て ばかり いる</td><td class=\"p-3 font-sans\">~하고만 있다</td><td class=\"p-3\">一日中 食べて ばかり いる</td></tr>\n    </tbody>\n  </table>\n\n  <div class=\"grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-jp\">\n    <div class=\"p-4 rounded-2xl bg-violet-50/60 border border-violet-200 space-y-1.5\">\n      <div class=\"font-extrabold text-violet-800 font-sans\">② ～て しまう (~해 버리다)</div>\n      <div>妹が 私の パンを 食べて しまいました。<span class=\"font-sans text-slate-500\">(완료)</span></div>\n      <div>家に ある ビールを 全部 飲んで しまいました。<span class=\"font-sans text-slate-500\">(완료)</span></div>\n      <div>忙しくて 宿題を 忘れて しまいました。<span class=\"font-sans text-slate-500\">(유감·후회)</span></div>\n    </div>\n    <div class=\"p-4 rounded-2xl bg-sky-50/60 border border-sky-200 space-y-1.5\">\n      <div class=\"font-extrabold text-sky-800 font-sans\">④ ～ても いいです / ～ては いけません</div>\n      <div>ひらがなで 書いても いいですか。</div>\n      <div>日本語で 話しても いいですか。</div>\n      <div>ここで 写真を 撮っては いけません。</div>\n      <div class=\"font-sans text-slate-500\">대답: はい、~ても いいです / いいえ、~ては いけません</div>\n    </div>\n  </div>\n\n  <div class=\"grid grid-cols-1 md:grid-cols-2 gap-4\">\n    <div class=\"space-y-2\">\n      <h3 class=\"text-lg font-extrabold text-slate-900\">③ ～たい / ～たがる</h3>\n      <table class=\"w-full text-sm font-jp border border-slate-200 text-center\">\n        <thead class=\"bg-slate-50 text-xs text-slate-600 font-sans\"><tr><th class=\"p-2\">1·2인칭 (~하고 싶다)</th><th class=\"p-2\">3인칭 (~하고 싶어하다)</th></tr></thead>\n        <tbody class=\"divide-y divide-slate-100\">\n          <tr><td class=\"p-2\">行きたい</td><td class=\"p-2 text-violet-700 font-bold\">行きたがる</td></tr>\n          <tr><td class=\"p-2\">会いたい</td><td class=\"p-2 text-violet-700 font-bold\">会いたがる</td></tr>\n          <tr><td class=\"p-2\">勉強したい</td><td class=\"p-2 text-violet-700 font-bold\">勉強したがる</td></tr>\n        </tbody>\n      </table>\n      <div class=\"text-xs font-jp text-slate-700\">私は 英語<b>が</b> 勉強したいです。/ 弟は 英語<b>を</b> 勉強したがって います。</div>\n    </div>\n    <div class=\"space-y-2\">\n      <h3 class=\"text-lg font-extrabold text-slate-900\">[참고] ほしい / ほしがる · ～がる</h3>\n      <table class=\"w-full text-sm font-jp border border-slate-200 text-center\">\n        <thead class=\"bg-slate-50 text-xs text-slate-600 font-sans\"><tr><th class=\"p-2\">1·2인칭</th><th class=\"p-2\">3인칭 (~해하다)</th></tr></thead>\n        <tbody class=\"divide-y divide-slate-100\">\n          <tr><td class=\"p-2\">ほしい</td><td class=\"p-2 text-violet-700 font-bold\">ほしがる</td></tr>\n          <tr><td class=\"p-2\">こわい</td><td class=\"p-2 text-violet-700 font-bold\">こわがる</td></tr>\n          <tr><td class=\"p-2\">難しい</td><td class=\"p-2 text-violet-700 font-bold\">難しがる</td></tr>\n        </tbody>\n      </table>\n      <div class=\"text-xs font-jp text-slate-700\">私は デジカメ<b>が</b> ほしいです。/ キムさんは デジカメ<b>を</b> ほしがって います。</div>\n    </div>\n  </div>\n\n  <div class=\"p-4 rounded-2xl bg-rose-50 border border-rose-200 text-xs text-rose-900 font-jp space-y-1\">\n    <div class=\"font-sans font-bold\">⚠️ 시험 단골 함정</div>\n    <div>• 남(3인칭)의 희망에 ~たい ✕ → キムさんは 行きたがって います ⭕</div>\n    <div>• ほしい는 が, ほしがる는 を: デジカメが ほしい / デジカメを ほしがる</div>\n    <div>• 금지 대답은 「いいえ、~ては いけません」 / 撮っては (撮っちゃ = 회화체)</div>\n    <div>• 一日中 寝て ばかり います = \"하루 종일 자기만 한다\" (불만·비난의 느낌)</div>\n  </div>\n</div>\n</div>",
  "conjugationItems": [
   {
    "cat": "3그룹 (불규칙)",
    "dict": "する",
    "dictHira": "する",
    "kr": "하다",
-   "rule": "규칙 없이 통째로 암기: する ➔ します | て형: する ➔ して (3그룹 불규칙)",
+   "rule": "규칙 없이 통째로 암기: する ➔ します | て형: する ➔ して (3그룹 불규칙) | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "し",
    "stemHira": "し",
    "forms": [
@@ -786,6 +966,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "してから",
      "hira": "してから",
      "kr": "하고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "してみます",
+     "hira": "してみます",
+     "kr": "해 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "しておきます",
+     "hira": "しておきます",
+     "kr": "해 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "してしまいました",
+     "hira": "してしまいました",
+     "kr": "해 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "してもいいです",
+     "hira": "してもいいです",
+     "kr": "해도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "してはいけません",
+     "hira": "してはいけません",
+     "kr": "해서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "してばかりいます",
+     "hira": "してばかりいます",
+     "kr": "하고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "したがっています",
+     "hira": "したがっています",
+     "kr": "하고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -794,7 +1023,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "勉強する",
    "dictHira": "べんきょうする",
    "kr": "공부하다",
-   "rule": "명사 + する 복합동사: する ➔ します | て형: する ➔ して (3그룹 불규칙)",
+   "rule": "명사 + する 복합동사: する ➔ します | て형: する ➔ して (3그룹 불규칙) | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "勉強し",
    "stemHira": "べんきょうし",
    "forms": [
@@ -869,6 +1098,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "勉強してから",
      "hira": "べんきょうしてから",
      "kr": "공부하고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "勉強してみます",
+     "hira": "べんきょうしてみます",
+     "kr": "공부해 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "勉強しておきます",
+     "hira": "べんきょうしておきます",
+     "kr": "공부해 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "勉強してしまいました",
+     "hira": "べんきょうしてしまいました",
+     "kr": "공부해 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "勉強してもいいです",
+     "hira": "べんきょうしてもいいです",
+     "kr": "공부해도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "勉強してはいけません",
+     "hira": "べんきょうしてはいけません",
+     "kr": "공부해서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "勉強してばかりいます",
+     "hira": "べんきょうしてばかりいます",
+     "kr": "공부하고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "勉強したがっています",
+     "hira": "べんきょうしたがっています",
+     "kr": "공부하고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -877,7 +1155,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "来る",
    "dictHira": "くる",
    "kr": "오다",
-   "rule": "불규칙 변형 주의: 来(く)る ➔ 来(き)ます (발음이 く에서 き로 변함!) | て형: 来(く)る ➔ 来(き)て (3그룹 불규칙)",
+   "rule": "불규칙 변형 주의: 来(く)る ➔ 来(き)ます (발음이 く에서 き로 변함!) | て형: 来(く)る ➔ 来(き)て (3그룹 불규칙) | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "来",
    "stemHira": "き",
    "forms": [
@@ -946,6 +1224,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "来てから",
      "hira": "きてから",
      "kr": "오고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "来てみます",
+     "hira": "きてみます",
+     "kr": "와 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "来ておきます",
+     "hira": "きておきます",
+     "kr": "와 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "来てしまいました",
+     "hira": "きてしまいました",
+     "kr": "와 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "来てもいいです",
+     "hira": "きてもいいです",
+     "kr": "와도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "来てはいけません",
+     "hira": "きてはいけません",
+     "kr": "와서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "来てばかりいます",
+     "hira": "きてばかりいます",
+     "kr": "오고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "来たがっています",
+     "hira": "きたがっています",
+     "kr": "오고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -955,7 +1282,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "よやくする",
    "kr": "예약하다",
    "kr_base": "예약하다",
-   "rule": "する ➔ します (3그룹 불규칙: 명사 + する) | て형: する ➔ して (3그룹 불규칙)",
+   "rule": "する ➔ します (3그룹 불규칙: 명사 + する) | て형: する ➔ して (3그룹 불규칙) | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "予約し",
    "stemHira": "よやくし",
    "forms": [
@@ -1030,6 +1357,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "予約してから",
      "hira": "よやくしてから",
      "kr": "예약하고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "予約してみます",
+     "hira": "よやくしてみます",
+     "kr": "예약해 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "予約しておきます",
+     "hira": "よやくしておきます",
+     "kr": "예약해 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "予約してしまいました",
+     "hira": "よやくしてしまいました",
+     "kr": "예약해 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "予約してもいいです",
+     "hira": "よやくしてもいいです",
+     "kr": "예약해도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "予約してはいけません",
+     "hira": "よやくしてはいけません",
+     "kr": "예약해서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "予約してばかりいます",
+     "hira": "よやくしてばかりいます",
+     "kr": "예약하고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "予約したがっています",
+     "hira": "よやくしたがっています",
+     "kr": "예약하고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -1038,7 +1414,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "見る",
    "dictHira": "みる",
    "kr": "보다",
-   "rule": "어미 る 앞이 い단(み): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て",
+   "rule": "어미 る 앞이 い단(み): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "見",
    "stemHira": "み",
    "forms": [
@@ -1113,6 +1489,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "見てから",
      "hira": "みてから",
      "kr": "보고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "見てみます",
+     "hira": "みてみます",
+     "kr": "봐 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "見ておきます",
+     "hira": "みておきます",
+     "kr": "봐 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "見てしまいました",
+     "hira": "みてしまいました",
+     "kr": "봐 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "見てもいいです",
+     "hira": "みてもいいです",
+     "kr": "봐도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "見てはいけません",
+     "hira": "みてはいけません",
+     "kr": "봐서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "見てばかりいます",
+     "hira": "みてばかりいます",
+     "kr": "보고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "見たがっています",
+     "hira": "みたがっています",
+     "kr": "보고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -1121,7 +1546,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "起きる",
    "dictHira": "おきる",
    "kr": "일어나다",
-   "rule": "어미 る 앞이 い단(き): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て",
+   "rule": "어미 る 앞이 い단(き): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "起き",
    "stemHira": "おき",
    "forms": [
@@ -1184,6 +1609,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "起きてから",
      "hira": "おきてから",
      "kr": "일어나고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "起きてみます",
+     "hira": "おきてみます",
+     "kr": "일어나 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "起きておきます",
+     "hira": "おきておきます",
+     "kr": "일어나 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "起きてしまいました",
+     "hira": "おきてしまいました",
+     "kr": "일어나 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "起きてもいいです",
+     "hira": "おきてもいいです",
+     "kr": "일어나도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "起きてはいけません",
+     "hira": "おきてはいけません",
+     "kr": "일어나서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "起きてばかりいます",
+     "hira": "おきてばかりいます",
+     "kr": "일어나고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "起きたがっています",
+     "hira": "おきたがっています",
+     "kr": "일어나고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -1192,7 +1666,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "食べる",
    "dictHira": "たべる",
    "kr": "먹다",
-   "rule": "어미 る 앞이 え단(べ): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て",
+   "rule": "어미 る 앞이 え단(べ): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "食べ",
    "stemHira": "たべ",
    "forms": [
@@ -1267,6 +1741,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "食べてから",
      "hira": "たべてから",
      "kr": "먹고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "食べてみます",
+     "hira": "たべてみます",
+     "kr": "먹어 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "食べておきます",
+     "hira": "たべておきます",
+     "kr": "먹어 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "食べてしまいました",
+     "hira": "たべてしまいました",
+     "kr": "먹어 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "食べてもいいです",
+     "hira": "たべてもいいです",
+     "kr": "먹어도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "食べてはいけません",
+     "hira": "たべてはいけません",
+     "kr": "먹어서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "食べてばかりいます",
+     "hira": "たべてばかりいます",
+     "kr": "먹고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "食べたがっています",
+     "hira": "たべたがっています",
+     "kr": "먹고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -1275,7 +1798,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "教える",
    "dictHira": "おしえる",
    "kr": "가르치다",
-   "rule": "어미 る 앞이 え단(え): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て",
+   "rule": "어미 る 앞이 え단(え): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "教え",
    "stemHira": "おしえ",
    "forms": [
@@ -1338,6 +1861,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "教えてから",
      "hira": "おしえてから",
      "kr": "가르치고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "教えてみます",
+     "hira": "おしえてみます",
+     "kr": "가르쳐 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "教えておきます",
+     "hira": "おしえておきます",
+     "kr": "가르쳐 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "教えてしまいました",
+     "hira": "おしえてしまいました",
+     "kr": "가르쳐 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "教えてもいいです",
+     "hira": "おしえてもいいです",
+     "kr": "가르쳐도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "教えてはいけません",
+     "hira": "おしえてはいけません",
+     "kr": "가르쳐서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "教えてばかりいます",
+     "hira": "おしえてばかりいます",
+     "kr": "가르치고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "教えたがっています",
+     "hira": "おしえたがっています",
+     "kr": "가르치고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -1346,7 +1918,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "寝る",
    "dictHira": "ねる",
    "kr": "자다",
-   "rule": "어미 る 앞이 え단(ね): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て",
+   "rule": "어미 る 앞이 え단(ね): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "寝",
    "stemHira": "ね",
    "forms": [
@@ -1409,6 +1981,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "寝てから",
      "hira": "ねてから",
      "kr": "자고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "寝てみます",
+     "hira": "ねてみます",
+     "kr": "자 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "寝ておきます",
+     "hira": "ねておきます",
+     "kr": "자 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "寝てしまいました",
+     "hira": "ねてしまいました",
+     "kr": "자 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "寝てもいいです",
+     "hira": "ねてもいいです",
+     "kr": "자도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "寝てはいけません",
+     "hira": "ねてはいけません",
+     "kr": "자서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "寝てばかりいます",
+     "hira": "ねてばかりいます",
+     "kr": "자고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "寝たがっています",
+     "hira": "ねたがっています",
+     "kr": "자고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -1418,7 +2039,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "あける",
    "kr": "열다",
    "kr_base": "열다",
-   "rule": "어미 る 앞이 え단(け): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て",
+   "rule": "어미 る 앞이 え단(け): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "開け",
    "stemHira": "あけ",
    "forms": [
@@ -1493,6 +2114,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "開けてから",
      "hira": "あけてから",
      "kr": "열고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "開けてみます",
+     "hira": "あけてみます",
+     "kr": "열어 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "開けておきます",
+     "hira": "あけておきます",
+     "kr": "열어 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "開けてしまいました",
+     "hira": "あけてしまいました",
+     "kr": "열어 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "開けてもいいです",
+     "hira": "あけてもいいです",
+     "kr": "열어도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "開けてはいけません",
+     "hira": "あけてはいけません",
+     "kr": "열어서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "開けてばかりいます",
+     "hira": "あけてばかりいます",
+     "kr": "열고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "開けたがっています",
+     "hira": "あけたがっています",
+     "kr": "열고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -1502,7 +2172,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "つける",
    "kr": "(불을) 켜다",
    "kr_base": "켜다",
-   "rule": "어미 る 앞이 え단(け): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て",
+   "rule": "어미 る 앞이 え단(け): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "つけ",
    "stemHira": "つけ",
    "forms": [
@@ -1577,6 +2247,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "つけてから",
      "hira": "つけてから",
      "kr": "켜고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "つけてみます",
+     "hira": "つけてみます",
+     "kr": "켜 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "つけておきます",
+     "hira": "つけておきます",
+     "kr": "켜 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "つけてしまいました",
+     "hira": "つけてしまいました",
+     "kr": "켜 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "つけてもいいです",
+     "hira": "つけてもいいです",
+     "kr": "켜도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "つけてはいけません",
+     "hira": "つけてはいけません",
+     "kr": "켜서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "つけてばかりいます",
+     "hira": "つけてばかりいます",
+     "kr": "켜고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "つけたがっています",
+     "hira": "つけたがっています",
+     "kr": "켜고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -1586,7 +2305,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "かける",
    "kr": "(안경을) 쓰다",
    "kr_base": "쓰다",
-   "rule": "어미 る 앞이 え단(け): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て",
+   "rule": "어미 る 앞이 え단(け): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "かけ",
    "stemHira": "かけ",
    "forms": [
@@ -1661,6 +2380,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "かけてから",
      "hira": "かけてから",
      "kr": "쓰고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "かけてみます",
+     "hira": "かけてみます",
+     "kr": "써 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "かけておきます",
+     "hira": "かけておきます",
+     "kr": "써 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "かけてしまいました",
+     "hira": "かけてしまいました",
+     "kr": "써 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "かけてもいいです",
+     "hira": "かけてもいいです",
+     "kr": "써도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "かけてはいけません",
+     "hira": "かけてはいけません",
+     "kr": "써서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "かけてばかりいます",
+     "hira": "かけてばかりいます",
+     "kr": "쓰고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "かけたがっています",
+     "hira": "かけたがっています",
+     "kr": "쓰고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -1670,7 +2438,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "しめる",
    "kr": "(넥타이를) 매다",
    "kr_base": "매다",
-   "rule": "어미 る 앞이 え단(め): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て",
+   "rule": "어미 る 앞이 え단(め): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "しめ",
    "stemHira": "しめ",
    "forms": [
@@ -1745,6 +2513,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "しめてから",
      "hira": "しめてから",
      "kr": "매고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "しめてみます",
+     "hira": "しめてみます",
+     "kr": "매 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "しめておきます",
+     "hira": "しめておきます",
+     "kr": "매 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "しめてしまいました",
+     "hira": "しめてしまいました",
+     "kr": "매 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "しめてもいいです",
+     "hira": "しめてもいいです",
+     "kr": "매도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "しめてはいけません",
+     "hira": "しめてはいけません",
+     "kr": "매서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "しめてばかりいます",
+     "hira": "しめてばかりいます",
+     "kr": "매고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "しめたがっています",
+     "hira": "しめたがっています",
+     "kr": "매고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -1754,7 +2571,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "きる",
    "kr": "(상의를) 입다",
    "kr_base": "입다",
-   "rule": "어미 る 앞이 い단(き): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て",
+   "rule": "어미 る 앞이 い단(き): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "着",
    "stemHira": "き",
    "forms": [
@@ -1829,15 +2646,555 @@ window.LESSONS_DB["verb"] = {
      "ja": "着てから",
      "hira": "きてから",
      "kr": "입고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "着てみます",
+     "hira": "きてみます",
+     "kr": "입어 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "着ておきます",
+     "hira": "きておきます",
+     "kr": "입어 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "着てしまいました",
+     "hira": "きてしまいました",
+     "kr": "입어 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "着てもいいです",
+     "hira": "きてもいいです",
+     "kr": "입어도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "着てはいけません",
+     "hira": "きてはいけません",
+     "kr": "입어서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "着てばかりいます",
+     "hira": "きてばかりいます",
+     "kr": "입고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "着たがっています",
+     "hira": "きたがっています",
+     "kr": "입고 싶어 합니다",
+     "since": 4
     }
    ]
+  },
+  {
+   "cat": "2그룹 (1단 동사)",
+   "dict": "忘れる",
+   "dictHira": "わすれる",
+   "kr": "잊다",
+   "kr_base": "잊다",
+   "rule": "어미 る 앞이 え단(れ): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
+   "stem": "忘れ",
+   "stemHira": "わすれ",
+   "forms": [
+    {
+     "label": "현재 긍정 (~ます)",
+     "ja": "忘れます",
+     "hira": "わすれます",
+     "kr": "잊습니다"
+    },
+    {
+     "label": "현재 부정 (~ません)",
+     "ja": "忘れません",
+     "hira": "わすれません",
+     "kr": "잊지 않습니다"
+    },
+    {
+     "label": "과거 긍정 (~ました)",
+     "ja": "忘れました",
+     "hira": "わすれました",
+     "kr": "잊었습니다"
+    },
+    {
+     "label": "과거 부정 (~ませんでした)",
+     "ja": "忘れませんでした",
+     "hira": "わすれませんでした",
+     "kr": "잊지 않았습니다"
+    },
+    {
+     "label": "희망 (~たいです)",
+     "ja": "忘れたいです",
+     "hira": "わすれたいです",
+     "kr": "잊고 싶습니다"
+    },
+    {
+     "label": "목적 (~に行きます)",
+     "ja": "忘れに行きます",
+     "hira": "わすれにいきます",
+     "kr": "잊으러 갑니다"
+    },
+    {
+     "label": "청유 (~ましょう)",
+     "ja": "忘れましょう",
+     "hira": "わすれましょう",
+     "kr": "잊읍시다"
+    },
+    {
+     "label": "권유 (~ませんか)",
+     "ja": "忘れませんか",
+     "hira": "わすれませんか",
+     "kr": "잊지 않을래요?"
+    },
+    {
+     "label": "て형 (~て: ~하고/~해서)",
+     "ja": "忘れて",
+     "hira": "わすれて",
+     "kr": "잊고 / 잊어서"
+    },
+    {
+     "label": "진행 (~ています)",
+     "ja": "忘れています",
+     "hira": "わすれています",
+     "kr": "잊고 있습니다"
+    },
+    {
+     "label": "요청 (~てください)",
+     "ja": "忘れてください",
+     "hira": "わすれてください",
+     "kr": "잊어 주세요"
+    },
+    {
+     "label": "순서 (~てから)",
+     "ja": "忘れてから",
+     "hira": "わすれてから",
+     "kr": "잊고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "忘れてみます",
+     "hira": "わすれてみます",
+     "kr": "잊어 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "忘れておきます",
+     "hira": "わすれておきます",
+     "kr": "잊어 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "忘れてしまいました",
+     "hira": "わすれてしまいました",
+     "kr": "잊어 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "忘れてもいいです",
+     "hira": "わすれてもいいです",
+     "kr": "잊어도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "忘れてはいけません",
+     "hira": "わすれてはいけません",
+     "kr": "잊어서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "忘れてばかりいます",
+     "hira": "わすれてばかりいます",
+     "kr": "잊고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "忘れたがっています",
+     "hira": "わすれたがっています",
+     "kr": "잊고 싶어 합니다",
+     "since": 4
+    }
+   ],
+   "since": 4
+  },
+  {
+   "cat": "2그룹 (1단 동사)",
+   "dict": "止める",
+   "dictHira": "とめる",
+   "kr": "세우다, 멈추다",
+   "kr_base": "세우다",
+   "rule": "어미 る 앞이 え단(め): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
+   "stem": "止め",
+   "stemHira": "とめ",
+   "forms": [
+    {
+     "label": "현재 긍정 (~ます)",
+     "ja": "止めます",
+     "hira": "とめます",
+     "kr": "세웁니다"
+    },
+    {
+     "label": "현재 부정 (~ません)",
+     "ja": "止めません",
+     "hira": "とめません",
+     "kr": "세우지 않습니다"
+    },
+    {
+     "label": "과거 긍정 (~ました)",
+     "ja": "止めました",
+     "hira": "とめました",
+     "kr": "세웠습니다"
+    },
+    {
+     "label": "과거 부정 (~ませんでした)",
+     "ja": "止めませんでした",
+     "hira": "とめませんでした",
+     "kr": "세우지 않았습니다"
+    },
+    {
+     "label": "희망 (~たいです)",
+     "ja": "止めたいです",
+     "hira": "とめたいです",
+     "kr": "세우고 싶습니다"
+    },
+    {
+     "label": "목적 (~に行きます)",
+     "ja": "止めに行きます",
+     "hira": "とめにいきます",
+     "kr": "세우러 갑니다"
+    },
+    {
+     "label": "청유 (~ましょう)",
+     "ja": "止めましょう",
+     "hira": "とめましょう",
+     "kr": "세웁시다"
+    },
+    {
+     "label": "권유 (~ませんか)",
+     "ja": "止めませんか",
+     "hira": "とめませんか",
+     "kr": "세우지 않을래요?"
+    },
+    {
+     "label": "て형 (~て: ~하고/~해서)",
+     "ja": "止めて",
+     "hira": "とめて",
+     "kr": "세우고 / 세워서"
+    },
+    {
+     "label": "진행 (~ています)",
+     "ja": "止めています",
+     "hira": "とめています",
+     "kr": "세우고 있습니다"
+    },
+    {
+     "label": "요청 (~てください)",
+     "ja": "止めてください",
+     "hira": "とめてください",
+     "kr": "세워 주세요"
+    },
+    {
+     "label": "순서 (~てから)",
+     "ja": "止めてから",
+     "hira": "とめてから",
+     "kr": "세우고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "止めてみます",
+     "hira": "とめてみます",
+     "kr": "세워 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "止めておきます",
+     "hira": "とめておきます",
+     "kr": "세워 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "止めてしまいました",
+     "hira": "とめてしまいました",
+     "kr": "세워 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "止めてもいいです",
+     "hira": "とめてもいいです",
+     "kr": "세워도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "止めてはいけません",
+     "hira": "とめてはいけません",
+     "kr": "세워서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "止めてばかりいます",
+     "hira": "とめてばかりいます",
+     "kr": "세우고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "止めたがっています",
+     "hira": "とめたがっています",
+     "kr": "세우고 싶어 합니다",
+     "since": 4
+    }
+   ],
+   "since": 4
+  },
+  {
+   "cat": "2그룹 (1단 동사)",
+   "dict": "つれる",
+   "dictHira": "つれる",
+   "kr": "데리고 가다 (つれて 行く)",
+   "kr_base": "데려가다",
+   "rule": "어미 る 앞이 え단(れ): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
+   "stem": "つれ",
+   "stemHira": "つれ",
+   "forms": [
+    {
+     "label": "현재 긍정 (~ます)",
+     "ja": "つれます",
+     "hira": "つれます",
+     "kr": "데려갑니다"
+    },
+    {
+     "label": "현재 부정 (~ません)",
+     "ja": "つれません",
+     "hira": "つれません",
+     "kr": "데려가지 않습니다"
+    },
+    {
+     "label": "과거 긍정 (~ました)",
+     "ja": "つれました",
+     "hira": "つれました",
+     "kr": "데려갔습니다"
+    },
+    {
+     "label": "과거 부정 (~ませんでした)",
+     "ja": "つれませんでした",
+     "hira": "つれませんでした",
+     "kr": "데려가지 않았습니다"
+    },
+    {
+     "label": "희망 (~たいです)",
+     "ja": "つれたいです",
+     "hira": "つれたいです",
+     "kr": "데려가고 싶습니다"
+    },
+    {
+     "label": "목적 (~に行きます)",
+     "ja": "つれに行きます",
+     "hira": "つれにいきます",
+     "kr": "데려가러 갑니다"
+    },
+    {
+     "label": "청유 (~ましょう)",
+     "ja": "つれましょう",
+     "hira": "つれましょう",
+     "kr": "데려갑시다"
+    },
+    {
+     "label": "권유 (~ませんか)",
+     "ja": "つれませんか",
+     "hira": "つれませんか",
+     "kr": "데려가지 않을래요?"
+    },
+    {
+     "label": "て형 (~て: ~하고/~해서)",
+     "ja": "つれて",
+     "hira": "つれて",
+     "kr": "데려가고 / 데려가서"
+    },
+    {
+     "label": "진행 (~ています)",
+     "ja": "つれています",
+     "hira": "つれています",
+     "kr": "데려가고 있습니다"
+    },
+    {
+     "label": "요청 (~てください)",
+     "ja": "つれてください",
+     "hira": "つれてください",
+     "kr": "데려가 주세요"
+    },
+    {
+     "label": "순서 (~てから)",
+     "ja": "つれてから",
+     "hira": "つれてから",
+     "kr": "데려가고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "つれてみます",
+     "hira": "つれてみます",
+     "kr": "데려가 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "つれておきます",
+     "hira": "つれておきます",
+     "kr": "데려가 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "つれてしまいました",
+     "hira": "つれてしまいました",
+     "kr": "데려가 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "つれてもいいです",
+     "hira": "つれてもいいです",
+     "kr": "데려가도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "つれてはいけません",
+     "hira": "つれてはいけません",
+     "kr": "데려가서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "つれてばかりいます",
+     "hira": "つれてばかりいます",
+     "kr": "데려가고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "つれたがっています",
+     "hira": "つれたがっています",
+     "kr": "데려가고 싶어 합니다",
+     "since": 4
+    }
+   ],
+   "since": 4
+  },
+  {
+   "cat": "2그룹 (1단 동사)",
+   "dict": "やせる",
+   "dictHira": "やせる",
+   "kr": "살이 빠지다, 마르다",
+   "kr_base": "살이 빠지다",
+   "rule": "어미 る 앞이 え단(せ): 어미 る를 떼고 ます 결합 | て형: 어미 る를 떼고 + て | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
+   "stem": "やせ",
+   "stemHira": "やせ",
+   "forms": [
+    {
+     "label": "현재 긍정 (~ます)",
+     "ja": "やせます",
+     "hira": "やせます",
+     "kr": "살이 빠집니다"
+    },
+    {
+     "label": "현재 부정 (~ません)",
+     "ja": "やせません",
+     "hira": "やせません",
+     "kr": "살이 빠지지 않습니다"
+    },
+    {
+     "label": "과거 긍정 (~ました)",
+     "ja": "やせました",
+     "hira": "やせました",
+     "kr": "살이 빠졌습니다"
+    },
+    {
+     "label": "과거 부정 (~ませんでした)",
+     "ja": "やせませんでした",
+     "hira": "やせませんでした",
+     "kr": "살이 빠지지 않았습니다"
+    },
+    {
+     "label": "희망 (~たいです)",
+     "ja": "やせたいです",
+     "hira": "やせたいです",
+     "kr": "살이 빠지고 싶습니다"
+    },
+    {
+     "label": "て형 (~て: ~하고/~해서)",
+     "ja": "やせて",
+     "hira": "やせて",
+     "kr": "살이 빠지고 / 살이 빠져서"
+    },
+    {
+     "label": "진행 (~ています)",
+     "ja": "やせています",
+     "hira": "やせています",
+     "kr": "말랐습니다 (마른 상태)"
+    },
+    {
+     "label": "순서 (~てから)",
+     "ja": "やせてから",
+     "hira": "やせてから",
+     "kr": "살이 빠지고 나서"
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "やせてしまいました",
+     "hira": "やせてしまいました",
+     "kr": "살이 빠져 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "やせてもいいです",
+     "hira": "やせてもいいです",
+     "kr": "살이 빠져도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "やせてはいけません",
+     "hira": "やせてはいけません",
+     "kr": "살이 빠져서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "やせたがっています",
+     "hira": "やせたがっています",
+     "kr": "살이 빠지고 싶어 합니다",
+     "since": 4
+    }
+   ],
+   "since": 4
   },
   {
    "cat": "1그룹 (5단 동사)",
    "dict": "買う",
    "dictHira": "かう",
    "kr": "사다",
-   "rule": "어미 う ➔ い단(い) + ます | て형: う・つ・る ➔ って",
+   "rule": "어미 う ➔ い단(い) + ます | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "買い",
    "stemHira": "かい",
    "forms": [
@@ -1912,6 +3269,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "買ってから",
      "hira": "かってから",
      "kr": "사고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "買ってみます",
+     "hira": "かってみます",
+     "kr": "사 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "買っておきます",
+     "hira": "かっておきます",
+     "kr": "사 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "買ってしまいました",
+     "hira": "かってしまいました",
+     "kr": "사 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "買ってもいいです",
+     "hira": "かってもいいです",
+     "kr": "사도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "買ってはいけません",
+     "hira": "かってはいけません",
+     "kr": "사서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "買ってばかりいます",
+     "hira": "かってばかりいます",
+     "kr": "사고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "買いたがっています",
+     "hira": "かいたがっています",
+     "kr": "사고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -1920,7 +3326,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "会う",
    "dictHira": "あう",
    "kr": "만나다",
-   "rule": "어미 う ➔ い단(い) + ます (조사 に와 함께 사용) | て형: う・つ・る ➔ って",
+   "rule": "어미 う ➔ い단(い) + ます (조사 に와 함께 사용) | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "会い",
    "stemHira": "あい",
    "forms": [
@@ -1995,6 +3401,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "会ってから",
      "hira": "あってから",
      "kr": "만나고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "会ってみます",
+     "hira": "あってみます",
+     "kr": "만나 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "会っておきます",
+     "hira": "あっておきます",
+     "kr": "만나 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "会ってしまいました",
+     "hira": "あってしまいました",
+     "kr": "만나 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "会ってもいいです",
+     "hira": "あってもいいです",
+     "kr": "만나도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "会ってはいけません",
+     "hira": "あってはいけません",
+     "kr": "만나서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "会ってばかりいます",
+     "hira": "あってばかりいます",
+     "kr": "만나고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "会いたがっています",
+     "hira": "あいたがっています",
+     "kr": "만나고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -2003,7 +3458,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "行く",
    "dictHira": "いく",
    "kr": "가다",
-   "rule": "어미 く ➔ い단(き) + ます | て형: ⚠️ 예외! 行く ➔ 行って (行いて ✕)",
+   "rule": "어미 く ➔ い단(き) + ます | て형: ⚠️ 예외! 行く ➔ 行って (行いて ✕) | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "行き",
    "stemHira": "いき",
    "forms": [
@@ -2072,6 +3527,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "行ってから",
      "hira": "いってから",
      "kr": "가고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "行ってみます",
+     "hira": "いってみます",
+     "kr": "가 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "行っておきます",
+     "hira": "いっておきます",
+     "kr": "가 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "行ってしまいました",
+     "hira": "いってしまいました",
+     "kr": "가 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "行ってもいいです",
+     "hira": "いってもいいです",
+     "kr": "가도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "行ってはいけません",
+     "hira": "いってはいけません",
+     "kr": "가서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "行ってばかりいます",
+     "hira": "いってばかりいます",
+     "kr": "가고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "行きたがっています",
+     "hira": "いきたがっています",
+     "kr": "가고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -2080,7 +3584,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "書く",
    "dictHira": "かく",
    "kr": "쓰다",
-   "rule": "어미 く ➔ い단(き) + ます | て형: く ➔ いて",
+   "rule": "어미 く ➔ い단(き) + ます | て형: く ➔ いて | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "書き",
    "stemHira": "かき",
    "forms": [
@@ -2143,6 +3647,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "書いてから",
      "hira": "かいてから",
      "kr": "쓰고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "書いてみます",
+     "hira": "かいてみます",
+     "kr": "써 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "書いておきます",
+     "hira": "かいておきます",
+     "kr": "써 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "書いてしまいました",
+     "hira": "かいてしまいました",
+     "kr": "써 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "書いてもいいです",
+     "hira": "かいてもいいです",
+     "kr": "써도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "書いてはいけません",
+     "hira": "かいてはいけません",
+     "kr": "써서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "書いてばかりいます",
+     "hira": "かいてばかりいます",
+     "kr": "쓰고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "書きたがっています",
+     "hira": "かきたがっています",
+     "kr": "쓰고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -2151,7 +3704,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "聞く",
    "dictHira": "きく",
    "kr": "듣다 / 묻다",
-   "rule": "어미 く ➔ い단(き) + ます | て형: く ➔ いて",
+   "rule": "어미 く ➔ い단(き) + ます | て형: く ➔ いて | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "聞き",
    "stemHira": "きき",
    "forms": [
@@ -2220,6 +3773,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "聞いてから",
      "hira": "きいてから",
      "kr": "듣고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "聞いてみます",
+     "hira": "きいてみます",
+     "kr": "들어 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "聞いておきます",
+     "hira": "きいておきます",
+     "kr": "들어 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "聞いてしまいました",
+     "hira": "きいてしまいました",
+     "kr": "들어 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "聞いてもいいです",
+     "hira": "きいてもいいです",
+     "kr": "들어도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "聞いてはいけません",
+     "hira": "きいてはいけません",
+     "kr": "들어서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "聞いてばかりいます",
+     "hira": "きいてばかりいます",
+     "kr": "듣고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "聞きたがっています",
+     "hira": "ききたがっています",
+     "kr": "듣고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -2228,7 +3830,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "話す",
    "dictHira": "はなす",
    "kr": "이야기하다 / 말하다",
-   "rule": "어미 す ➔ い단(し) + ます | て형: す ➔ して",
+   "rule": "어미 す ➔ い단(し) + ます | て형: す ➔ して | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "話し",
    "stemHira": "はなし",
    "forms": [
@@ -2297,6 +3899,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "話してから",
      "hira": "はなしてから",
      "kr": "이야기하고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "話してみます",
+     "hira": "はなしてみます",
+     "kr": "이야기해 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "話しておきます",
+     "hira": "はなしておきます",
+     "kr": "이야기해 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "話してしまいました",
+     "hira": "はなしてしまいました",
+     "kr": "이야기해 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "話してもいいです",
+     "hira": "はなしてもいいです",
+     "kr": "이야기해도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "話してはいけません",
+     "hira": "はなしてはいけません",
+     "kr": "이야기해서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "話してばかりいます",
+     "hira": "はなしてばかりいます",
+     "kr": "이야기하고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "話したがっています",
+     "hira": "はなしたがっています",
+     "kr": "이야기하고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -2305,7 +3956,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "飲む",
    "dictHira": "のむ",
    "kr": "마시다",
-   "rule": "어미 む ➔ い단(み) + ます | て형: ぬ・む・ぶ ➔ んで",
+   "rule": "어미 む ➔ い단(み) + ます | て형: ぬ・む・ぶ ➔ んで | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "飲み",
    "stemHira": "のみ",
    "forms": [
@@ -2380,6 +4031,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "飲んでから",
      "hira": "のんでから",
      "kr": "마시고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "飲んでみます",
+     "hira": "のんでみます",
+     "kr": "마셔 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "飲んでおきます",
+     "hira": "のんでおきます",
+     "kr": "마셔 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "飲んでしまいました",
+     "hira": "のんでしまいました",
+     "kr": "마셔 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "飲んでもいいです",
+     "hira": "のんでもいいです",
+     "kr": "마셔도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "飲んではいけません",
+     "hira": "のんではいけません",
+     "kr": "마셔서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "飲んでばかりいます",
+     "hira": "のんでばかりいます",
+     "kr": "마시고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "飲みたがっています",
+     "hira": "のみたがっています",
+     "kr": "마시고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -2388,7 +4088,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "読む",
    "dictHira": "よむ",
    "kr": "읽다",
-   "rule": "어미 む ➔ い단(み) + ます | て형: ぬ・む・ぶ ➔ んで",
+   "rule": "어미 む ➔ い단(み) + ます | て형: ぬ・む・ぶ ➔ んで | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "読み",
    "stemHira": "よみ",
    "forms": [
@@ -2451,6 +4151,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "読んでから",
      "hira": "よんでから",
      "kr": "읽고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "読んでみます",
+     "hira": "よんでみます",
+     "kr": "읽어 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "読んでおきます",
+     "hira": "よんでおきます",
+     "kr": "읽어 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "読んでしまいました",
+     "hira": "よんでしまいました",
+     "kr": "읽어 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "読んでもいいです",
+     "hira": "よんでもいいです",
+     "kr": "읽어도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "読んではいけません",
+     "hira": "よんではいけません",
+     "kr": "읽어서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "読んでばかりいます",
+     "hira": "よんでばかりいます",
+     "kr": "읽고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "読みたがっています",
+     "hira": "よみたがっています",
+     "kr": "읽고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -2459,7 +4208,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "作る",
    "dictHira": "つくる",
    "kr": "만들다",
-   "rule": "어미 る 앞이 う단(く)이므로 1그룹! る ➔ り + ます | て형: う・つ・る ➔ って",
+   "rule": "어미 る 앞이 う단(く)이므로 1그룹! る ➔ り + ます | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "作り",
    "stemHira": "つくり",
    "forms": [
@@ -2522,6 +4271,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "作ってから",
      "hira": "つくってから",
      "kr": "만들고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "作ってみます",
+     "hira": "つくってみます",
+     "kr": "만들어 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "作っておきます",
+     "hira": "つくっておきます",
+     "kr": "만들어 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "作ってしまいました",
+     "hira": "つくってしまいました",
+     "kr": "만들어 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "作ってもいいです",
+     "hira": "つくってもいいです",
+     "kr": "만들어도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "作ってはいけません",
+     "hira": "つくってはいけません",
+     "kr": "만들어서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "作ってばかりいます",
+     "hira": "つくってばかりいます",
+     "kr": "만들고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "作りたがっています",
+     "hira": "つくりたがっています",
+     "kr": "만들고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -2530,7 +4328,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "乗る",
    "dictHira": "のる",
    "kr": "타다",
-   "rule": "어미 る 앞이 お단(の)이므로 1그룹! る ➔ り + ます (조사 に 사용) | て형: う・つ・る ➔ って",
+   "rule": "어미 る 앞이 お단(の)이므로 1그룹! る ➔ り + ます (조사 に 사용) | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "乗り",
    "stemHira": "のり",
    "forms": [
@@ -2593,6 +4391,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "乗ってから",
      "hira": "のってから",
      "kr": "타고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "乗ってみます",
+     "hira": "のってみます",
+     "kr": "타 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "乗っておきます",
+     "hira": "のっておきます",
+     "kr": "타 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "乗ってしまいました",
+     "hira": "のってしまいました",
+     "kr": "타 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "乗ってもいいです",
+     "hira": "のってもいいです",
+     "kr": "타도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "乗ってはいけません",
+     "hira": "のってはいけません",
+     "kr": "타서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "乗ってばかりいます",
+     "hira": "のってばかりいます",
+     "kr": "타고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "乗りたがっています",
+     "hira": "のりたがっています",
+     "kr": "타고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -2602,7 +4449,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "まつ",
    "kr": "기다리다",
    "kr_base": "기다리다",
-   "rule": "어미 「つ」를 い단 「ち」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って",
+   "rule": "어미 「つ」를 い단 「ち」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "待ち",
    "stemHira": "まち",
    "forms": [
@@ -2677,6 +4524,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "待ってから",
      "hira": "まってから",
      "kr": "기다리고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "待ってみます",
+     "hira": "まってみます",
+     "kr": "기다려 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "待っておきます",
+     "hira": "まっておきます",
+     "kr": "기다려 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "待ってしまいました",
+     "hira": "まってしまいました",
+     "kr": "기다려 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "待ってもいいです",
+     "hira": "まってもいいです",
+     "kr": "기다려도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "待ってはいけません",
+     "hira": "まってはいけません",
+     "kr": "기다려서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "待ってばかりいます",
+     "hira": "まってばかりいます",
+     "kr": "기다리고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "待ちたがっています",
+     "hira": "まちたがっています",
+     "kr": "기다리고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -2686,7 +4582,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "おわる",
    "kr": "끝나다",
    "kr_base": "끝나다",
-   "rule": "어미 「る」를 い단 「り」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って",
+   "rule": "어미 「る」를 い단 「り」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "終わり",
    "stemHira": "おわり",
    "forms": [
@@ -2755,6 +4651,27 @@ window.LESSONS_DB["verb"] = {
      "ja": "終わってから",
      "hira": "おわってから",
      "kr": "끝나고 나서"
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "終わってしまいました",
+     "hira": "おわってしまいました",
+     "kr": "끝나 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "終わってもいいです",
+     "hira": "おわってもいいです",
+     "kr": "끝나도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "終わってばかりいます",
+     "hira": "おわってばかりいます",
+     "kr": "끝나고만 있습니다",
+     "since": 4
     }
    ]
   },
@@ -2764,7 +4681,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "あそぶ",
    "kr": "놀다",
    "kr_base": "놀다",
-   "rule": "어미 「ぶ」를 い단 「び」로 바꾸고 ます 결합 | て형: ぬ・む・ぶ ➔ んで",
+   "rule": "어미 「ぶ」를 い단 「び」로 바꾸고 ます 결합 | て형: ぬ・む・ぶ ➔ んで | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "遊び",
    "stemHira": "あそび",
    "forms": [
@@ -2839,6 +4756,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "遊んでから",
      "hira": "あそんでから",
      "kr": "놀고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "遊んでみます",
+     "hira": "あそんでみます",
+     "kr": "놀아 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "遊んでおきます",
+     "hira": "あそんでおきます",
+     "kr": "놀아 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "遊んでしまいました",
+     "hira": "あそんでしまいました",
+     "kr": "놀아 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "遊んでもいいです",
+     "hira": "あそんでもいいです",
+     "kr": "놀아도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "遊んではいけません",
+     "hira": "あそんではいけません",
+     "kr": "놀아서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "遊んでばかりいます",
+     "hira": "あそんでばかりいます",
+     "kr": "놀고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "遊びたがっています",
+     "hira": "あそびたがっています",
+     "kr": "놀고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -2848,7 +4814,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "あるく",
    "kr": "걷다",
    "kr_base": "걷다",
-   "rule": "어미 「く」를 い단 「き」로 바꾸고 ます 결합 | て형: く ➔ いて",
+   "rule": "어미 「く」를 い단 「き」로 바꾸고 ます 결합 | て형: く ➔ いて | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "歩き",
    "stemHira": "あるき",
    "forms": [
@@ -2923,6 +4889,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "歩いてから",
      "hira": "あるいてから",
      "kr": "걷고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "歩いてみます",
+     "hira": "あるいてみます",
+     "kr": "걸어 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "歩いておきます",
+     "hira": "あるいておきます",
+     "kr": "걸어 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "歩いてしまいました",
+     "hira": "あるいてしまいました",
+     "kr": "걸어 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "歩いてもいいです",
+     "hira": "あるいてもいいです",
+     "kr": "걸어도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "歩いてはいけません",
+     "hira": "あるいてはいけません",
+     "kr": "걸어서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "歩いてばかりいます",
+     "hira": "あるいてばかりいます",
+     "kr": "걷고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "歩きたがっています",
+     "hira": "あるきたがっています",
+     "kr": "걷고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -2932,7 +4947,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "ひく",
    "kr": "(악기를) 치다·연주하다",
    "kr_base": "치다",
-   "rule": "어미 「く」를 い단 「き」로 바꾸고 ます 결합 | て형: く ➔ いて",
+   "rule": "어미 「く」를 い단 「き」로 바꾸고 ます 결합 | て형: く ➔ いて | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "弾き",
    "stemHira": "ひき",
    "forms": [
@@ -3007,6 +5022,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "弾いてから",
      "hira": "ひいてから",
      "kr": "치고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "弾いてみます",
+     "hira": "ひいてみます",
+     "kr": "쳐 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "弾いておきます",
+     "hira": "ひいておきます",
+     "kr": "쳐 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "弾いてしまいました",
+     "hira": "ひいてしまいました",
+     "kr": "쳐 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "弾いてもいいです",
+     "hira": "ひいてもいいです",
+     "kr": "쳐도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "弾いてはいけません",
+     "hira": "ひいてはいけません",
+     "kr": "쳐서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "弾いてばかりいます",
+     "hira": "ひいてばかりいます",
+     "kr": "치고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "弾きたがっています",
+     "hira": "ひきたがっています",
+     "kr": "치고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -3016,7 +5080,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "あらう",
    "kr": "씻다",
    "kr_base": "씻다",
-   "rule": "어미 「う」를 い단 「い」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って",
+   "rule": "어미 「う」를 い단 「い」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "洗い",
    "stemHira": "あらい",
    "forms": [
@@ -3091,6 +5155,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "洗ってから",
      "hira": "あらってから",
      "kr": "씻고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "洗ってみます",
+     "hira": "あらってみます",
+     "kr": "씻어 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "洗っておきます",
+     "hira": "あらっておきます",
+     "kr": "씻어 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "洗ってしまいました",
+     "hira": "あらってしまいました",
+     "kr": "씻어 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "洗ってもいいです",
+     "hira": "あらってもいいです",
+     "kr": "씻어도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "洗ってはいけません",
+     "hira": "あらってはいけません",
+     "kr": "씻어서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "洗ってばかりいます",
+     "hira": "あらってばかりいます",
+     "kr": "씻고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "洗いたがっています",
+     "hira": "あらいたがっています",
+     "kr": "씻고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -3100,7 +5213,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "ならう",
    "kr": "배우다",
    "kr_base": "배우다",
-   "rule": "어미 「う」를 い단 「い」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って",
+   "rule": "어미 「う」를 い단 「い」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "習い",
    "stemHira": "ならい",
    "forms": [
@@ -3175,6 +5288,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "習ってから",
      "hira": "ならってから",
      "kr": "배우고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "習ってみます",
+     "hira": "ならってみます",
+     "kr": "배워 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "習っておきます",
+     "hira": "ならっておきます",
+     "kr": "배워 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "習ってしまいました",
+     "hira": "ならってしまいました",
+     "kr": "배워 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "習ってもいいです",
+     "hira": "ならってもいいです",
+     "kr": "배워도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "習ってはいけません",
+     "hira": "ならってはいけません",
+     "kr": "배워서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "習ってばかりいます",
+     "hira": "ならってばかりいます",
+     "kr": "배우고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "習いたがっています",
+     "hira": "ならいたがっています",
+     "kr": "배우고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -3184,7 +5346,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "とる",
    "kr": "(사진을) 찍다",
    "kr_base": "찍다",
-   "rule": "어미 「る」를 い단 「り」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って",
+   "rule": "어미 「る」를 い단 「り」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "撮り",
    "stemHira": "とり",
    "forms": [
@@ -3259,6 +5421,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "撮ってから",
      "hira": "とってから",
      "kr": "찍고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "撮ってみます",
+     "hira": "とってみます",
+     "kr": "찍어 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "撮っておきます",
+     "hira": "とっておきます",
+     "kr": "찍어 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "撮ってしまいました",
+     "hira": "とってしまいました",
+     "kr": "찍어 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "撮ってもいいです",
+     "hira": "とってもいいです",
+     "kr": "찍어도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "撮ってはいけません",
+     "hira": "とってはいけません",
+     "kr": "찍어서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "撮ってばかりいます",
+     "hira": "とってばかりいます",
+     "kr": "찍고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "撮りたがっています",
+     "hira": "とりたがっています",
+     "kr": "찍고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -3268,7 +5479,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "およぐ",
    "kr": "헤엄치다 / 수영하다",
    "kr_base": "수영하다",
-   "rule": "어미 「ぐ」를 い단 「ぎ」로 바꾸고 ます 결합 | て형: ぐ ➔ いで",
+   "rule": "어미 「ぐ」를 い단 「ぎ」로 바꾸고 ます 결합 | て형: ぐ ➔ いで | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "泳ぎ",
    "stemHira": "およぎ",
    "forms": [
@@ -3343,6 +5554,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "泳いでから",
      "hira": "およいでから",
      "kr": "수영하고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "泳いでみます",
+     "hira": "およいでみます",
+     "kr": "수영해 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "泳いでおきます",
+     "hira": "およいでおきます",
+     "kr": "수영해 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "泳いでしまいました",
+     "hira": "およいでしまいました",
+     "kr": "수영해 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "泳いでもいいです",
+     "hira": "およいでもいいです",
+     "kr": "수영해도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "泳いではいけません",
+     "hira": "およいではいけません",
+     "kr": "수영해서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "泳いでばかりいます",
+     "hira": "およいでばかりいます",
+     "kr": "수영하고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "泳ぎたがっています",
+     "hira": "およぎたがっています",
+     "kr": "수영하고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -3352,7 +5612,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "ふる",
    "kr": "(비·눈이) 내리다",
    "kr_base": "내리다",
-   "rule": "어미 「る」를 い단 「り」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って",
+   "rule": "어미 「る」를 い단 「り」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "降り",
    "stemHira": "ふり",
    "forms": [
@@ -3397,6 +5657,27 @@ window.LESSONS_DB["verb"] = {
      "ja": "降ってから",
      "hira": "ふってから",
      "kr": "내리고 나서"
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "降ってしまいました",
+     "hira": "ふってしまいました",
+     "kr": "내려 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "降ってもいいです",
+     "hira": "ふってもいいです",
+     "kr": "내려도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "降ってばかりいます",
+     "hira": "ふってばかりいます",
+     "kr": "내리고만 있습니다",
+     "since": 4
     }
    ]
   },
@@ -3406,7 +5687,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "ふく",
    "kr": "(바람이) 불다",
    "kr_base": "불다",
-   "rule": "어미 「く」를 い단 「き」로 바꾸고 ます 결합 | て형: く ➔ いて",
+   "rule": "어미 「く」를 い단 「き」로 바꾸고 ます 결합 | て형: く ➔ いて | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "吹き",
    "stemHira": "ふき",
    "forms": [
@@ -3451,6 +5732,27 @@ window.LESSONS_DB["verb"] = {
      "ja": "吹いてから",
      "hira": "ふいてから",
      "kr": "불고 나서"
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "吹いてしまいました",
+     "hira": "ふいてしまいました",
+     "kr": "불어 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "吹いてもいいです",
+     "hira": "ふいてもいいです",
+     "kr": "불어도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "吹いてばかりいます",
+     "hira": "ふいてばかりいます",
+     "kr": "불고만 있습니다",
+     "since": 4
     }
    ]
   },
@@ -3460,7 +5762,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "すむ",
    "kr": "살다 (~に 住む)",
    "kr_base": "살다",
-   "rule": "어미 「む」를 い단 「み」로 바꾸고 ます 결합 | て형: ぬ・む・ぶ ➔ んで",
+   "rule": "어미 「む」를 い단 「み」로 바꾸고 ます 결합 | て형: ぬ・む・ぶ ➔ んで | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "住み",
    "stemHira": "すみ",
    "forms": [
@@ -3535,6 +5837,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "住んでから",
      "hira": "すんでから",
      "kr": "살고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "住んでみます",
+     "hira": "すんでみます",
+     "kr": "살아 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "住んでおきます",
+     "hira": "すんでおきます",
+     "kr": "살아 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "住んでしまいました",
+     "hira": "すんでしまいました",
+     "kr": "살아 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "住んでもいいです",
+     "hira": "すんでもいいです",
+     "kr": "살아도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "住んではいけません",
+     "hira": "すんではいけません",
+     "kr": "살아서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "住んでばかりいます",
+     "hira": "すんでばかりいます",
+     "kr": "살고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "住みたがっています",
+     "hira": "すみたがっています",
+     "kr": "살고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -3544,7 +5895,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "もつ",
    "kr": "가지다, 들다",
    "kr_base": "가지다",
-   "rule": "어미 「つ」를 い단 「ち」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って",
+   "rule": "어미 「つ」를 い단 「ち」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "持ち",
    "stemHira": "もち",
    "forms": [
@@ -3619,6 +5970,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "持ってから",
      "hira": "もってから",
      "kr": "가지고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "持ってみます",
+     "hira": "もってみます",
+     "kr": "가져 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "持っておきます",
+     "hira": "もっておきます",
+     "kr": "가져 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "持ってしまいました",
+     "hira": "もってしまいました",
+     "kr": "가져 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "持ってもいいです",
+     "hira": "もってもいいです",
+     "kr": "가져도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "持ってはいけません",
+     "hira": "もってはいけません",
+     "kr": "가져서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "持ってばかりいます",
+     "hira": "もってばかりいます",
+     "kr": "가지고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "持ちたがっています",
+     "hira": "もちたがっています",
+     "kr": "가지고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -3628,7 +6028,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "かぶる",
    "kr": "(모자를) 쓰다",
    "kr_base": "쓰다",
-   "rule": "어미 「る」를 い단 「り」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って",
+   "rule": "어미 「る」를 い단 「り」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "かぶり",
    "stemHira": "かぶり",
    "forms": [
@@ -3703,6 +6103,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "かぶってから",
      "hira": "かぶってから",
      "kr": "쓰고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "かぶってみます",
+     "hira": "かぶってみます",
+     "kr": "써 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "かぶっておきます",
+     "hira": "かぶっておきます",
+     "kr": "써 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "かぶってしまいました",
+     "hira": "かぶってしまいました",
+     "kr": "써 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "かぶってもいいです",
+     "hira": "かぶってもいいです",
+     "kr": "써도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "かぶってはいけません",
+     "hira": "かぶってはいけません",
+     "kr": "써서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "かぶってばかりいます",
+     "hira": "かぶってばかりいます",
+     "kr": "쓰고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "かぶりたがっています",
+     "hira": "かぶりたがっています",
+     "kr": "쓰고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -3712,7 +6161,7 @@ window.LESSONS_DB["verb"] = {
    "dictHira": "はく",
    "kr": "(하의·신발을) 입다/신다",
    "kr_base": "신다",
-   "rule": "어미 「く」를 い단 「き」로 바꾸고 ます 결합 | て형: く ➔ いて",
+   "rule": "어미 「く」를 い단 「き」로 바꾸고 ます 결합 | て형: く ➔ いて | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "はき",
    "stemHira": "はき",
    "forms": [
@@ -3787,15 +6236,1032 @@ window.LESSONS_DB["verb"] = {
      "ja": "はいてから",
      "hira": "はいてから",
      "kr": "신고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "はいてみます",
+     "hira": "はいてみます",
+     "kr": "신어 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "はいておきます",
+     "hira": "はいておきます",
+     "kr": "신어 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "はいてしまいました",
+     "hira": "はいてしまいました",
+     "kr": "신어 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "はいてもいいです",
+     "hira": "はいてもいいです",
+     "kr": "신어도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "はいてはいけません",
+     "hira": "はいてはいけません",
+     "kr": "신어서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "はいてばかりいます",
+     "hira": "はいてばかりいます",
+     "kr": "신고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "はきたがっています",
+     "hira": "はきたがっています",
+     "kr": "신고 싶어 합니다",
+     "since": 4
     }
    ]
+  },
+  {
+   "cat": "1그룹 (5단 동사)",
+   "dict": "座る",
+   "dictHira": "すわる",
+   "kr": "앉다",
+   "kr_base": "앉다",
+   "rule": "어미 「る」를 い단 「り」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
+   "stem": "座り",
+   "stemHira": "すわり",
+   "forms": [
+    {
+     "label": "현재 긍정 (~ます)",
+     "ja": "座ります",
+     "hira": "すわります",
+     "kr": "앉습니다"
+    },
+    {
+     "label": "현재 부정 (~ません)",
+     "ja": "座りません",
+     "hira": "すわりません",
+     "kr": "앉지 않습니다"
+    },
+    {
+     "label": "과거 긍정 (~ました)",
+     "ja": "座りました",
+     "hira": "すわりました",
+     "kr": "앉았습니다"
+    },
+    {
+     "label": "과거 부정 (~ませんでした)",
+     "ja": "座りませんでした",
+     "hira": "すわりませんでした",
+     "kr": "앉지 않았습니다"
+    },
+    {
+     "label": "희망 (~たいです)",
+     "ja": "座りたいです",
+     "hira": "すわりたいです",
+     "kr": "앉고 싶습니다"
+    },
+    {
+     "label": "목적 (~に行きます)",
+     "ja": "座りに行きます",
+     "hira": "すわりにいきます",
+     "kr": "앉으러 갑니다"
+    },
+    {
+     "label": "청유 (~ましょう)",
+     "ja": "座りましょう",
+     "hira": "すわりましょう",
+     "kr": "앉읍시다"
+    },
+    {
+     "label": "권유 (~ませんか)",
+     "ja": "座りませんか",
+     "hira": "すわりませんか",
+     "kr": "앉지 않을래요?"
+    },
+    {
+     "label": "て형 (~て: ~하고/~해서)",
+     "ja": "座って",
+     "hira": "すわって",
+     "kr": "앉고 / 앉아서"
+    },
+    {
+     "label": "진행 (~ています)",
+     "ja": "座っています",
+     "hira": "すわっています",
+     "kr": "앉고 있습니다"
+    },
+    {
+     "label": "요청 (~てください)",
+     "ja": "座ってください",
+     "hira": "すわってください",
+     "kr": "앉아 주세요"
+    },
+    {
+     "label": "순서 (~てから)",
+     "ja": "座ってから",
+     "hira": "すわってから",
+     "kr": "앉고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "座ってみます",
+     "hira": "すわってみます",
+     "kr": "앉아 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "座っておきます",
+     "hira": "すわっておきます",
+     "kr": "앉아 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "座ってしまいました",
+     "hira": "すわってしまいました",
+     "kr": "앉아 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "座ってもいいです",
+     "hira": "すわってもいいです",
+     "kr": "앉아도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "座ってはいけません",
+     "hira": "すわってはいけません",
+     "kr": "앉아서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "座ってばかりいます",
+     "hira": "すわってばかりいます",
+     "kr": "앉고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "座りたがっています",
+     "hira": "すわりたがっています",
+     "kr": "앉고 싶어 합니다",
+     "since": 4
+    }
+   ],
+   "since": 4
+  },
+  {
+   "cat": "1그룹 (5단 동사)",
+   "dict": "探す",
+   "dictHira": "さがす",
+   "kr": "찾다",
+   "kr_base": "찾다",
+   "rule": "어미 「す」를 い단 「し」로 바꾸고 ます 결합 | て형: す ➔ して | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
+   "stem": "探し",
+   "stemHira": "さがし",
+   "forms": [
+    {
+     "label": "현재 긍정 (~ます)",
+     "ja": "探します",
+     "hira": "さがします",
+     "kr": "찾습니다"
+    },
+    {
+     "label": "현재 부정 (~ません)",
+     "ja": "探しません",
+     "hira": "さがしません",
+     "kr": "찾지 않습니다"
+    },
+    {
+     "label": "과거 긍정 (~ました)",
+     "ja": "探しました",
+     "hira": "さがしました",
+     "kr": "찾았습니다"
+    },
+    {
+     "label": "과거 부정 (~ませんでした)",
+     "ja": "探しませんでした",
+     "hira": "さがしませんでした",
+     "kr": "찾지 않았습니다"
+    },
+    {
+     "label": "희망 (~たいです)",
+     "ja": "探したいです",
+     "hira": "さがしたいです",
+     "kr": "찾고 싶습니다"
+    },
+    {
+     "label": "목적 (~に行きます)",
+     "ja": "探しに行きます",
+     "hira": "さがしにいきます",
+     "kr": "찾으러 갑니다"
+    },
+    {
+     "label": "청유 (~ましょう)",
+     "ja": "探しましょう",
+     "hira": "さがしましょう",
+     "kr": "찾읍시다"
+    },
+    {
+     "label": "권유 (~ませんか)",
+     "ja": "探しませんか",
+     "hira": "さがしませんか",
+     "kr": "찾지 않을래요?"
+    },
+    {
+     "label": "て형 (~て: ~하고/~해서)",
+     "ja": "探して",
+     "hira": "さがして",
+     "kr": "찾고 / 찾아서"
+    },
+    {
+     "label": "진행 (~ています)",
+     "ja": "探しています",
+     "hira": "さがしています",
+     "kr": "찾고 있습니다"
+    },
+    {
+     "label": "요청 (~てください)",
+     "ja": "探してください",
+     "hira": "さがしてください",
+     "kr": "찾아 주세요"
+    },
+    {
+     "label": "순서 (~てから)",
+     "ja": "探してから",
+     "hira": "さがしてから",
+     "kr": "찾고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "探してみます",
+     "hira": "さがしてみます",
+     "kr": "찾아 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "探しておきます",
+     "hira": "さがしておきます",
+     "kr": "찾아 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "探してしまいました",
+     "hira": "さがしてしまいました",
+     "kr": "찾아 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "探してもいいです",
+     "hira": "さがしてもいいです",
+     "kr": "찾아도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "探してはいけません",
+     "hira": "さがしてはいけません",
+     "kr": "찾아서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "探してばかりいます",
+     "hira": "さがしてばかりいます",
+     "kr": "찾고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "探したがっています",
+     "hira": "さがしたがっています",
+     "kr": "찾고 싶어 합니다",
+     "since": 4
+    }
+   ],
+   "since": 4
+  },
+  {
+   "cat": "1그룹 (5단 동사)",
+   "dict": "泣く",
+   "dictHira": "なく",
+   "kr": "울다",
+   "kr_base": "울다",
+   "rule": "어미 「く」를 い단 「き」로 바꾸고 ます 결합 | て형: く ➔ いて | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
+   "stem": "泣き",
+   "stemHira": "なき",
+   "forms": [
+    {
+     "label": "현재 긍정 (~ます)",
+     "ja": "泣きます",
+     "hira": "なきます",
+     "kr": "웁니다"
+    },
+    {
+     "label": "현재 부정 (~ません)",
+     "ja": "泣きません",
+     "hira": "なきません",
+     "kr": "울지 않습니다"
+    },
+    {
+     "label": "과거 긍정 (~ました)",
+     "ja": "泣きました",
+     "hira": "なきました",
+     "kr": "울었습니다"
+    },
+    {
+     "label": "과거 부정 (~ませんでした)",
+     "ja": "泣きませんでした",
+     "hira": "なきませんでした",
+     "kr": "울지 않았습니다"
+    },
+    {
+     "label": "희망 (~たいです)",
+     "ja": "泣きたいです",
+     "hira": "なきたいです",
+     "kr": "울고 싶습니다"
+    },
+    {
+     "label": "목적 (~に行きます)",
+     "ja": "泣きに行きます",
+     "hira": "なきにいきます",
+     "kr": "울러 갑니다"
+    },
+    {
+     "label": "청유 (~ましょう)",
+     "ja": "泣きましょう",
+     "hira": "なきましょう",
+     "kr": "웁시다"
+    },
+    {
+     "label": "권유 (~ませんか)",
+     "ja": "泣きませんか",
+     "hira": "なきませんか",
+     "kr": "울지 않을래요?"
+    },
+    {
+     "label": "て형 (~て: ~하고/~해서)",
+     "ja": "泣いて",
+     "hira": "ないて",
+     "kr": "울고 / 울어서"
+    },
+    {
+     "label": "진행 (~ています)",
+     "ja": "泣いています",
+     "hira": "ないています",
+     "kr": "울고 있습니다"
+    },
+    {
+     "label": "요청 (~てください)",
+     "ja": "泣いてください",
+     "hira": "ないてください",
+     "kr": "울어 주세요"
+    },
+    {
+     "label": "순서 (~てから)",
+     "ja": "泣いてから",
+     "hira": "ないてから",
+     "kr": "울고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "泣いてみます",
+     "hira": "ないてみます",
+     "kr": "울어 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "泣いておきます",
+     "hira": "ないておきます",
+     "kr": "울어 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "泣いてしまいました",
+     "hira": "ないてしまいました",
+     "kr": "울어 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "泣いてもいいです",
+     "hira": "ないてもいいです",
+     "kr": "울어도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "泣いてはいけません",
+     "hira": "ないてはいけません",
+     "kr": "울어서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "泣いてばかりいます",
+     "hira": "ないてばかりいます",
+     "kr": "울고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "泣きたがっています",
+     "hira": "なきたがっています",
+     "kr": "울고 싶어 합니다",
+     "since": 4
+    }
+   ],
+   "since": 4
+  },
+  {
+   "cat": "1그룹 (5단 동사)",
+   "dict": "働く",
+   "dictHira": "はたらく",
+   "kr": "일하다",
+   "kr_base": "일하다",
+   "rule": "어미 「く」를 い단 「き」로 바꾸고 ます 결합 | て형: く ➔ いて | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
+   "stem": "働き",
+   "stemHira": "はたらき",
+   "forms": [
+    {
+     "label": "현재 긍정 (~ます)",
+     "ja": "働きます",
+     "hira": "はたらきます",
+     "kr": "일합니다"
+    },
+    {
+     "label": "현재 부정 (~ません)",
+     "ja": "働きません",
+     "hira": "はたらきません",
+     "kr": "일하지 않습니다"
+    },
+    {
+     "label": "과거 긍정 (~ました)",
+     "ja": "働きました",
+     "hira": "はたらきました",
+     "kr": "일했습니다"
+    },
+    {
+     "label": "과거 부정 (~ませんでした)",
+     "ja": "働きませんでした",
+     "hira": "はたらきませんでした",
+     "kr": "일하지 않았습니다"
+    },
+    {
+     "label": "희망 (~たいです)",
+     "ja": "働きたいです",
+     "hira": "はたらきたいです",
+     "kr": "일하고 싶습니다"
+    },
+    {
+     "label": "목적 (~に行きます)",
+     "ja": "働きに行きます",
+     "hira": "はたらきにいきます",
+     "kr": "일하러 갑니다"
+    },
+    {
+     "label": "청유 (~ましょう)",
+     "ja": "働きましょう",
+     "hira": "はたらきましょう",
+     "kr": "일합시다"
+    },
+    {
+     "label": "권유 (~ませんか)",
+     "ja": "働きませんか",
+     "hira": "はたらきませんか",
+     "kr": "일하지 않을래요?"
+    },
+    {
+     "label": "て형 (~て: ~하고/~해서)",
+     "ja": "働いて",
+     "hira": "はたらいて",
+     "kr": "일하고 / 일해서"
+    },
+    {
+     "label": "진행 (~ています)",
+     "ja": "働いています",
+     "hira": "はたらいています",
+     "kr": "일하고 있습니다"
+    },
+    {
+     "label": "요청 (~てください)",
+     "ja": "働いてください",
+     "hira": "はたらいてください",
+     "kr": "일해 주세요"
+    },
+    {
+     "label": "순서 (~てから)",
+     "ja": "働いてから",
+     "hira": "はたらいてから",
+     "kr": "일하고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "働いてみます",
+     "hira": "はたらいてみます",
+     "kr": "일해 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "働いておきます",
+     "hira": "はたらいておきます",
+     "kr": "일해 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "働いてしまいました",
+     "hira": "はたらいてしまいました",
+     "kr": "일해 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "働いてもいいです",
+     "hira": "はたらいてもいいです",
+     "kr": "일해도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "働いてはいけません",
+     "hira": "はたらいてはいけません",
+     "kr": "일해서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "働いてばかりいます",
+     "hira": "はたらいてばかりいます",
+     "kr": "일하고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "働きたがっています",
+     "hira": "はたらきたがっています",
+     "kr": "일하고 싶어 합니다",
+     "since": 4
+    }
+   ],
+   "since": 4
+  },
+  {
+   "cat": "1그룹 (5단 동사)",
+   "dict": "通う",
+   "dictHira": "かよう",
+   "kr": "다니다 (~に 通う)",
+   "kr_base": "다니다",
+   "rule": "어미 「う」를 い단 「い」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
+   "stem": "通い",
+   "stemHira": "かよい",
+   "forms": [
+    {
+     "label": "현재 긍정 (~ます)",
+     "ja": "通います",
+     "hira": "かよいます",
+     "kr": "다닙니다"
+    },
+    {
+     "label": "현재 부정 (~ません)",
+     "ja": "通いません",
+     "hira": "かよいません",
+     "kr": "다니지 않습니다"
+    },
+    {
+     "label": "과거 긍정 (~ました)",
+     "ja": "通いました",
+     "hira": "かよいました",
+     "kr": "다녔습니다"
+    },
+    {
+     "label": "과거 부정 (~ませんでした)",
+     "ja": "通いませんでした",
+     "hira": "かよいませんでした",
+     "kr": "다니지 않았습니다"
+    },
+    {
+     "label": "희망 (~たいです)",
+     "ja": "通いたいです",
+     "hira": "かよいたいです",
+     "kr": "다니고 싶습니다"
+    },
+    {
+     "label": "목적 (~に行きます)",
+     "ja": "通いに行きます",
+     "hira": "かよいにいきます",
+     "kr": "다니러 갑니다"
+    },
+    {
+     "label": "청유 (~ましょう)",
+     "ja": "通いましょう",
+     "hira": "かよいましょう",
+     "kr": "다닙시다"
+    },
+    {
+     "label": "권유 (~ませんか)",
+     "ja": "通いませんか",
+     "hira": "かよいませんか",
+     "kr": "다니지 않을래요?"
+    },
+    {
+     "label": "て형 (~て: ~하고/~해서)",
+     "ja": "通って",
+     "hira": "かよって",
+     "kr": "다니고 / 다녀서"
+    },
+    {
+     "label": "진행 (~ています)",
+     "ja": "通っています",
+     "hira": "かよっています",
+     "kr": "다니고 있습니다"
+    },
+    {
+     "label": "요청 (~てください)",
+     "ja": "通ってください",
+     "hira": "かよってください",
+     "kr": "다녀 주세요"
+    },
+    {
+     "label": "순서 (~てから)",
+     "ja": "通ってから",
+     "hira": "かよってから",
+     "kr": "다니고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "通ってみます",
+     "hira": "かよってみます",
+     "kr": "다녀 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "通っておきます",
+     "hira": "かよっておきます",
+     "kr": "다녀 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "通ってしまいました",
+     "hira": "かよってしまいました",
+     "kr": "다녀 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "通ってもいいです",
+     "hira": "かよってもいいです",
+     "kr": "다녀도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "通ってはいけません",
+     "hira": "かよってはいけません",
+     "kr": "다녀서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "通ってばかりいます",
+     "hira": "かよってばかりいます",
+     "kr": "다니고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "通いたがっています",
+     "hira": "かよいたがっています",
+     "kr": "다니고 싶어 합니다",
+     "since": 4
+    }
+   ],
+   "since": 4
+  },
+  {
+   "cat": "1그룹 (5단 동사)",
+   "dict": "頑張る",
+   "dictHira": "がんばる",
+   "kr": "열심히 하다, 힘내다",
+   "kr_base": "힘내다",
+   "rule": "어미 「る」를 い단 「り」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
+   "stem": "頑張り",
+   "stemHira": "がんばり",
+   "forms": [
+    {
+     "label": "현재 긍정 (~ます)",
+     "ja": "頑張ります",
+     "hira": "がんばります",
+     "kr": "힘냅니다"
+    },
+    {
+     "label": "현재 부정 (~ません)",
+     "ja": "頑張りません",
+     "hira": "がんばりません",
+     "kr": "힘내지 않습니다"
+    },
+    {
+     "label": "과거 긍정 (~ました)",
+     "ja": "頑張りました",
+     "hira": "がんばりました",
+     "kr": "힘냈습니다"
+    },
+    {
+     "label": "과거 부정 (~ませんでした)",
+     "ja": "頑張りませんでした",
+     "hira": "がんばりませんでした",
+     "kr": "힘내지 않았습니다"
+    },
+    {
+     "label": "희망 (~たいです)",
+     "ja": "頑張りたいです",
+     "hira": "がんばりたいです",
+     "kr": "힘내고 싶습니다"
+    },
+    {
+     "label": "목적 (~に行きます)",
+     "ja": "頑張りに行きます",
+     "hira": "がんばりにいきます",
+     "kr": "힘내러 갑니다"
+    },
+    {
+     "label": "청유 (~ましょう)",
+     "ja": "頑張りましょう",
+     "hira": "がんばりましょう",
+     "kr": "힘냅시다"
+    },
+    {
+     "label": "권유 (~ませんか)",
+     "ja": "頑張りませんか",
+     "hira": "がんばりませんか",
+     "kr": "힘내지 않을래요?"
+    },
+    {
+     "label": "て형 (~て: ~하고/~해서)",
+     "ja": "頑張って",
+     "hira": "がんばって",
+     "kr": "힘내고 / 힘내서"
+    },
+    {
+     "label": "진행 (~ています)",
+     "ja": "頑張っています",
+     "hira": "がんばっています",
+     "kr": "힘내고 있습니다"
+    },
+    {
+     "label": "요청 (~てください)",
+     "ja": "頑張ってください",
+     "hira": "がんばってください",
+     "kr": "힘내 주세요"
+    },
+    {
+     "label": "순서 (~てから)",
+     "ja": "頑張ってから",
+     "hira": "がんばってから",
+     "kr": "힘내고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "頑張ってみます",
+     "hira": "がんばってみます",
+     "kr": "힘내 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "頑張っておきます",
+     "hira": "がんばっておきます",
+     "kr": "힘내 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "頑張ってしまいました",
+     "hira": "がんばってしまいました",
+     "kr": "힘내 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "頑張ってもいいです",
+     "hira": "がんばってもいいです",
+     "kr": "힘내도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "頑張ってはいけません",
+     "hira": "がんばってはいけません",
+     "kr": "힘내서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "頑張ってばかりいます",
+     "hira": "がんばってばかりいます",
+     "kr": "힘내고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "頑張りたがっています",
+     "hira": "がんばりたがっています",
+     "kr": "힘내고 싶어 합니다",
+     "since": 4
+    }
+   ],
+   "since": 4
+  },
+  {
+   "cat": "1그룹 (5단 동사)",
+   "dict": "死ぬ",
+   "dictHira": "しぬ",
+   "kr": "죽다 (유일한 ぬ 동사)",
+   "kr_base": "죽다",
+   "rule": "어미 「ぬ」를 い단 「に」로 바꾸고 ます 결합 | て형: ぬ・む・ぶ ➔ んで | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
+   "stem": "死に",
+   "stemHira": "しに",
+   "forms": [
+    {
+     "label": "현재 긍정 (~ます)",
+     "ja": "死にます",
+     "hira": "しにます",
+     "kr": "죽습니다"
+    },
+    {
+     "label": "현재 부정 (~ません)",
+     "ja": "死にません",
+     "hira": "しにません",
+     "kr": "죽지 않습니다"
+    },
+    {
+     "label": "과거 긍정 (~ました)",
+     "ja": "死にました",
+     "hira": "しにました",
+     "kr": "죽었습니다"
+    },
+    {
+     "label": "과거 부정 (~ませんでした)",
+     "ja": "死にませんでした",
+     "hira": "しにませんでした",
+     "kr": "죽지 않았습니다"
+    },
+    {
+     "label": "희망 (~たいです)",
+     "ja": "死にたいです",
+     "hira": "しにたいです",
+     "kr": "죽고 싶습니다"
+    },
+    {
+     "label": "て형 (~て: ~하고/~해서)",
+     "ja": "死んで",
+     "hira": "しんで",
+     "kr": "죽고 / 죽어서"
+    },
+    {
+     "label": "진행 (~ています)",
+     "ja": "死んでいます",
+     "hira": "しんでいます",
+     "kr": "죽어 있습니다 (결과 상태)"
+    },
+    {
+     "label": "순서 (~てから)",
+     "ja": "死んでから",
+     "hira": "しんでから",
+     "kr": "죽고 나서"
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "死んでしまいました",
+     "hira": "しんでしまいました",
+     "kr": "죽어 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "死んではいけません",
+     "hira": "しんではいけません",
+     "kr": "죽어서는 안 됩니다",
+     "since": 4
+    }
+   ],
+   "since": 4
+  },
+  {
+   "cat": "1그룹 (5단 동사)",
+   "dict": "太る",
+   "dictHira": "ふとる",
+   "kr": "살찌다",
+   "kr_base": "살찌다",
+   "rule": "어미 「る」를 い단 「り」로 바꾸고 ます 결합 | て형: う・つ・る ➔ って | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
+   "stem": "太り",
+   "stemHira": "ふとり",
+   "forms": [
+    {
+     "label": "현재 긍정 (~ます)",
+     "ja": "太ります",
+     "hira": "ふとります",
+     "kr": "살찝니다"
+    },
+    {
+     "label": "현재 부정 (~ません)",
+     "ja": "太りません",
+     "hira": "ふとりません",
+     "kr": "살찌지 않습니다"
+    },
+    {
+     "label": "과거 긍정 (~ました)",
+     "ja": "太りました",
+     "hira": "ふとりました",
+     "kr": "살쪘습니다"
+    },
+    {
+     "label": "과거 부정 (~ませんでした)",
+     "ja": "太りませんでした",
+     "hira": "ふとりませんでした",
+     "kr": "살찌지 않았습니다"
+    },
+    {
+     "label": "희망 (~たいです)",
+     "ja": "太りたいです",
+     "hira": "ふとりたいです",
+     "kr": "살찌고 싶습니다"
+    },
+    {
+     "label": "て형 (~て: ~하고/~해서)",
+     "ja": "太って",
+     "hira": "ふとって",
+     "kr": "살찌고 / 살쪄서"
+    },
+    {
+     "label": "진행 (~ています)",
+     "ja": "太っています",
+     "hira": "ふとっています",
+     "kr": "살쪘습니다 (살찐 상태)"
+    },
+    {
+     "label": "순서 (~てから)",
+     "ja": "太ってから",
+     "hira": "ふとってから",
+     "kr": "살찌고 나서"
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "太ってしまいました",
+     "hira": "ふとってしまいました",
+     "kr": "살쪄 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "太ってもいいです",
+     "hira": "ふとってもいいです",
+     "kr": "살쪄도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "太ってはいけません",
+     "hira": "ふとってはいけません",
+     "kr": "살쪄서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "太りたがっています",
+     "hira": "ふとりたがっています",
+     "kr": "살찌고 싶어 합니다",
+     "since": 4
+    }
+   ],
+   "since": 4
   },
   {
    "cat": "예외 1그룹 (필수 암기)",
    "dict": "帰る",
    "dictHira": "かえる",
    "kr": "돌아가다 / 귀가하다",
-   "rule": "⚠️ 형태는 2그룹(え단+る) 같지만 1그룹! る ➔ り + ます (帰ります) | て형: う・つ・る ➔ って (⚠️ 예외 1그룹이라 る ➔ って)",
+   "rule": "⚠️ 형태는 2그룹(え단+る) 같지만 1그룹! る ➔ り + ます (帰ります) | て형: う・つ・る ➔ って (⚠️ 예외 1그룹이라 る ➔ って) | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "帰り",
    "stemHira": "かえり",
    "forms": [
@@ -3858,6 +7324,55 @@ window.LESSONS_DB["verb"] = {
      "ja": "帰ってから",
      "hira": "かえってから",
      "kr": "돌아가고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "帰ってみます",
+     "hira": "かえってみます",
+     "kr": "돌아가 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "帰っておきます",
+     "hira": "かえっておきます",
+     "kr": "돌아가 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "帰ってしまいました",
+     "hira": "かえってしまいました",
+     "kr": "돌아가 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "帰ってもいいです",
+     "hira": "かえってもいいです",
+     "kr": "돌아가도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "帰ってはいけません",
+     "hira": "かえってはいけません",
+     "kr": "돌아가서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "帰ってばかりいます",
+     "hira": "かえってばかりいます",
+     "kr": "돌아가고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "帰りたがっています",
+     "hira": "かえりたがっています",
+     "kr": "돌아가고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -3866,7 +7381,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "知る",
    "dictHira": "しる",
    "kr": "알다",
-   "rule": "⚠️ 형태는 2그룹(い단+る) 같지만 1그룹! る ➔ り + ます (知ります) | て형: う・つ・る ➔ って (⚠️ 예외 1그룹이라 る ➔ って)",
+   "rule": "⚠️ 형태는 2그룹(い단+る) 같지만 1그룹! る ➔ り + ます (知ります) | て형: う・つ・る ➔ って (⚠️ 예외 1그룹이라 る ➔ って) | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "知り",
    "stemHira": "しり",
    "forms": [
@@ -3917,6 +7432,48 @@ window.LESSONS_DB["verb"] = {
      "ja": "知ってから",
      "hira": "しってから",
      "kr": "알고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "知ってみます",
+     "hira": "しってみます",
+     "kr": "알아 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "知っておきます",
+     "hira": "しっておきます",
+     "kr": "알아 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "知ってしまいました",
+     "hira": "しってしまいました",
+     "kr": "알아 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "知ってもいいです",
+     "hira": "しってもいいです",
+     "kr": "알아도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "知ってはいけません",
+     "hira": "しってはいけません",
+     "kr": "알아서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "知りたがっています",
+     "hira": "しりたがっています",
+     "kr": "알고 싶어 합니다",
+     "since": 4
     }
    ]
   },
@@ -3925,7 +7482,7 @@ window.LESSONS_DB["verb"] = {
    "dict": "入る",
    "dictHira": "はいる",
    "kr": "들어가다 / 들어오다",
-   "rule": "⚠️ 형태는 2그룹(い단+る) 같지만 1그룹! る ➔ り + ます (入ります) | て형: う・つ・る ➔ って (⚠️ 예외 1그룹이라 る ➔ って)",
+   "rule": "⚠️ 형태는 2그룹(い단+る) 같지만 1그룹! る ➔ り + ます (入ります) | て형: う・つ・る ➔ って (⚠️ 예외 1그룹이라 る ➔ って) | て형Ⅱ: ~てみる・~ておく・~てしまう・~てもいい・~てはいけない・~てばかりいる / ~たがる",
    "stem": "入り",
    "stemHira": "はいり",
    "forms": [
@@ -3988,8 +7545,58 @@ window.LESSONS_DB["verb"] = {
      "ja": "入ってから",
      "hira": "はいってから",
      "kr": "들어가고 나서"
+    },
+    {
+     "label": "~てみます (~해 봅니다)",
+     "ja": "入ってみます",
+     "hira": "はいってみます",
+     "kr": "들어가 봅니다",
+     "since": 4
+    },
+    {
+     "label": "~ておきます (~해 둡니다)",
+     "ja": "入っておきます",
+     "hira": "はいっておきます",
+     "kr": "들어가 둡니다",
+     "since": 4
+    },
+    {
+     "label": "~てしまいました (~해 버렸습니다)",
+     "ja": "入ってしまいました",
+     "hira": "はいってしまいました",
+     "kr": "들어가 버렸습니다",
+     "since": 4
+    },
+    {
+     "label": "~てもいいです (~해도 됩니다)",
+     "ja": "入ってもいいです",
+     "hira": "はいってもいいです",
+     "kr": "들어가도 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てはいけません (~하면 안 됩니다)",
+     "ja": "入ってはいけません",
+     "hira": "はいってはいけません",
+     "kr": "들어가서는 안 됩니다",
+     "since": 4
+    },
+    {
+     "label": "~てばかりいます (~하고만 있습니다)",
+     "ja": "入ってばかりいます",
+     "hira": "はいってばかりいます",
+     "kr": "들어가고만 있습니다",
+     "since": 4
+    },
+    {
+     "label": "~たがっています (3인칭: ~하고 싶어 합니다)",
+     "ja": "入りたがっています",
+     "hira": "はいりたがっています",
+     "kr": "들어가고 싶어 합니다",
+     "since": 4
     }
    ]
   }
- ]
+ ],
+ "updatedIn": 4
 };
