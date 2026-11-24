@@ -159,3 +159,30 @@ if __name__ == '__main__':
     for w in ['비싸다', '높다', '덥다', '크다', '빠르다', '이르다', '길다', '맛있다', '느리다', '조용하다',
               '좁다', '파랗다', '빨갛다', '나쁘다', '아프다', '가볍다', '오래되다', '시원하다', '좋다', '괜찮다', '멀다', '슬프다', '잘생기다', '귀엽다']:
         print(w, adnominal_adj(w), polite(w), neg(w), past(w), become(w), go(w), seo(w))
+
+
+def adn_past_verb(d):
+    """동사 과거 관형형: 가다→간, 먹다→먹은, 놀다→논, 듣다→들은, 걷다→걸은"""
+    if d in IRREG_A:  # ㄷ 불규칙
+        return IRREG_A[d][:-1] + '은'
+    s = stem_of(d)
+    cho, jung, jong = split(s[-1])
+    if jong == 0:
+        return set_final(s, 'ㄴ')
+    if jong == F['ㄹ']:
+        return s[:-1] + join(cho, jung, F['ㄴ'])
+    return s + '은'
+
+
+def adn_pres_verb(d):
+    """동사 현재 관형형: 가다→가는, 놀다→노는, 먹다→먹는"""
+    s = stem_of(d)
+    cho, jung, jong = split(s[-1])
+    if jong == F['ㄹ']:
+        return s[:-1] + join(cho, jung, 0) + '는'
+    return s + '는'
+
+
+def past_plain(d):
+    """보통형 과거: 갔다, 먹었다, 했다"""
+    return set_final(a_form(d), 'ㅆ') + '다'

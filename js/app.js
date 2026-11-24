@@ -1141,6 +1141,43 @@
     // ==========================================
     let conjMode = 'table'; // 'table', 'quiz', 'write'
     let currentConjCat = 'all';
+    // 활용형 묶음 필터 (ます형 / て형 / て형Ⅱ / た형 …): 표·4지선다·타이핑 모두 이 묶음만 출제
+    let currentConjFam = 'all';
+    const FAM_ORDER = ['ます형', 'て형', 'て형Ⅱ', 'た형'];
+    function famOf(f) { return f.fam || '기본'; }
+    function formsInFam(item) {
+      return (item.forms || []).filter(f => currentConjFam === 'all' || famOf(f) === currentConjFam);
+    }
+    function renderConjFamFilters() {
+      const box = document.getElementById('conjFamFilters');
+      if (!box) return;
+      const counts = {};
+      (APP_DATA.conjugationItems || []).forEach(it => (it.forms || []).forEach(f => { counts[famOf(f)] = (counts[famOf(f)] || 0) + 1; }));
+      const fams = Object.keys(counts).filter(k => k !== '기본')
+        .sort((a, b) => (FAM_ORDER.indexOf(a) + 1 || 99) - (FAM_ORDER.indexOf(b) + 1 || 99));
+      if (fams.length < 2) { box.classList.add('hidden'); box.innerHTML = ''; currentConjFam = 'all'; return; }
+      box.classList.remove('hidden');
+      const total = Object.values(counts).reduce((a, b) => a + b, 0);
+      box.innerHTML = '<span class="text-xs font-extrabold text-slate-600 mr-1">🎯 활용형별 집중 연습:</span>';
+      [['all', `전체 활용형 (${total})`], ...fams.map(f => [f, `${f} (${counts[f]})`]), ...(counts['기본'] ? [['기본', `기타 (${counts['기본']})`]] : [])]
+        .forEach(([key, text]) => {
+          const btn = document.createElement('button');
+          const on = currentConjFam === key;
+          btn.className = `px-3 py-1.5 rounded-xl text-xs transition border ${on ? 'bg-amber-500 border-amber-500 text-white font-extrabold shadow-xs' : 'bg-white border-amber-200 text-amber-800 font-bold hover:bg-amber-50'}`;
+          btn.textContent = text;
+          btn.onclick = () => {
+            currentConjFam = key;
+            renderConjFamFilters();
+            renderConjugationTable();
+            conjQuizPool = buildConjugationPool().sort(() => Math.random() - 0.5);
+            conjQuizIdx = 0;
+            conjWriteIdx = 0;
+            if (conjMode === 'quiz') renderConjugationQuizQuestion();
+            if (conjMode === 'write') renderConjugationWriteQuestion();
+          };
+          box.appendChild(btn);
+        });
+    }
     let conjQuizPool = [];
     let conjQuizIdx = 0;
     let conjQuizStreak = 0;
@@ -1151,7 +1188,7 @@
       const items = APP_DATA.conjugationItems || [];
       const pool = [];
       items.forEach(item => {
-        (item.forms || []).forEach(f => {
+        formsInFam(item).forEach(f => {
           pool.push({
             cat: item.cat,
             baseDict: item.dict,
@@ -1178,6 +1215,8 @@
         heading.textContent = `[${label}] 어휘 및 문형 활용 집중 연습실 (${items.length}개 핵심 항목)`;
       }
       currentConjCat = 'all';
+      currentConjFam = 'all';
+      renderConjFamFilters();
       renderConjugationTable();
       conjQuizPool = buildConjugationPool().sort(() => Math.random() - 0.5);
       conjQuizIdx = 0;
@@ -1214,14 +1253,15 @@
       });
 
       grid.innerHTML = '';
-      const filtered = items.filter(x => currentConjCat === 'all' || (currentConjCat === '__new__' ? hasNewIn(x) : x.cat === currentConjCat));
+      const filtered = items.filter(x => currentConjCat === 'all' || (currentConjCat === '__new__' ? hasNewIn(x) : x.cat === currentConjCat))
+        .filter(x => formsInFam(x).length > 0);
 
       filtered.forEach(item => {
         const card = document.createElement('div');
         const itemNew = isNewSince(item.since);
         card.className = `p-5 rounded-3xl bg-white border ${itemNew ? 'border-rose-300 ring-2 ring-rose-100' : 'border-slate-200'} shadow-xs hover:shadow-md transition space-y-3 flex flex-col justify-between`;
 
-        const formsHtml = (item.forms || []).map((f, fIdx) => `
+        const formsHtml = formsInFam(item).map((f, fIdx) => `
           <div class="p-2.5 rounded-xl ${isNewSince(f.since) ? 'bg-rose-50/60 border-rose-300' : 'bg-slate-50 border-slate-200/80'} hover:bg-indigo-50/50 border flex items-center justify-between gap-2 transition">
             <div class="space-y-0.5 min-w-0 flex-1">
               <div class="text-[11px] font-bold text-indigo-600">${isNewSince(f.since) ? newBadgeHtml('NEW') + ' ' : ''}${f.label}</div>
