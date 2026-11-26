@@ -261,16 +261,45 @@
       window.speechSynthesis.addEventListener('voiceschanged', pickJaVoice);
     }
 
+    // --- TTS는 한자 대신 저장된 히라가나 읽기를 읽는다 ---
+    // TTS 엔진은 한자 읽기를 추측하므로 틀리는 경우가 있다 (例: 行った方がいい 의 方를 かた로 읽음).
+    // 모든 단원의 문장·단어·활용형은 정확한 히라가나(hira)를 갖고 있으므로, 같은 일본어 문자열이면 그 읽기를 대신 읽는다.
+    let ttsReadingMap = null;
+    function ttsReading(text) {
+      if (!ttsReadingMap) {
+        ttsReadingMap = new Map();
+        const add = (ja, hira) => {
+          if (ja && hira && ja !== '-' && hira !== '-' && !ttsReadingMap.has(ja)) ttsReadingMap.set(ja, hira);
+        };
+        Object.values(LESSONS_DB).forEach(d => {
+          (d.sentences || []).forEach(s => add(s.ja, s.hira));
+          ((d.reading_passage || {}).sentences || []).forEach(s => add(s.ja, s.hira));
+          (d.words || []).forEach(w => add(w.kanji, w.hira));
+          (d.conjugationItems || []).forEach(it => {
+            add(it.dict, it.dictHira);
+            (it.forms || []).forEach(f => add(f.ja, f.hira));
+          });
+        });
+      }
+      return ttsReadingMap.get(text) || text;
+    }
+
+    const IS_SAMSUNG_BROWSER = /SamsungBrowser/i.test(navigator.userAgent);
+    let samsungTtsWarned = false;
+
     function speakTTS(text) {
       if (!('speechSynthesis' in window)) return;
       window.speechSynthesis.cancel();
       if (!jaVoice) pickJaVoice();
-      const u = new SpeechSynthesisUtterance(text);
+      const u = new SpeechSynthesisUtterance(ttsReading(text));
       u.lang = 'ja-JP';
       if (jaVoice) u.voice = jaVoice;
       u.rate = audioPlaybackRate;
       window.speechSynthesis.speak(u);
-      if (!jaVoice && !jaVoiceWarned && window.speechSynthesis.getVoices().length > 0) {
+      if (IS_SAMSUNG_BROWSER && !samsungTtsWarned) {
+        samsungTtsWarned = true;
+        showToast('삼성 인터넷은 일본어를 한국어 음성으로 읽을 수 있어요. 발음 듣기는 크롬에서 열어 주세요 (포털 상단 "크롬으로 열기").', '⚠️');
+      } else if (!jaVoice && !jaVoiceWarned && window.speechSynthesis.getVoices().length > 0) {
         jaVoiceWarned = true;
         showToast('이 기기에 일본어 TTS 음성이 없어 한국어로 읽힐 수 있어요. 설정 → 일반 → 텍스트 음성 변환(TTS) → Google 음성 엔진 → 일본어 음성 데이터를 설치해 주세요.', '⚠️');
       }
@@ -1883,7 +1912,8 @@
           readingAudio.play().catch(err => console.log('Reading audio blocked:', err));
           return;
         }
-        const fullText = readingPassage.sentences.map(s => s.ja).join(' ');
+        // 문장마다 정확한 히라가나 읽기로 이어 읽기
+        const fullText = readingPassage.sentences.map(s => s.hira || s.ja).join(' ');
         speakTTS(fullText);
       };
 
@@ -2320,3 +2350,27 @@
     }
 
     refreshUpdateMarks();
+
+    // --- 삼성 인터넷 안내 ---
+    // 삼성 인터넷은 웹 TTS를 기기 기본(삼성 한국어) 엔진으로 읽어서 일본어가 한국어 발음으로 섞여 나온다.
+    // 웹페이지에서는 엔진을 바꿀 수 없으므로 크롬으로 여는 버튼(안드로이드 intent 링크)을 보여준다.
+    function renderBrowserNotice() {
+      const box = document.getElementById('browserNotice');
+      if (!box || !IS_SAMSUNG_BROWSER) return;
+      try { if (localStorage.getItem('daisuki_hide_samsung_notice') === '1') return; } catch (e) {}
+      const chromeUrl = `intent://${location.host}${location.pathname}${location.search}#Intent;scheme=https;package=com.android.chrome;end`;
+      box.className = 'rounded-3xl border-2 border-amber-300 bg-amber-50 p-4 space-y-2 shadow-sm';
+      box.innerHTML = `
+        <div class="font-extrabold text-amber-800 text-sm">📱 삼성 인터넷으로 보고 계세요</div>
+        <div class="text-xs text-slate-700 leading-relaxed">삼성 인터넷은 단어·활용형 발음(🔊)을 한국어 음성으로 섞어 읽습니다. 원어민 음성이 없는 발음 듣기는 <b>크롬</b>에서 정확하게 나옵니다.</div>
+        <div class="flex flex-wrap gap-2">
+          <a href="${chromeUrl}" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold shadow-sm">크롬으로 열기</a>
+          <button id="hideSamsungNotice" class="px-4 py-2 rounded-xl bg-white border border-amber-300 text-amber-800 text-xs font-bold">다시 보지 않기</button>
+        </div>`;
+      document.getElementById('hideSamsungNotice').onclick = () => {
+        try { localStorage.setItem('daisuki_hide_samsung_notice', '1'); } catch (e) {}
+        box.className = 'hidden';
+        box.innerHTML = '';
+      };
+    }
+    renderBrowserNotice();
