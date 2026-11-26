@@ -20,6 +20,8 @@ TE2_SKIP = {
     '死ぬ': {'miru', 'oku', 'moii', 'bakari', 'tagaru'},
     '終わる': {'miru', 'oku', 'ikenai', 'tagaru'},
     '知る': {'bakari'},
+    '晴れる': {'miru', 'oku', 'ikenai', 'tagaru'},
+    '曇る': {'miru', 'oku', 'ikenai', 'tagaru'},
     'やせる': {'miru', 'oku', 'bakari'},
     '太る': {'miru', 'oku', 'bakari'},
 }

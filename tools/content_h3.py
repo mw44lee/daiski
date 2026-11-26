@@ -299,7 +299,7 @@ def build_h3():
         },
         'sentences': sents,
         'words': [{'kr': kr, 'hira': h, 'kanji': k, 'category': c} for kr, h, k, c in WORDS],
-        'reading_passage': {'title': '읽어 봅시다! (하 3과 · Track 15) — 아파트 구하기', 'sentences': READING},
+        'reading_passage': {'title': '읽어 봅시다! (하 3과 · Track 15) — 아파트 구하기', 'sentences': READING, 'range': [127.34, 165.45]},
         'grammarHtml': GRAMMAR_HTML,
         'conjugationItems': items,
     }

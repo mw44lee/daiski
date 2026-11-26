@@ -7,5 +7,6 @@ window.AUDIO_SOURCES = {
   "h1": "audio/h01.mp3",
   "h2": "audio/h02.mp3",
   "h3": "audio/h03.mp3",
-  "h4": "audio/h04.mp3"
+  "h4": "audio/h04.mp3",
+  "h5": "audio/h05.mp3"
 };

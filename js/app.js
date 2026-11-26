@@ -243,13 +243,36 @@
       }
     }
 
+    // --- 일본어 TTS 음성 선택 ---
+    // 안드로이드 크롬은 lang='ja-JP'만 지정하면 기기 기본(한국어) 음성으로 읽어서 한자를 한국어로 읽는 경우가 있다.
+    // → 일본어 음성을 직접 골라 u.voice에 지정한다. 음성 목록은 비동기로 늦게 채워지므로 voiceschanged 때 다시 고른다.
+    let jaVoice = null;
+    let jaVoiceWarned = false;
+    function pickJaVoice() {
+      if (!('speechSynthesis' in window)) return null;
+      const voices = window.speechSynthesis.getVoices() || [];
+      const ja = voices.filter(v => /^ja([-_]|$)/i.test(v.lang || '') || /japan|日本/i.test(v.name || ''));
+      // 기기 내장(local) 음성 > Google 음성 > 그 외
+      jaVoice = ja.find(v => v.localService) || ja.find(v => /google/i.test(v.name)) || ja[0] || null;
+      return jaVoice;
+    }
+    if ('speechSynthesis' in window) {
+      pickJaVoice();
+      window.speechSynthesis.addEventListener('voiceschanged', pickJaVoice);
+    }
+
     function speakTTS(text) {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const u = new SpeechSynthesisUtterance(text);
-        u.lang = 'ja-JP';
-        u.rate = audioPlaybackRate;
-        window.speechSynthesis.speak(u);
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      if (!jaVoice) pickJaVoice();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'ja-JP';
+      if (jaVoice) u.voice = jaVoice;
+      u.rate = audioPlaybackRate;
+      window.speechSynthesis.speak(u);
+      if (!jaVoice && !jaVoiceWarned && window.speechSynthesis.getVoices().length > 0) {
+        jaVoiceWarned = true;
+        showToast('이 기기에 일본어 TTS 음성이 없어 한국어로 읽힐 수 있어요. 설정 → 일반 → 텍스트 음성 변환(TTS) → Google 음성 엔진 → 일본어 음성 데이터를 설치해 주세요.', '⚠️');
       }
     }
 
@@ -1143,7 +1166,7 @@
     let currentConjCat = 'all';
     // 활용형 묶음 필터 (ます형 / て형 / て형Ⅱ / た형 …): 표·4지선다·타이핑 모두 이 묶음만 출제
     let currentConjFam = 'all';
-    const FAM_ORDER = ['ます형', 'て형', 'て형Ⅱ', 'た형'];
+    const FAM_ORDER = ['ます형', 'て형', 'て형Ⅱ', 'た형', '기본형'];
     function famOf(f) { return f.fam || '기본'; }
     function formsInFam(item) {
       return (item.forms || []).filter(f => currentConjFam === 'all' || famOf(f) === currentConjFam);
@@ -1834,6 +1857,19 @@
       const readingAudio = new Audio();
       document.getElementById('playReadingVoiceBtn').onclick = () => {
         if (!readingPassage || !readingPassage.sentences) return;
+        // 본문이 단문 음성 안에 들어 있는 단원(3·4·5과): 단원 음성의 [시작, 끝] 구간을 재생
+        if (readingPassage.range && AUDIO_SOURCES[currentLesson] && nativeAudio) {
+          if (!nativeAudio.paused) { nativeAudio.pause(); return; }
+          if (audioTimer) clearTimeout(audioTimer);
+          readingAudio.pause();
+          const [start, end] = readingPassage.range;
+          nativeAudio.playbackRate = audioPlaybackRate;
+          nativeAudio.currentTime = start;
+          nativeAudio.play().then(() => {
+            audioTimer = setTimeout(() => nativeAudio.pause(), (end - start) / audioPlaybackRate * 1000);
+          }).catch(err => console.log('Reading audio blocked:', err));
+          return;
+        }
         if (readingPassage.audio) {
           const src = new URL(readingPassage.audio, location.href).href;
           if (readingAudio.src === src && !readingAudio.paused) {
@@ -1968,6 +2004,9 @@
 
       // Audio test button
       document.getElementById('audioTestBtn').onclick = () => {
+        // 원어민 음성이 없는 화면(특강 등)에서는 TTS로 읽으므로, 어떤 일본어 음성이 잡혔는지도 알려준다
+        const v = pickJaVoice();
+        showToast(v ? `일본어 TTS 음성: ${v.name}` : '일본어 TTS 음성을 찾지 못했습니다 (기기 설정에서 일본어 음성 데이터를 설치하세요)', v ? '🔊' : '⚠️');
         playSentenceAudio(0);
         document.getElementById('audioTestText').textContent = '재생 중...';
         setTimeout(() => {

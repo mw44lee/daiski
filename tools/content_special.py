@@ -133,6 +133,10 @@ def build_noun():
                    'kr': n0 + ('이어도' if ko.has_batchim(n0) else '여도') + ' 됩니다', 'since': 4})
         fl.append({'label': '보통형 과거 (~だった: 일기체)', 'ja': ja + 'だった', 'hira': hi + 'だった',
                    'kr': n0 + ('이었다' if ko.has_batchim(n0) else '였다'), 'since': 5})
+        fl.append({'label': 'たり형 (~だったり: ~이기도 하고)', 'ja': ja + 'だったり', 'hira': hi + 'だったり',
+                   'kr': n0 + '이기도 하고', 'since': 6})
+        fl.append({'label': '~かもしれません (~일지도 모릅니다)', 'ja': ja + 'かも しれません', 'hira': hi + 'かも しれません',
+                   'kr': n0 + '일지도 모릅니다', 'since': 6})
         items.append({'cat': cat, 'dict': ja, 'dictHira': hi, 'kr': kr,
                       'rule': '명사 + です / では ありません / でした / では ありませんでした | て형: 명사 + で (~이고 / ~라서) | 변화: 명사 + に なります | 허가: 명사 + でも いいです',
                       'forms': fl})
@@ -202,7 +206,7 @@ def build_noun():
 </div>
 '''
     return {
-        'id': 'noun', 'isSpecial': True, 'updatedIn': 5, 'icon': '🏷️', 'shortLabel': '명사 활용',
+        'id': 'noun', 'isSpecial': True, 'updatedIn': 6, 'icon': '🏷️', 'shortLabel': '명사 활용',
         'title': '일본어 명사 활용 (です형 4가지 & て형 で・상태변화) 마스터', 'badge': '명사 です형 & て형(で)',
         'theme': 'from-lime-500 to-green-600', 'accent': 'lime',
         'subtitle': '명사 + です / では ありません / でした / では ありませんでした • て형(で: 나열·이유) • ~に なります',

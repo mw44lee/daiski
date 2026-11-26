@@ -186,3 +186,20 @@ def adn_pres_verb(d):
 def past_plain(d):
     """보통형 과거: 갔다, 먹었다, 했다"""
     return set_final(a_form(d), 'ㅆ') + '다'
+
+
+def fut_adn(d):
+    """미래 관형형 (~ㄹ/을): 가다→갈, 먹다→먹을, 놀다→놀, 듣다→들을, 덥다→더울, 파랗다→파랄"""
+    if d in IRREG_A:
+        return IRREG_A[d][:-1] + '을'
+    s = stem_of(d)
+    cho, jung, jong = split(s[-1])
+    if jong == 0:
+        return set_final(s, 'ㄹ')
+    if jong == F['ㄹ']:
+        return s
+    if jong == F['ㅂ'] and s not in B_REGULAR:
+        return s[:-1] + join(cho, jung, 0) + '울'
+    if jong == F_HIEUT and s not in H_REGULAR:
+        return s[:-1] + join(cho, jung, F['ㄹ'])
+    return s + '을'

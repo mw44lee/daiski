@@ -23,10 +23,13 @@ from content_h2 import build_h2, FURIGANA as H2_FURIGANA  # noqa: E402
 from content_h3 import build_h3, FURIGANA as H3_FURIGANA, PART1 as H3_P1, PART2 as H3_P2, GRAMMAR_HTML as H3_GRAMMAR  # noqa: E402
 from te2 import te2_forms, TE2_LABELS  # noqa: E402
 from ta import ta_forms, TA_LABELS  # noqa: E402
+from tari import tari_forms, TARI_LABELS  # noqa: E402
+from content_h5 import build_h5, FURIGANA as H5_FURIGANA, PART1 as H5_P1, PART2 as H5_P2, GRAMMAR_HTML as H5_GRAMMAR  # noqa: E402
 from content_h4 import build_h4, FURIGANA as H4_FURIGANA, PART1 as H4_P1, PART2 as H4_P2, GRAMMAR_HTML as H4_GRAMMAR  # noqa: E402
 
 V4 = 4  # 하 3과 업데이트 번호
-VERSION = 5  # 이번 업데이트 번호 (하 4과, data/changelog.js 와 맞춤). since: VERSION 이 붙은 것은 화면에 NEW 표시
+V5 = 5  # 하 4과 업데이트 번호
+VERSION = 6  # 이번 업데이트 번호 (하 5과, data/changelog.js 와 맞춤). since: VERSION 이 붙은 것은 화면에 NEW 표시
 from content_special import build_noun, build_date, VERB_TE_SENTENCES, VERB_TE_GRAMMAR_HTML, SPECIAL_FURIGANA  # noqa: E402
 
 D = ROOT / 'data'
@@ -78,7 +81,7 @@ def ko_te_forms(d):
     return {'te': f'{s}고 / {a}서', 'teiru': f'{s}고 있습니다', 'kudasai': f'{a} 주세요', 'tekara': f'{s}고 나서'}
 
 
-NATURE = {'降る', '吹く'}  # 자연현상 동사: 희망·목적·청유·권유·요청형은 부자연스러워 제외
+NATURE = {'降る', '吹く', '晴れる', '曇る'}  # 자연현상 동사: 희망·목적·청유·권유·요청형은 부자연스러워 제외
 NO_KUDASAI = {'終わる', '知る', '死ぬ', 'やせる', '太る'} | NATURE  # 부자연스러운 요청형은 제외
 TEIRU_RESULT = {'終わる': '끝나 있습니다 (결과 상태)', '入る': '들어가 있습니다 (결과 상태)', '死ぬ': '죽어 있습니다 (결과 상태)',
                 '太る': '살쪘습니다 (살찐 상태)', 'やせる': '말랐습니다 (마른 상태)'}
@@ -149,7 +152,14 @@ NEW_VERBS = [  # dict, hira, kr(표시), 한국어 기본형(활용용), cat
     ('できる', 'できる', '생기다, 완성되다 / 할 수 있다', '생기다', '2그룹 (1단 동사)'),
     ('休む', 'やすむ', '쉬다', '쉬다', '1그룹 (5단 동사)'),
     ('着く', 'つく', '도착하다 (~に 着く)', '도착하다', '1그룹 (5단 동사)'),
+    # 하 5과
+    ('晴れる', 'はれる', '(날씨가) 개다, 맑다', '개다', '2그룹 (1단 동사)'),
+    ('笑う', 'わらう', '웃다', '웃다', '1그룹 (5단 동사)'),
+    ('曇る', 'くもる', '흐리다', '흐리다', '1그룹 (5단 동사)'),
+    ('踊る', 'おどる', '춤추다', '춤추다', '1그룹 (5단 동사)'),
+    ('やる', 'やる', '하다 (회화체)', '하다', '1그룹 (5단 동사)'),
 ]
+H5_NEW = {'晴れる', '笑う', '曇る', '踊る', 'やる'}
 H4_NEW = {'始める', '出る', 'やめる', 'できる', '休む', '着く'}
 H3_NEW = {'忘れる', '止める', 'つれる', 'やせる', '座る', '探す', '泣く', '働く', '通う', '死ぬ', '頑張る', '太る'}
 MASU_LABELS = [('masu', '현재 긍정 (~ます)', 'ます'), ('masen', '현재 부정 (~ません)', 'ません'),
@@ -195,9 +205,17 @@ for item in verb['conjugationItems']:
     # 하 4과: た형 + ~たことがある / ~た方がいい / ~たばかり
     item['forms'] = [f for f in item['forms'] if f['label'] not in TA_LABELS]
     item['forms'] += ta_forms(item['dict'], item['dictHira'], item.get('kr_base') or ko_primary(item['kr']),
-                              group_of(item['cat']), since=VERSION)
+                              group_of(item['cat']), since=V5)
     if item['dict'] in H4_NEW:
+        item['since'] = V5
+    # 하 5과: たり형 + 기본형 かもしれない / 前に
+    item['forms'] = [f for f in item['forms'] if f['label'] not in TARI_LABELS]
+    item['forms'] += tari_forms(item['dict'], item['dictHira'], item.get('kr_base') or ko_primary(item['kr']),
+                                group_of(item['cat']), since=VERSION)
+    if item['dict'] in H5_NEW:
         item['since'] = VERSION
+    if 'たり형:' not in item['rule']:
+        item['rule'] += ' | たり형: た형 + り / 기본형 + かもしれない・前に'
     if 'た형:' not in item['rule']:
         item['rule'] += ' | た형: て형과 같은 규칙 (て➔た, で➔だ)'
     # 활용형 묶음 표시 (연습실의 "활용형별 집중 연습" 필터용)
@@ -258,16 +276,27 @@ have_ja = {x['ja'] for x in verb['sentences']}
 for s4, _ in [H4_P1[0], H4_P1[5], H4_P1[8], H4_P1[13], H4_P2[7], H4_P2[13]]:
     if s4['ja'] in have_ja:
         continue
-    verb['sentences'].append({'id': next_id, 'part': 2, **s4, 'since': VERSION})
+    verb['sentences'].append({'id': next_id, 'part': 2, **s4, 'since': V5})
     next_id += 1
 for kr, hira in [('た형 (~했다: 보통형 과거)', '～た・～だ'), ('~한 적이 있습니다', '～たことがあります'),
                  ('~하는 편이 좋습니다', '～たほうがいいです'), ('막 ~했습니다', '～たばかりです')]:
     if hira not in word_keys:
         verb['words'].append({'kr': kr, 'hira': hira, 'kanji': hira, 'category': 'た형 (하 4과)'})
+if 'data-tari-section' not in verb['grammarHtml']:
+    verb['grammarHtml'] = verb['grammarHtml'].rstrip() + '\n<div data-tari-section class="mt-6">' + H5_GRAMMAR + '</div>'
+have_ja = {x['ja'] for x in verb['sentences']}
+for s5, _ in [H5_P1[3], H5_P1[6], H5_P1[11], H5_P1[12], H5_P2[6], H5_P2[9]]:
+    if s5['ja'] in have_ja:
+        continue
+    verb['sentences'].append({'id': next_id, 'part': 2, **s5, 'since': VERSION})
+    next_id += 1
+for kr, hira in [('~하기도 하고 ~하기도 하다', '～たり ～たり する'), ('~할지도 모릅니다', '～かもしれません'), ('~하기 전에', '기본형 + まえに')]:
+    if hira not in word_keys:
+        verb['words'].append({'kr': kr, 'hira': hira, 'kanji': hira, 'category': 'たり형·기본형 (하 5과)'})
 verb['updatedIn'] = VERSION
-verb['title'] = '일본어 동사 활용 (1·2·3그룹 구분 & ます형·て형·て형Ⅱ·た형 응용) 마스터'
+verb['title'] = '일본어 동사 활용 (1·2·3그룹 구분 & ます형·て형·て형Ⅱ·た형·たり형 응용) 마스터'
 verb['badge'] = '동사 그룹 & ます형·て형 활용'
-verb['subtitle'] = '3그룹 • 2그룹 • 1그룹 구분 · ます형 8형태 + て형(~て/~ています/~てください/~てから) + て형Ⅱ(~てみる/~ておく/~てしまう/~てもいい/~てはいけない/~てばかり) + ~たがる + た형(~た/~たことがある/~た方がいい/~たばかり)'
+verb['subtitle'] = '3그룹 • 2그룹 • 1그룹 구분 · ます형 8형태 + て형(~て/~ています/~てください/~てから) + て형Ⅱ(~てみる/~ておく/~てしまう/~てもいい/~てはいけない/~てばかり) + ~たがる + た형(~た/~たことがある/~た方がいい/~たばかり/~たり) + 기본형(~かもしれない/~前に)'
 verb['sample'] = '待つ ➔ 待ちます / 待って / 待っています / 待ってください / 待ってから'
 save_data(verb_p, 'LESSONS_DB', 'verb', verb)
 
@@ -353,7 +382,12 @@ for item in iadj['conjugationItems']:
                           'kr': f'{ko.a_form(d)}도', 'since': V4})
     item['forms'] = [f for f in item['forms'] if not f['label'].startswith('보통형 과거')]
     item['forms'].append({'label': '보통형 과거 (~かった: 일기체)', 'ja': st + 'かった', 'hira': sth + 'かった',
-                          'kr': ko.past_plain(d), 'since': VERSION})
+                          'kr': ko.past_plain(d), 'since': V5})
+    item['forms'] = [f for f in item['forms'] if not f['label'].startswith(('たり형', '~かもしれません'))]
+    item['forms'].append({'label': 'たり형 (~かったり: ~하기도 하고)', 'ja': st + 'かったり', 'hira': sth + 'かったり',
+                          'kr': ko.stem_of(d) + '기도 하고', 'since': VERSION})
+    item['forms'].append({'label': '~かもしれません (~할지도 모릅니다)', 'ja': item['dict'] + 'かも しれません',
+                          'hira': item['dictHira'] + 'かも しれません', 'kr': ko.fut_adn(d) + '지도 모릅니다', 'since': VERSION})
     if item['dict'] in EMOTION:
         gst, gsth = item['dict'][:-1], item['dictHira'][:-1]
         item['forms'].append({'label': '3인칭 감정 (~がって います)', 'ja': gst + 'がって います', 'hira': gsth + 'がって います',
@@ -386,7 +420,12 @@ for item in naadj['conjugationItems']:
                           'kr': f'{ko.a_form(d)}도', 'since': V4})
     item['forms'] = [f for f in item['forms'] if not f['label'].startswith('보통형 과거')]
     item['forms'].append({'label': '보통형 과거 (~だった: 일기체)', 'ja': item['dict'][:-1] + 'だった',
-                          'hira': item['dictHira'][:-1] + 'だった', 'kr': ko.past_plain(d), 'since': VERSION})
+                          'hira': item['dictHira'][:-1] + 'だった', 'kr': ko.past_plain(d), 'since': V5})
+    item['forms'] = [f for f in item['forms'] if not f['label'].startswith(('たり형', '~かもしれません'))]
+    item['forms'].append({'label': 'たり형 (~だったり: ~하기도 하고)', 'ja': item['dict'][:-1] + 'だったり',
+                          'hira': item['dictHira'][:-1] + 'だったり', 'kr': ko.stem_of(d) + '기도 하고', 'since': VERSION})
+    item['forms'].append({'label': '~かもしれません (~할지도 모릅니다)', 'ja': item['dict'][:-1] + 'かも しれません',
+                          'hira': item['dictHira'][:-1] + 'かも しれません', 'kr': ko.fut_adn(d) + '지도 모릅니다', 'since': VERSION})
 naadj['subtitle'] = '상태·성품 • 취향·능력(好き/上手/得意) 어휘 및 ~な 명사수식 • ~ではありません • ~になります • て형(~で) • ~でも'
 naadj['updatedIn'] = VERSION
 save_data(naadj_p, 'LESSONS_DB', 'naadj', naadj)
@@ -414,6 +453,7 @@ save_data(D / 'lessons' / 'h01.js', 'LESSONS_DB', 'h1', build_h1())
 save_data(D / 'lessons' / 'h02.js', 'LESSONS_DB', 'h2', build_h2())
 save_data(D / 'lessons' / 'h03.js', 'LESSONS_DB', 'h3', build_h3())
 save_data(D / 'lessons' / 'h04.js', 'LESSONS_DB', 'h4', build_h4())
+save_data(D / 'lessons' / 'h05.js', 'LESSONS_DB', 'h5', build_h5())
 
 # ------------------------------------------------------------------ furigana map
 fp = D / 'furigana.js'
@@ -424,7 +464,7 @@ FURIGANA_FIXES = [  # 기존 맵이 잘못 읽던 경우를 더 긴 키로 바�
     ('何歳', 'なんさい'), ('後は', 'あとは'), ('後に', 'あとに'), ('一日です', 'ついたちです'), ('一日、', 'ついたち、'),
     ('日本', 'にほん'), ('今度', 'こんど'), ('場所', 'ばしょ'),
 ]
-for k, r in FURIGANA_FIXES + H1_FURIGANA + H2_FURIGANA + H3_FURIGANA + H4_FURIGANA + SPECIAL_FURIGANA:
+for k, r in FURIGANA_FIXES + H1_FURIGANA + H2_FURIGANA + H3_FURIGANA + H4_FURIGANA + H5_FURIGANA + SPECIAL_FURIGANA:
     if k not in keys:
         furi.append([k, r])
         keys.add(k)

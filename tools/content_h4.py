@@ -285,7 +285,7 @@ def build_h4():
         },
         'sentences': sents,
         'words': [{'kr': kr, 'hira': h, 'kanji': k, 'category': c} for kr, h, k, c in WORDS],
-        'reading_passage': {'title': '읽어 봅시다! (하 4과 · Track 21) — 바쁜 하루 (일기)', 'sentences': READING},
+        'reading_passage': {'title': '읽어 봅시다! (하 4과 · Track 21) — 바쁜 하루 (일기)', 'sentences': READING, 'range': [78.54, 116.67]},
         'grammarHtml': GRAMMAR_HTML,
         'conjugationItems': items,
     }

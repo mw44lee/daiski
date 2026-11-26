@@ -24,7 +24,7 @@ TA_LABELS = {lab for _, lab, _, _ in TA}
 TA_SKIP = {  # 뜻이 부자연스러운 조합은 뺀다
     '降る': {'hou'}, '吹く': {'hou'}, '終わる': {'hou'},
     '死ぬ': {'koto', 'hou', 'bakari'},
-    'やせる': {'hou'}, '太る': {'hou'},
+    'やせる': {'hou'}, '太る': {'hou'}, '晴れる': {'hou'}, '曇る': {'hou'},
 }
 
 
